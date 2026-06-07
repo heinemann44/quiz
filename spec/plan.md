@@ -315,7 +315,8 @@ VITE_SUPABASE_ANON_KEY=...
 3. **Fase 2 — Motor:** `useQuiz.js` (máquina de passos + estado em memória) + `tipos.js` + `estilo.js` (cascata) + pré-carregamento.
 4. **Fase 3 — Tipos de passo:** os ~6 componentes de passo + sub-fluxos de erro e recompensa, todos lendo a config e a cascata de cores.
 5. **Fase 4 — Álbum 1 mínimo:** `eca-digital.json` com 1 capa, 1 boas-vindas, 1 conteúdo, 1 pergunta (com figurinha), 1 troféu, 1 encerramento + assets — valida ponta a ponta os **critérios de aceite da base** (`spec.md` §10).
-6. **Fase 5 — Preencher o conteúdo:** demais seções/figurinhas/troféus do Álbum 1 via JSON (telas montadas uma a uma com IA).
+6. **Fase 5 — Preencher o conteúdo:** demais seções/figurinhas/troféus do Álbum 1 via JSON (telas montadas uma a uma com IA). *Inclui os complementos de motor/componente que os assets exigem (fundo por seção, pose de erro, banner de figurinha, variante de balões) — config-driven.*
+   - **Fase 5.5 — Fidelidade visual (pixel-perfect):** aproximar cada tela do print em `doc/` (composição/posição). É **layout no componente** (P-11), não JSON. Lacuna do plano original: a Fase 5 entregou fluxo+conteúdo; a constituição (*"a imagem vence"*) exige o casamento visual antes do deploy.
 7. **Fase 6 — Deploy + validação:** Vercel + escola fictícia.
 8. **Fase 7 — Replicação:** Álbuns 2 e 3 = novo JSON + assets (zero código).
 

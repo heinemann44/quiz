@@ -24,6 +24,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 3 | Tipos de passo | ✅ concluída |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
 | 5 | Preencher conteúdo (JSON) | ✅ concluída |
+| 5.5 | Fidelidade visual ao protótipo (pixel-perfect) | ⬜ |
 | 6 | Deploy + validação | ⬜ |
 | 7 | Replicação (Álbuns 2 e 3) | ⬜ |
 
@@ -260,7 +261,43 @@ verdes. ✅
   `src/paginas/AlbumPage.test.jsx`).
 
 **Concluída:** ✅ 2026-06-07 · 65 testes verdes · arte real (consultoria por
-placeholder) · commit a registrar (`feat(fase-5): …`)
+placeholder) · commit `8a39bb4`
+
+> ⚠️ **Escopo:** a Fase 5 entregou **fluxo + conteúdo** (texto/cores via config),
+> não a fidelidade pixel-a-pixel ao protótipo. A composição visual (posição do
+> personagem, balão com bico, caixas) ainda diverge de `doc/`. Como a constituição
+> manda *"a imagem vence"*, isso vira a **Fase 5.5** abaixo.
+
+---
+
+## Fase 5.5 — Fidelidade visual ao protótipo (pixel-perfect)   ⬜
+
+**Objetivo:** aproximar cada tela do Álbum 1 do respectivo print em `doc/`
+(composição/posição), fechando o item de "Pronto" *"bate com o print"*. É trabalho
+de **layout no componente** (Tailwind/JSX + **variantes nomeadas**, P-11) — **não
+mexe no JSON de conteúdo** já entregue (P-01). (lacuna do `plan.md §8`, inserida
+entre Fase 5 e 6)
+**Depende de:** Fase 5.
+
+**📦 Insumos do usuário:** `public/marca/consultoria.png` (logo da consultoria,
+hoje placeholder) ajuda a fechar o header. Apontar telas prioritárias se houver.
+
+**Tarefas (detalhar tela a tela ao iniciar, abrindo cada print):**
+- [ ] T5.5.1 Layout das telas de **conteúdo** (`doc/tema-N`): personagem grande na
+  lateral/posição certa, balão com bico, caixas como no print.
+- [ ] T5.5.2 Layout das telas de **pergunta** e **erro** (`pergunta-N`/`errado-N`):
+  enunciado, opções e pose de erro posicionados como no print.
+- [ ] T5.5.3 Layout das telas de **figurinha** (`correto-N`/`figurinha-N`): card
+  sobre o fundo comemorativo, banner e contador na posição do print.
+- [ ] T5.5.4 **Capa**, **boas-vindas**, **troféu**, **encerramento** e a variante
+  **balões** (`tema-5/pergunta-5`) batendo com os prints.
+- [ ] T5.5.5 Conferência em ~390px no `MobileFrame` (P-03) e ajuste de novas
+  variantes nomeadas onde o layout não couber nas atuais (P-11).
+
+**Pronto quando:** cada tela é visualmente equivalente ao print de `doc/`
+(a imagem vence); `npm test`/`lint`/`build` verdes; nenhuma coordenada x/y no JSON.
+
+**Concluída:** —
 
 ---
 
