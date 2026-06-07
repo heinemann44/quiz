@@ -15,16 +15,18 @@ import Personagem from '../ui/Personagem.jsx';
 import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
 import CaixaConteudo from '../ui/CaixaConteudo.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import { estiloFundoTela } from '../ui/fundoTela.js';
 
 // Conteúdo/intro: personagem + balão + caixas de texto. Botão "Próxima página"
 // ou "Abrir figurinha" quando concede recompensa (doc/tema-N, informativo-tema-4).
 export default function PassoConteudo({ passo, onAvancar }) {
   const { tema, assetsBasePath, escola } = useAlbum();
   const personagemSrc = resolverAsset(assetsBasePath, passo.personagem?.imagem);
+  const fundoSecao = resolverAsset(assetsBasePath, passo.imagemFundo);
   return (
     <section
-      className="flex flex-1 flex-col"
-      style={{ backgroundColor: tema.corFundo }}
+      className="flex flex-1 flex-col bg-cover bg-center"
+      style={estiloFundoTela(tema, fundoSecao)}
     >
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
       <div className="flex flex-1 flex-col gap-3 p-4">

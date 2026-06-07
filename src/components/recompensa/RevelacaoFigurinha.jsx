@@ -5,7 +5,7 @@ import { resolverEstilo } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
-import { estiloFundo } from './fundo.js';
+import { estiloFundoTela } from '../ui/fundoTela.js';
 
 const dois = (n) => String(n ?? '').padStart(2, '0');
 
@@ -20,7 +20,7 @@ export default function RevelacaoFigurinha({ figurinha, contador, onAvancar }) {
   return (
     <section
       className="flex flex-1 flex-col bg-cover bg-center"
-      style={estiloFundo(tema, fundo)}
+      style={estiloFundoTela(tema, fundo)}
     >
       <HeaderAlbum contador={contador} />
       <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center">

@@ -5,6 +5,7 @@
   "subtitulo": "Álbum 1 — Coleção Álbum Interativo",
   "assetsBasePath": "/assets/eca-digital",
   "fundoComemoracao": "fundos/fundo-figurinha.png",
+  "headerFigurinha": "fundos/header-figurinha.png",
 
   "tema": {
     "corPrimaria": "#3B4BC8",
@@ -21,7 +22,6 @@
     {
       "id": "capa",
       "tipo": "capa",
-      "titulo": "ECA Digital",
       "imagemFundo": "fundos/capa.png",
       "textoBotao": "Próxima página"
     },
@@ -29,28 +29,34 @@
       "id": "boas-vindas",
       "tipo": "boas-vindas",
       "paragrafos": [
-        "Bem-vindo(a) ao **Álbum 1** da Coleção Álbum Interativo ECA Digital!",
+        "Bem-vindo(a) ao **Álbum 1** da **Coleção Álbum Interativo ECA Digital**!",
         "Sua missão é descobrir como o ECA Digital ajuda você, criança ou adolescente, a se proteger na internet.",
-        "Aqui você aprende seus **direitos e deveres** no mundo digital.",
+        "Aqui, você aprenderá seus **direitos e deveres** no mundo digital.",
         "Responda às perguntas e revele cada figurinha para avançar na sua jornada.",
-        "Cada troféu traz uma **letra ou um número** do código secreto. Sua aventura começa agora!"
+        "Conquiste troféus, complete desafios e descubra novas figurinhas pelo caminho.",
+        "Para conquistar todas as figurinhas, todos os troféus e se tornar um(a) verdadeiro(a) **Guardião(ã) Digital**, você também precisará completar os Álbuns 2 e 3.",
+        "Cada troféu traz um **número** ou uma **letra**, que formarão um código secreto; ao final deste Álbum 1 está explicado o que esse código oferece.",
+        "Sua aventura começa agora!"
       ],
       "textoBotao": "Próxima página"
     },
+
     {
       "id": "sec01-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 01",
+      "imagemFundo": "fundos/secao-1.png",
       "personagem": {
         "imagem": "personagens/enki-secao-1.png",
         "posicao": "direita"
       },
       "balao": {
-        "texto": "Oi, meu nome é Astro! Vou te ajudar nessa aventura. Vamos começar?",
+        "texto": "Oi, meu nome é **Enki** e vou ajudar você nessa aventura, vamos começar!",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
         "variante": "topo"
       },
       "blocos": [
-        "A lei **protege crianças** em jogos, aplicativos e sites.",
+        "A lei **protege crianças e adolescentes** em jogos, aplicativos e sites.",
         "Se um serviço digital é feito para o público — ou **pode ser acessado** por crianças — ele precisa adotar medidas de proteção, mesmo que a empresa seja de outro país."
       ],
       "textoBotao": "Próxima página"
@@ -59,36 +65,160 @@
       "id": "sec01-pergunta",
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 01",
+      "imagemFundo": "fundos/secao-1.png",
       "personagem": {
         "imagem": "personagens/inanna-pergunta-1.png",
         "posicao": "direita"
       },
+      "personagemErro": {
+        "imagem": "personagens/inanna-resposta-errada-pergunta-1.png",
+        "posicao": "esquerda"
+      },
       "balao": {
-        "texto": "Oi, meu nome é Inanna! Acerte a resposta e abra a **1ª figurinha**.",
+        "texto": "Oi, meu nome é **Inanna**! Acerte a resposta e abra a **1ª figurinha**.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
         "variante": "topo"
       },
-      "balaoErro": "Leia com atenção e tente de novo!",
+      "balaoErro": {
+        "texto": "Leia com atenção",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
+      },
       "enunciado": "Quando um aplicativo ou jogo precisa proteger crianças?",
       "opcoes": [
-        { "rotulo": "A", "texto": "Só quando é um app pago" },
-        { "rotulo": "B", "texto": "Só quando os pais autorizam" },
+        { "rotulo": "A", "texto": "Quando o app só funciona à noite." },
+        { "rotulo": "B", "texto": "Só quando o celular está sem internet." },
         {
           "rotulo": "C",
-          "texto": "Sempre que crianças puderem usar, mesmo sem ser o público-alvo"
+          "texto": "Quando é feito para crianças ou pode ser usado por elas."
         }
       ],
       "respostaCorreta": "C",
       "recompensa": {
         "figurinha": {
           "numero": 1,
-          "titulo": "Proteção às crianças na internet",
-          "legenda": "Capítulo 1 — ECA Digital (Art. 1º)",
+          "alt": "Figurinha 01 — Proteção às crianças na internet (Art. 1º)",
           "imagemCheia": "figurinhas/01.png"
         }
       }
     },
+
     {
-      "id": "sec01-trofeu",
+      "id": "sec02-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 02",
+      "imagemFundo": "fundos/secao-2.png",
+      "personagem": {
+        "imagem": "personagens/enki-secao-2.png",
+        "posicao": "direita"
+      },
+      "blocos": [
+        "Crianças e adolescentes têm o direito de receber orientação e acompanhamento de seus pais ou responsáveis quando estão usando a internet.",
+        "Os pais ou responsáveis têm o **dever de ajudar, proteger e acompanhar** seus filhos para que usem a internet de forma segura."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec02-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 02",
+      "imagemFundo": "fundos/secao-2.png",
+      "personagem": {
+        "imagem": "personagens/enlil-pergunta-2.png",
+        "posicao": "direita"
+      },
+      "personagemErro": {
+        "imagem": "personagens/enlil-resposta-errada-pergunta-2.png",
+        "posicao": "direita"
+      },
+      "balao": {
+        "texto": "Oi, meu nome é **Enlil**! Acerte a resposta e abra a **2ª figurinha**.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "variante": "topo"
+      },
+      "balaoErro": {
+        "texto": "Tente novamente",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
+      },
+      "enunciado": "O que os pais ou responsáveis devem fazer quando seus jovens usam a internet?",
+      "opcoes": [
+        { "rotulo": "A", "texto": "Não se importar com o uso do celular." },
+        { "rotulo": "B", "texto": "Ajudar, proteger e acompanhar." },
+        {
+          "rotulo": "C",
+          "texto": "Deixar que elas aprendam sobre os riscos digitais sem supervisão."
+        }
+      ],
+      "respostaCorreta": "B",
+      "recompensa": {
+        "figurinha": {
+          "numero": 2,
+          "alt": "Figurinha 02 — Acompanhamento dos pais ou responsáveis (Art. 3º)",
+          "imagemCheia": "figurinhas/02.png"
+        }
+      }
+    },
+
+    {
+      "id": "sec03-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 03",
+      "imagemFundo": "fundos/secao-3.png",
+      "personagem": {
+        "imagem": "personagens/enki-secao-3.png",
+        "posicao": "esquerda"
+      },
+      "balao": {
+        "texto": "Agora que você já conseguiu 2 figurinhas, vamos abrir mais uma para ganhar seu **primeiro troféu**!",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "variante": "topo"
+      },
+      "blocos": [
+        "O uso da tecnologia por crianças e adolescentes deve garantir proteção, **inclusão e respeito às diferenças**, além de ajudar no crescimento emocional, social e intelectual. Também deve incentivar a educação digital e explicar de forma clara como os dados pessoais são usados."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec03-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 03",
+      "imagemFundo": "fundos/secao-3.png",
+      "personagem": {
+        "imagem": "personagens/joao-pergunta-3.png",
+        "posicao": "esquerda"
+      },
+      "personagemErro": {
+        "imagem": "personagens/joao-resposta-errada-pergunta-3.png",
+        "posicao": "esquerda"
+      },
+      "balao": {
+        "texto": "Oi, estou muito feliz só de pensar que você vai conseguir seu **primeiro troféu**.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "variante": "topo"
+      },
+      "balaoErro": {
+        "texto": "Leia com atenção",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
+      },
+      "enunciado": "O que a tecnologia deve garantir, além da proteção, para todas as crianças e adolescentes no digital?",
+      "opcoes": [
+        { "rotulo": "A", "texto": "Inclusão e respeito às diferenças." },
+        {
+          "rotulo": "B",
+          "texto": "Separar algumas pessoas como usuários menos importantes."
+        },
+        { "rotulo": "C", "texto": "Excluir quem pensa ou age diferente." }
+      ],
+      "respostaCorreta": "A",
+      "recompensa": {
+        "figurinha": {
+          "numero": 3,
+          "alt": "Figurinha 03 — Inclusão e respeito às diferenças (Art. 4º)",
+          "imagemCheia": "figurinhas/03.png"
+        }
+      }
+    },
+    {
+      "id": "sec03-trofeu",
       "tipo": "trofeu",
       "valor": "S",
       "tipoValor": "letra",
@@ -97,15 +227,176 @@
       "imagemTrofeu": "trofeus/01.png",
       "textoBotao": "Próxima página"
     },
+
+    {
+      "id": "sec04-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 04",
+      "imagemFundo": "fundos/secao-4.png",
+      "personagem": {
+        "imagem": "personagens/enki-secao-4.png",
+        "posicao": "direita"
+      },
+      "blocos": [
+        "Sites e apps devem ser seguros **desde o começo**, bloqueando violência, drogas, apostas e contatos perigosos. Se algo der errado, eles são obrigados a oferecer **ajuda de verdade** e educação.",
+        "Lembre-se: sua segurança é um **trabalho em equipe** entre as empresas, sua família e as autoridades."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec04-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 04",
+      "imagemFundo": "fundos/secao-4.png",
+      "personagem": {
+        "imagem": "personagens/inanna-pergunta-4.png",
+        "posicao": "centro"
+      },
+      "personagemErro": {
+        "imagem": "personagens/inanna-resposta-errada-pergunta-4.png",
+        "posicao": "esquerda"
+      },
+      "balao": {
+        "texto": "Vamos continuar nossa aventura.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "variante": "topo"
+      },
+      "balaoErro": {
+        "texto": "Essa precisa de atenção, tente novamente",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
+      },
+      "enunciado": "Como deve ser a segurança dos jovens no ambiente digital?",
+      "opcoes": [
+        {
+          "rotulo": "A",
+          "texto": "Quando acontecer algum problema de segurança, deve ser acionada a polícia."
+        },
+        {
+          "rotulo": "B",
+          "texto": "Segurança desde o começo, oferecendo ajuda de verdade e trabalho em equipe."
+        }
+      ],
+      "respostaCorreta": "B",
+      "recompensa": {
+        "figurinha": {
+          "numero": 4,
+          "alt": "Figurinha 04 — Rede de proteção: família, polícia e juiz (Art. 6º)",
+          "imagemCheia": "figurinhas/04.png"
+        }
+      }
+    },
+    {
+      "id": "sec04-informativo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 04",
+      "imagemFundo": "fundos/secao-4.png",
+      "personagem": {
+        "imagem": "personagens/inanna-informativo-secao-4.png",
+        "posicao": "esquerda"
+      },
+      "balao": {
+        "texto": "Agora que você está bem informado(a), abra outra figurinha!",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" },
+        "variante": "topo"
+      },
+      "blocos": [
+        {
+          "texto": "**Riscos a combater:** exploração, abuso sexual, violência física, intimidação, assédio e o incentivo a produtos como bebidas alcoólicas, tabaco, conteúdo pornográfico, autodiagnóstico, bullying e automedicação.",
+          "estilo": { "corFundo": "#1A1A2E", "corTexto": "#FFFFFF" }
+        },
+        {
+          "texto": "As **medidas razoáveis** de segurança devem ser **colocadas** desde o **começo**, combatendo esses riscos para crianças e adolescentes.",
+          "estilo": { "corFundo": "#3B4BC8", "corTexto": "#FFFFFF" }
+        }
+      ],
+      "textoBotao": "Abrir figurinha",
+      "recompensa": {
+        "figurinha": {
+          "numero": 5,
+          "alt": "Figurinha 05 — Combate aos riscos desde o começo (Art. 6º)",
+          "imagemCheia": "figurinhas/05.png"
+        }
+      }
+    },
+
+    {
+      "id": "sec05-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 05",
+      "imagemFundo": "fundos/secao-5.png",
+      "personagem": {
+        "imagem": "personagens/joao-secao-5.png",
+        "posicao": "esquerda"
+      },
+      "balao": {
+        "texto": "Veja, a resposta está em **negrito**.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "variante": "topo"
+      },
+      "blocos": [
+        "**Artigo 8º** — Apps e sites devem ajudar crianças e adolescentes a não ficarem presos na tela por horas.\n(Ex.: **lembrete para pausa**, autoplay desativado, alertas de tempo de tela e bloqueio de conteúdo infinito.)"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec05-pergunta",
+      "tipo": "pergunta",
+      "variante": "baloes",
+      "aoErrar": "voltar-conteudo",
+      "tituloHeader": "ECA Digital — seção 05",
+      "imagemFundo": "fundos/secao-5.png",
+      "personagem": {
+        "imagem": "personagens/joao-pergunta-5.png",
+        "posicao": "centro"
+      },
+      "enunciado": "Os apps devem criar alertas para você fazer pausas?",
+      "opcoes": [
+        {
+          "rotulo": "sim",
+          "texto": "Sim",
+          "estilo": { "corFundo": "#22C55E", "corTexto": "#FFFFFF" }
+        },
+        {
+          "rotulo": "nao",
+          "texto": "Não",
+          "estilo": { "corFundo": "#22C55E", "corTexto": "#FFFFFF" }
+        }
+      ],
+      "respostaCorreta": "sim",
+      "recompensa": {
+        "figurinha": {
+          "numero": 6,
+          "alt": "Figurinha 06 — Menos tempo na tela, mais tempo para você (Art. 8º)",
+          "imagemCheia": "figurinhas/06.png"
+        }
+      }
+    },
+    {
+      "id": "sec05-trofeu",
+      "tipo": "trofeu",
+      "valor": "2",
+      "tipoValor": "numero",
+      "legenda": "Primeiro número do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/02.png",
+      "textoBotao": "Próxima página"
+    },
+
     {
       "id": "fim",
       "tipo": "encerramento",
       "mostrarCodigoSecreto": true,
       "paragrafos": [
         "**Missão cumprida... por enquanto!**",
-        "Parabéns! Você completou esta etapa do Álbum 1 da Coleção Álbum Interativo ECA Digital.",
+        "Parabéns! Você completou o **Álbum 1** da **Coleção Álbum Interativo ECA Digital**.",
+        "Você revelou novas figurinhas e conquistou novos troféus.",
         "Guarde as letras e os números dos seus troféus.",
-        "Continue nos próximos álbuns para se tornar um(a) **Guardião(ã) Digital**. Sua aventura continua!"
+        "Continue no Álbum 2 para se tornar um(a) **Guardião(ã) Digital**.",
+        "Com o código secreto completo dos 3 álbuns você desbloqueia:",
+        "• O álbum completo, com todas as figurinhas.",
+        "• Todos os troféus conquistados.",
+        "• Seu Certificado de Conhecimento sobre o ECA Digital, com o seu nome.",
+        "Sua aventura continua no próximo álbum!"
       ]
     }
   ]

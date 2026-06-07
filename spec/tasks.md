@@ -23,7 +23,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 2 | Motor | ✅ concluída |
 | 3 | Tipos de passo | ✅ concluída |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
-| 5 | Preencher conteúdo (JSON) | ⬜ |
+| 5 | Preencher conteúdo (JSON) | ✅ concluída |
 | 6 | Deploy + validação | ⬜ |
 | 7 | Replicação (Álbuns 2 e 3) | ⬜ |
 
@@ -210,26 +210,57 @@ placeholder até os assets); `npm test`/`lint`/`build` verdes. ✅
 
 ---
 
-## Fase 5 — Preencher conteúdo (JSON)   ⬜
+## Fase 5 — Preencher conteúdo (JSON)   ✅ concluída
 
-**Objetivo:** demais seções/figurinhas/troféus do Álbum 1, tela a tela, **só via
-JSON + assets** (zero código novo). (plan §8.6)
+**Objetivo:** demais seções/figurinhas/troféus do Álbum 1, tela a tela, via
+JSON + assets — com os **complementos de motor/componente** que a base não cobria
+(não foi 100% "zero código", como o `plan.md` antecipava). (plan §8.6)
 **Depende de:** Fase 4 (base aprovada).
-_Detalhar por seção (`doc/tema-1..5`, `doc/trofeu`, `doc/fim`) ao iniciar._
 
-**📌 Complementos de motor/componente que os assets do Álbum 1 exigem** (a base não
-cobre — então NÃO é 100% "zero código"; tratar no início da Fase 5):
-- Fundo por seção nas telas de conteúdo/pergunta (`fundos/secao-N.png`) — hoje só a
-  capa usa `imagemFundo`.
-- Troca de pose do personagem na **tela de erro** (`*-resposta-errada-*`) — hoje o
-  erro reusa a mesma pose + `balaoErro`.
-- **Pergunta 5 sem tela de erro:** ao errar, volta para o **tema da seção 5**
-  (conteúdo), em vez do erro padrão. Desvia do RF-05 (erro uniforme) → variação por
-  pergunta na config; reconciliar com a spec.
-- `fundos/header-figurinha.png` (faixa decorativa nas telas de figurinha).
-- Texto exato de todas as seções (Fase 4 usou transcrição best-effort da seção 1).
+**📦 Insumos do usuário:** assets do Álbum 1 já estavam no repo (figurinhas 01–06,
+troféus 01–02, personagens por seção incl. poses de erro, fundos `secao-1..5`,
+`fundo-figurinha`, `header-figurinha`, `capa`). **Pendente:** `public/marca/
+consultoria.png` (segue placeholder). **Decisões do usuário:** pergunta 5 segue a
+SSOT (sem tela de erro, volta ao conteúdo) e replica o layout de balões Sim/Não.
 
-**Concluída:** —
+**Tarefas:**
+- [x] T5.1 Complementos de motor/componente (config-driven, P-01/P-02 intactos):
+  fundo por seção em conteúdo/pergunta (`imagemFundo`), **pose de erro** do
+  personagem (`personagemErro`), banner `header-figurinha` no `HeaderAlbum`,
+  variante de pergunta **`baloes`** (Sim/Não) + `aoErrar: "voltar-conteudo"` (TDD
+  no motor `maquina.js`; `preload` coleta imagens de raiz e pose de erro).
+- [x] T5.2 `eca-digital.json` completo: capa, boas-vindas, 5 seções
+  (conteúdo+pergunta), informativo da seção 4, 6 figurinhas, troféus "S" e "2",
+  encerramento — **texto exato transcrito da SSOT** (`doc/`).
+- [x] T5.3 Correções de fidelidade à SSOT (imagem vence): opções reais da
+  pergunta 1, mascote **Enki** (não "Astro"), e título/legenda das figurinhas/capa
+  **já gravados na arte** → motor para de duplicar (usa `alt`; `FigurinhaCheia`).
+- [x] T5.4 Testes: walkthrough ponta a ponta do Álbum 1 real (5 seções, 6
+  figurinhas, 2 troféus, balões com retorno ao conteúdo, código "S 2"),
+  `PerguntaBaloes`, guardas de estrutura da config; `aoErrar`/`preload` por TDD.
+- [x] T5.5 Emenda **RF-05a** na `spec.md` (v2.1): erro alternativo por pergunta.
+
+**Pronto quando:** o Álbum 1 percorre as 5 seções lendo só a config + assets; os
+complementos são genéricos (não telas hard-coded); `npm test`/`lint`/`build`
+verdes. ✅
+
+**🧪 Como testar:**
+- `npm run dev` → **`/quiz/colegio-demo/eca-digital`** (seed de dev) entra direto no
+  Álbum 1. Caminhe: capa → boas-vindas → **5 seções** (cada uma com fundo próprio;
+  Enki/Inanna/Enlil/João conforme o print) → erre uma pergunta e veja **a pose de
+  erro trocar** + X + "Volte" → acerte → **revelação → figurinha cheia** com banner
+  "Álbum de Figurinhas" e contador → 1º troféu **"S"** (após seção 3) → seção 4 tem
+  pergunta **+** informativo "Abrir figurinha" (figs 04 e 05) → seção 5: pergunta
+  de **balões Sim/Não**; ao errar (**"Não"**) **volta ao conteúdo** para reler, ao
+  acertar (**"Sim"**) ganha a fig 06 → 2º troféu **"2"** → encerramento com código
+  **"S 2"** e **6 figurinhas**. Recarregar reinicia (RF-12).
+- Confira o visual contra `doc/` (a imagem vence): em especial
+  `doc/tema-5/pergunta-5.png` (balões) e as telas de figurinha.
+- Automático: `npm test` (65 verdes; o fluxo real está em
+  `src/paginas/AlbumPage.test.jsx`).
+
+**Concluída:** ✅ 2026-06-07 · 65 testes verdes · arte real (consultoria por
+placeholder) · commit a registrar (`feat(fase-5): …`)
 
 ---
 

@@ -8,6 +8,7 @@ const AlbumContext = createContext({
   assetsBasePath: '',
   escola: null,
   fundoComemoracao: null,
+  headerFigurinha: null,
 });
 
 export function AlbumProvider({ valor, children }) {
@@ -22,6 +23,7 @@ AlbumProvider.propTypes = {
     assetsBasePath: PropTypes.string,
     escola: PropTypes.object,
     fundoComemoracao: PropTypes.string,
+    headerFigurinha: PropTypes.string,
   }).isRequired,
   children: PropTypes.node,
 };

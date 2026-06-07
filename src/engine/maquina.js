@@ -61,7 +61,17 @@ function responder(estado, rotulo, config) {
   if (rotulo === passo.respostaCorreta) {
     return { ...estado, subTela: SubTela.CARD, opcaoErrada: null };
   }
+  // Variação da SSOT (doc/tema-5): a pergunta pode mandar reler o conteúdo em vez
+  // de mostrar a tela de erro padrão — o balão da seção diz onde está a resposta.
+  if (passo.aoErrar === 'voltar-conteudo') return voltarParaReler(estado);
   return { ...estado, subTela: SubTela.ERRO, opcaoErrada: rotulo };
+}
+
+// Volta ao passo anterior (o conteúdo da seção) para o aluno reler — sem
+// penalidade e com tentativas ilimitadas (RN-03). Emenda ao RF-05 na spec.
+function voltarParaReler(estado) {
+  const indice = Math.max(estado.indice - 1, 0);
+  return { ...estado, indice, subTela: SubTela.PRINCIPAL, opcaoErrada: null };
 }
 
 // Botão primário ("Próxima"/"Abrir figurinha"/dentro da recompensa).

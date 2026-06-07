@@ -104,3 +104,50 @@ describe('máquina de passos (plan §4)', () => {
     expect(reduzir(fim, { tipo: A }, cfg)).toEqual(fim);
   });
 });
+
+// SSOT (doc/tema-5): a pergunta 5 não tem tela de erro — errar manda o aluno
+// reler o conteúdo da seção ("a resposta está em negrito"). Emenda ao RF-05.
+describe('máquina: pergunta com aoErrar="voltar-conteudo"', () => {
+  const cfgVoltar = {
+    passos: [
+      { id: 'sec', tipo: 'conteudo' },
+      {
+        id: 'perg',
+        tipo: 'pergunta',
+        aoErrar: 'voltar-conteudo',
+        respostaCorreta: 'sim',
+        opcoes: [
+          { rotulo: 'sim', texto: 'Sim' },
+          { rotulo: 'nao', texto: 'Não' },
+        ],
+        recompensa: { figurinha: { numero: 6 } },
+      },
+    ],
+  };
+  const naPergunta = reduzir(
+    criarEstadoInicial(cfgVoltar),
+    { tipo: Acao.AVANCAR },
+    cfgVoltar,
+  );
+
+  it('errar volta ao conteúdo anterior, sem tela de erro', () => {
+    expect(naPergunta.indice).toBe(1);
+    const errou = reduzir(
+      naPergunta,
+      { tipo: Acao.RESPONDER, rotulo: 'nao' },
+      cfgVoltar,
+    );
+    expect(errou.indice).toBe(0); // voltou ao conteúdo
+    expect(errou.subTela).toBe(SubTela.PRINCIPAL);
+    expect(errou.opcaoErrada).toBeNull();
+  });
+
+  it('acertar segue para a recompensa normalmente', () => {
+    const acertou = reduzir(
+      naPergunta,
+      { tipo: Acao.RESPONDER, rotulo: 'sim' },
+      cfgVoltar,
+    );
+    expect(acertou.subTela).toBe(SubTela.CARD);
+  });
+});

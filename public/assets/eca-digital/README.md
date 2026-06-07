@@ -41,7 +41,8 @@ menores/baixa-res). Servem para montar o fluxo enquanto a arte final não vem.
 
 - **Peso:** ~49 MB. Otimização (resize/compressão) ficou para a **Fase 6 (deploy)**.
 - A logo da **escola** vem do banco (`escolas.logo_url`, Cloudinary) — não é arquivo aqui.
-- Assets que o motor **ainda não consome** (entram na Fase 5 com ajuste de
-  componente): fundo por seção (`secao-N.png` nas telas de conteúdo/pergunta),
-  troca de pose do personagem no **erro** (`*-resposta-errada-*`) e
-  `header-figurinha.png`.
+- **Todos os assets acima já são consumidos pelo motor (Fase 5):** `secao-N.png`
+  como fundo de conteúdo/pergunta (`imagemFundo`), `*-resposta-errada-*` como pose
+  de erro (`personagemErro`) e `header-figurinha.png` como banner das telas de
+  figurinha (`headerFigurinha`). Título/legenda das figurinhas e da `capa` **já
+  estão gravados na arte** — o motor não os repete em texto (usa só `alt`).

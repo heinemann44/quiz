@@ -14,9 +14,10 @@ describe('App — roteamento (plan §2)', () => {
       rota: '/quiz/colegio-demo',
       porId: { 'colegio-demo': colegio([vinculo('eca-digital', true)]) },
     });
+    // 1 álbum liberado entra direto no motor: a capa do álbum traz o botão de
+    // avanço (o seletor, não — confirma o redirect direto, RF-01).
     expect(
       await screen.findByRole('button', { name: 'Próxima página' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('ECA Digital')).toBeInTheDocument();
   });
 });

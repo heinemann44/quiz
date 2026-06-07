@@ -1,7 +1,7 @@
 # Especificação — Álbum de Figurinhas Interativo (ECA Digital)
 
-**Versão:** 2.0
-**Data:** 2026-06-06
+**Versão:** 2.1
+**Data:** 2026-06-07
 **Depende de:** [constitution.md](./constitution.md)
 **Detalhamento técnico em:** [plan.md](./plan.md)
 **SSOT:** imagens em [doc/](../doc/)
@@ -107,7 +107,8 @@ O motor conhece um conjunto **pequeno e fechado** de tipos. Cada print do fluxo 
 - **RF-02 — Logos no header.** Logo do colégio sempre no canto superior esquerdo; logo da consultoria fixa no canto superior direito, em todas as telas com header.
 - **RF-03 — Sequência de passos vinda da config.** A ordem, a quantidade e o tipo de cada passo são definidos no JSON do álbum. O motor renderiza na ordem do array `passos`.
 - **RF-04 — Pergunta de múltipla escolha com nº variável de opções.** Uma pergunta tem de **2 a 3 opções**. Os rótulos podem ser **A/B/C** ou **Sim/Não** (definidos na config). Exatamente uma é correta.
-- **RF-05 — Comportamento no erro.** Ao escolher a opção errada, exibe a tela de erro: reexibe o enunciado, **marca a opção escolhida com X vermelho** e mostra balão de encorajamento. Botão "Volte" retorna à pergunta. **Tentativas ilimitadas.**
+- **RF-05 — Comportamento no erro.** Ao escolher a opção errada, exibe a tela de erro: reexibe o enunciado, **marca a opção escolhida com X vermelho** e mostra balão de encorajamento (com **pose própria** do personagem). Botão "Volte" retorna à pergunta. **Tentativas ilimitadas.**
+  - **RF-05a — Erro alternativo por pergunta (emenda v2.1).** Uma pergunta pode, via config (`aoErrar`), substituir a tela de erro padrão por **voltar ao conteúdo da seção** para reler — sem penalidade, mantendo as tentativas ilimitadas. Caso real na SSOT: `doc/tema-5/pergunta-5` não tem tela de erro e o balão da seção indica onde está a resposta. A imagem vence (constituição §SSOT visual); telas Sim/Não que não cabem na lista de opções usam **variante nomeada** de layout (P-11), não coordenadas no JSON.
 - **RF-06 — Recompensa de figurinha em 2 telas.** Ao acertar uma pergunta, o aluno revela a figurinha: primeiro o **card** ("Figurinha Nº NN" sobre fundo comemorativo), depois a **figurinha em tela cheia** (título + legenda do capítulo). Só então avança.
 - **RF-07 — Seção informativa que concede figurinha.** Um passo `conteudo` pode ter o botão "Abrir figurinha" e conceder uma figurinha, disparando o mesmo sub-fluxo de revelação (ex.: `tema-4/informativo-tema-4` → figurinha 05).
 - **RF-08 — Figurinhas numeradas globalmente.** As figurinhas do álbum são numeradas em sequência contínua (01…06 no Álbum 1), independente de virem de pergunta ou de conteúdo informativo.

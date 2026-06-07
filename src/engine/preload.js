@@ -13,13 +13,21 @@ export function resolverAsset(base, caminho) {
   return `${(base ?? '').replace(/\/$/, '')}/${caminho}`;
 }
 
-// Campos da config que carregam imagem. Cresce junto com o schema na Fase 4.
+// Campos de imagem de um passo (Fase 5: fundo de seção, pose de erro do personagem).
 const imagensDoPasso = (passo) => [
   passo.imagemFundo,
   passo.personagem?.imagem,
+  passo.personagemErro?.imagem,
   passo.imagemTrofeu,
   passo.recompensa?.figurinha?.imagemCard,
   passo.recompensa?.figurinha?.imagemCheia,
+];
+
+// Imagens na raiz da config (não pertencem a um passo): fundo comemorativo e
+// banner das telas de figurinha.
+const imagensDaRaiz = (config) => [
+  config?.fundoComemoracao,
+  config?.headerFigurinha,
 ];
 
 /**
@@ -30,10 +38,10 @@ const imagensDoPasso = (passo) => [
 export function coletarAssets(config) {
   const base = config?.assetsBasePath ?? '';
   const caminhos = new Set();
+  const adicionar = (img) => img && caminhos.add(resolverAsset(base, img));
+  imagensDaRaiz(config).forEach(adicionar);
   for (const passo of config?.passos ?? []) {
-    for (const img of imagensDoPasso(passo)) {
-      if (img) caminhos.add(resolverAsset(base, img));
-    }
+    imagensDoPasso(passo).forEach(adicionar);
   }
   return [...caminhos];
 }

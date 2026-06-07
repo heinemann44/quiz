@@ -5,7 +5,7 @@ import { resolverEstilo } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
-import { estiloFundo } from './fundo.js';
+import { estiloFundoTela } from '../ui/fundoTela.js';
 
 // 2ª tela da recompensa: figurinha em tamanho cheio + título/legenda (RF-06).
 export default function FigurinhaCheia({ figurinha, contador, onAvancar }) {
@@ -14,7 +14,7 @@ export default function FigurinhaCheia({ figurinha, contador, onAvancar }) {
   return (
     <section
       className="flex flex-1 flex-col bg-cover bg-center"
-      style={estiloFundo(tema, fundo)}
+      style={estiloFundoTela(tema, fundo)}
     >
       <HeaderAlbum contador={contador} />
       <div
@@ -23,9 +23,11 @@ export default function FigurinhaCheia({ figurinha, contador, onAvancar }) {
       >
         <Figura
           src={resolverAsset(assetsBasePath, figurinha.imagemCheia)}
-          alt={figurinha.titulo ?? ''}
-          className="h-60 w-48"
+          alt={figurinha.alt ?? figurinha.titulo ?? ''}
+          className="h-72 w-56"
         />
+        {/* Título/legenda só quando vêm da config como texto; na arte final do
+            álbum eles já estão gravados no card, então o JSON usa apenas `alt`. */}
         {figurinha.titulo && <h2 className="font-bold">{figurinha.titulo}</h2>}
         {figurinha.legenda && <p className="text-sm">{figurinha.legenda}</p>}
       </div>

@@ -29,6 +29,24 @@ describe('coletarAssets', () => {
     expect(assets).toContain('/assets/fixture/trofeus/01.png');
     expect(new Set(assets).size).toBe(assets.length); // sem duplicatas
   });
+
+  it('inclui imagens de raiz (fundo comemorativo, banner) e pose de erro', () => {
+    const assets = coletarAssets({
+      assetsBasePath: '/assets/x',
+      fundoComemoracao: 'fundos/fundo-figurinha.png',
+      headerFigurinha: 'fundos/header-figurinha.png',
+      passos: [
+        {
+          id: 'p',
+          tipo: 'pergunta',
+          personagemErro: { imagem: 'personagens/erro.png' },
+        },
+      ],
+    });
+    expect(assets).toContain('/assets/x/fundos/fundo-figurinha.png');
+    expect(assets).toContain('/assets/x/fundos/header-figurinha.png');
+    expect(assets).toContain('/assets/x/personagens/erro.png');
+  });
 });
 
 describe('precarregar', () => {

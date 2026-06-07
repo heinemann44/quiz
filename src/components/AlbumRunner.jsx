@@ -21,6 +21,7 @@ export default function AlbumRunner({ config, escola }) {
     tema: config.tema,
     assetsBasePath: config.assetsBasePath,
     fundoComemoracao: config.fundoComemoracao,
+    headerFigurinha: config.headerFigurinha,
     escola,
   };
   return (
