@@ -20,7 +20,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 |---|---|---|
 | 0 | Andaime | ✅ concluída |
 | 1 | Dados / Supabase | ✅ concluída |
-| 2 | Motor | ⬜ |
+| 2 | Motor | ✅ concluída |
 | 3 | Tipos de passo | ⬜ |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ⬜ |
 | 5 | Preencher conteúdo (JSON) | ⬜ |
@@ -100,14 +100,34 @@ bloqueada no banco real (RF-01/01a/01b/02/14/15 — parte do aceite §10.1).
 
 ---
 
-## Fase 2 — Motor   ⬜
+## Fase 2 — Motor   ✅ concluída
 
 **Objetivo:** `engine/useQuiz.js` (máquina de passos + estado em memória),
 `tipos.js` (validação), `estilo.js` (cascata de cores), `preload.js`. (plan §8.3, §4)
 **Depende de:** Fase 1. **TDD obrigatório** (AGENTS §Testes).
-_Detalhar tarefas ao iniciar a fase._
 
-**Concluída:** —
+**Tarefas:**
+- [x] T2.1 `tipos.js`: `TipoPasso` + `validarConfig` leve com mensagens
+  contextuais (plan §9).
+- [x] T2.2 `estilo.js`: cascata `tema→passo→elemento`, só cor/tipografia (P-11/RF-16).
+- [x] T2.3 `maquina.js`: reducer **puro** da máquina de passos (transições por
+  tipo, sub-fluxo de recompensa, erro/tentativas, troféu, encerramento) — TDD.
+- [x] T2.4 `useQuiz.js`: hook fino sobre o reducer (estado em memória, P-05/RF-12).
+- [x] T2.5 `preload.js`: `resolverAsset` (DRY) + `coletarAssets` + `precarregar`
+  best-effort (RNF-03); disparo real valida na Fase 4.
+- [x] T2.6 `test/configFixture.js` + testes cobrindo todos os tipos e sub-fluxos.
+
+**Pronto quando:** transições do plan §4 cobertas por teste; `npm test`/`lint`/
+`build` verdes. (motor headless — telas reais são da Fase 3)
+
+**🧪 Como testar:** é fase headless (sem tela nova). Valida por teste:
+- `npm test` → 48 verdes. O fluxo legível está em `src/engine/maquina.test.js`
+  (capa→…→pergunta erro/acerto→recompensa→troféu→encerramento).
+- Só o motor, com nomes: `npx vitest run src/engine`.
+- Cobertura: `maquina` (transições), `tipos` (validação), `estilo` (cascata),
+  `preload` (resolução/coleta de assets), `useQuiz` (hook).
+
+**Concluída:** ✅ 2026-06-07 · commit `b5a6ffe` · 48 testes verdes
 
 ---
 
