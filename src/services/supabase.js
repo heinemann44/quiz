@@ -11,6 +11,9 @@ import { createClient } from '@supabase/supabase-js';
 
 const url = import.meta.env.VITE_SUPABASE_URL;
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Schema = ambiente: dev (local), hml (homologação), prd (produção). Default dev;
+// o deploy sobrescreve via VITE_SUPABASE_SCHEMA (Vercel, por ambiente).
+const schema = import.meta.env.VITE_SUPABASE_SCHEMA || 'dev';
 
 // Cliente preguiçoso: só nasce no primeiro acesso real ao banco. Assim importar
 // este módulo (ex.: em teste com FakeColegioRepo) não exige .env configurado.
@@ -21,7 +24,7 @@ function client() {
       'Supabase não configurado: defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY no .env',
     );
   }
-  if (!clientMemo) clientMemo = createClient(url, anonKey);
+  if (!clientMemo) clientMemo = createClient(url, anonKey, { db: { schema } });
   return clientMemo;
 }
 

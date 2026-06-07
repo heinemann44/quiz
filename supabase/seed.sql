@@ -1,5 +1,7 @@
--- Seed de DEV (escolas fictícias). Exercita os 5 desfechos da entrada (RF-01/01a/14/15).
--- NÃO é dado de produção. Reaplicável: trunca antes de inserir.
+-- Seed de DEV (escolas fictícias) no schema `dev`. Exercita os 5 desfechos da
+-- entrada (RF-01/01a/14/15). NÃO é dado de produção. Reaplicável: trunca antes.
+set search_path to dev;
+
 truncate escola_albuns, escolas cascade;
 
 insert into escolas (id, nome, logo_url, ativo) values
