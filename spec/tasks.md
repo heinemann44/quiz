@@ -11,6 +11,9 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 - **Fase concluída** = todas as tarefas `[x]` + DoD da fase + selo no rodapé da
   seção (`✅ AAAA-MM-DD · commit <hash>`). O commit usa escopo `fase-N`.
 - Estado da fase no título: `⬜ não iniciada` · `⏳ em andamento` · `✅ concluída`.
+- **Ritual por fase** (AGENTS §Ritual por fase): a fase **abre** com o agente
+  pedindo os **insumos** do usuário (assets, decisões) e tirando **dúvidas**; e
+  **fecha** com **🧪 Como testar** — passos manuais para o usuário validar.
 
 ## Mapa das fases
 | Fase | Tema | Estado |
@@ -45,6 +48,9 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 **Pronto quando:** `npm install && npm run dev` sobe; as rotas renderizam mock no
 `MobileFrame`; `npm test`/`lint`/`build` verdes (P-03, setup idempotente).
 
+**🧪 Como testar:** supersedida pela Fase 1 (os stubs viraram telas reais). Base do
+andaime se valida por `npm install && npm run dev` subir + `npm test`/`lint`/`build` verdes.
+
 **Concluída:** ✅ 2026-06-06 · commit `f5d32fc` · 5 testes verdes (MobileFrame + roteamento)
 
 ---
@@ -75,6 +81,16 @@ validando liberação; estados de erro amigáveis. (plan §8.2, §3)
 **Pronto quando:** `/quiz/:escolaId` resolve os 5 desfechos e `/quiz/:escolaId/:albumId`
 barra álbum não liberado; `npm test`/`lint`/`build` verdes; anon lê e escrita
 bloqueada no banco real (RF-01/01a/01b/02/14/15 — parte do aceite §10.1).
+
+**🧪 Como testar:** `npm run dev` e abrir (seed de dev no Supabase):
+- `/quiz/colegio-demo` → entra direto (1 liberado) → "Álbum liberado".
+- `/quiz/colegio-multi` → seletor: "Eca Digital" e "Mundo Do Trabalho" clicáveis + "Consumo Consciente" 🔒.
+- `/quiz/colegio-sem-albuns` → "Indisponível / Nenhum álbum disponível".
+- `/quiz/colegio-inativo` → "Indisponível / Fale com a sua escola".
+- `/quiz/nao-existe` → "Página não encontrada".
+- `/quiz/colegio-multi/consumo-consciente` (deep link bloqueado) → "Álbum não disponível".
+- `/quiz/colegio-demo/eca-digital` (deep link liberado) → "Álbum liberado".
+- Automático: `npm test` (18 verdes — sem banco, via FakeColegioRepo).
 
 **Concluída:** ✅ 2026-06-06 · commit `a3b2d0d` · 18 testes verdes · advisors limpos
 

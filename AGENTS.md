@@ -179,6 +179,22 @@ funcional (com `.env` de exemplo). Sem passo manual escondido.
 7. **Registre o progresso** em `spec/tasks.md`: marque `[x]` só com o "Pronto"
    atingido; ao fechar uma fase, preencha o selo (`✅ data · commit`) e o mapa.
 
+### Ritual por fase (obrigatório — abertura e encerramento)
+
+**Abertura — antes de escrever qualquer código da fase, PARE e pergunte ao
+usuário** (perguntas objetivas, não um questionário):
+- **Insumos que só ele fornece:** assets (arte, logos), credenciais, escolhas de
+  produto. Liste exatamente o quê, em que formato e onde vai.
+- **Dúvidas/ambiguidades** pertinentes da spec/print **daquela fase**.
+Não comece a fase com esses pontos em aberto. Sem pendência real? Diga o que vai
+assumir e siga — não invente pergunta para cumprir tabela.
+
+**Encerramento — ao concluir a fase, além do selo no `tasks.md`, explique ao
+usuário COMO TESTAR manualmente** o que foi feito: comandos (`npm run dev`/`test`),
+**rotas/URLs concretas**, dados de exemplo (seed) e o **resultado esperado** de
+cada cenário. Teste do agente não substitui isto — o usuário tem que conseguir ver
+funcionando.
+
 ### Ordem das fases (`plan.md` §8)
 0 Andaime → 1 Dados/Supabase (`escolas` + `escola_albuns`, entrada/seletor) → 2 Motor
 → 3 Tipos de passo → 4 Álbum 1 mínimo (valida critérios de aceite `spec.md` §10) →
@@ -194,3 +210,5 @@ funcional (com `.env` de exemplo). Sem passo manual escondido.
 - [ ] Lógica de motor com teste; `npm test`, `npm run lint`, `npm run build` verdes.
 - [ ] Funciona em ~390px dentro do `MobileFrame`.
 - [ ] Commit pequeno explicando o porquê.
+- [ ] **Ritual da fase:** insumos/dúvidas pedidos na abertura; **como testar**
+      manualmente explicado no encerramento (ver Fluxo por tarefa).
