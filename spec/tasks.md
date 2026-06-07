@@ -22,7 +22,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 1 | Dados / Supabase | ✅ concluída |
 | 2 | Motor | ✅ concluída |
 | 3 | Tipos de passo | ✅ concluída |
-| 4 | Álbum 1 mínimo (valida `spec.md §10`) | ⬜ |
+| 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
 | 5 | Preencher conteúdo (JSON) | ⬜ |
 | 6 | Deploy + validação | ⬜ |
 | 7 | Replicação (Álbuns 2 e 3) | ⬜ |
@@ -169,14 +169,44 @@ ainda é stub. Use o preview de dev:
 
 ---
 
-## Fase 4 — Álbum 1 mínimo   ⬜
+## Fase 4 — Álbum 1 mínimo   ✅ concluída
 
 **Objetivo:** `config/albuns/eca-digital.json` mínimo (1 de cada tipo) + assets;
 valida **ponta a ponta os 9 critérios de aceite da base** ([spec.md §10](./spec.md)). (plan §8.5)
-**Depende de:** Fase 3.
-_Detalhar tarefas ao iniciar a fase. Esta é a porta de saída da BASE._
+**Depende de:** Fase 3. Porta de saída da BASE.
 
-**Concluída:** —
+**📦 Insumos do usuário:** assets do lote mínimo — o usuário fornece; caminhos/nomes
+definidos em `public/assets/eca-digital/README.md` + `public/marca/consultoria.png`.
+Até chegarem, a arte aparece como **placeholder** (nada quebra). Texto da seção 1:
+transcrito dos prints (best-effort; refino na Fase 5).
+
+**Tarefas:**
+- [x] T4.1 `config/albuns/eca-digital.json` real (capa, boas-vindas, conteúdo,
+  pergunta+figurinha, troféu, encerramento) + `index.js` (`carregarAlbum`, P-01).
+- [x] T4.2 `AlbumRunner` (pré-carrega assets + `useQuiz` + `PassoRenderer`),
+  reaproveitado pelo `PreviewPage` (DRY).
+- [x] T4.3 `AlbumPage` liga o motor real: valida liberação → carrega+valida config
+  (`tipos.js`) → motor; falhas viram aviso amigável + log estruturado (RF-15).
+- [x] T4.4 Header com logo da escola **e** consultoria (RF-02); recompensa usa
+  `fundoComemoracao`; `services/log.js` (JSON estruturado).
+- [x] T4.5 Pastas de assets + manifesto (README) para o usuário soltar a arte.
+- [x] T4.6 Testes: `eca-digital.json` válido + AlbumPage→motor + liberado-sem-config.
+
+**Pronto quando:** os critérios §10 passam ponta a ponta (comportamento; arte por
+placeholder até os assets); `npm test`/`lint`/`build` verdes. ✅
+
+**🧪 Como testar:**
+- `npm run dev` → **`/quiz/colegio-demo/eca-digital`**: entra direto no álbum real.
+  Caminhe: capa → boas-vindas → conteúdo → **pergunta** (erre → X + "Volte"; acerte
+  → revelação → figurinha cheia c/ contador) → **troféu "S"** → encerramento com
+  código **"S"**. Recarregar reinicia do começo (RF-12).
+- Deep link bloqueado: **`/quiz/colegio-multi/consumo-consciente`** → "Álbum não disponível".
+- Solte os assets em `public/assets/eca-digital/` (ver README) e a arte aparece
+  **sem mudar código**. `/preview` segue como sandbox.
+- Automático: `npm test` (55).
+
+**Concluída:** ✅ 2026-06-07 · commit `383b104` · 55 testes verdes · arte por placeholder
+(aguarda assets do usuário)
 
 ---
 
