@@ -1,0 +1,5 @@
+node_modules
+dist
+# docs em prosa são SSOT mantida à mão — Prettier não mexe
+*.md
+doc

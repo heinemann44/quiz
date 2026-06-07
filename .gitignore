@@ -1,0 +1,21 @@
+# dependências
+node_modules
+
+# build
+dist
+dist-ssr
+
+# ambiente (só a anon key; nunca commitado — P-10 / plan §7)
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / SO
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
