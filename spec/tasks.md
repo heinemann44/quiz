@@ -217,6 +217,18 @@ JSON + assets** (zero código novo). (plan §8.6)
 **Depende de:** Fase 4 (base aprovada).
 _Detalhar por seção (`doc/tema-1..5`, `doc/trofeu`, `doc/fim`) ao iniciar._
 
+**📌 Complementos de motor/componente que os assets do Álbum 1 exigem** (a base não
+cobre — então NÃO é 100% "zero código"; tratar no início da Fase 5):
+- Fundo por seção nas telas de conteúdo/pergunta (`fundos/secao-N.png`) — hoje só a
+  capa usa `imagemFundo`.
+- Troca de pose do personagem na **tela de erro** (`*-resposta-errada-*`) — hoje o
+  erro reusa a mesma pose + `balaoErro`.
+- **Pergunta 5 sem tela de erro:** ao errar, volta para o **tema da seção 5**
+  (conteúdo), em vez do erro padrão. Desvia do RF-05 (erro uniforme) → variação por
+  pergunta na config; reconciliar com a spec.
+- `fundos/header-figurinha.png` (faixa decorativa nas telas de figurinha).
+- Texto exato de todas as seções (Fase 4 usou transcrição best-effort da seção 1).
+
 **Concluída:** —
 
 ---
