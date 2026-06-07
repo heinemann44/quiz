@@ -15,7 +15,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 ## Mapa das fases
 | Fase | Tema | Estado |
 |---|---|---|
-| 0 | Andaime | ⏳ em andamento |
+| 0 | Andaime | ✅ concluída |
 | 1 | Dados / Supabase | ⬜ |
 | 2 | Motor | ⬜ |
 | 3 | Tipos de passo | ⬜ |
@@ -26,26 +26,26 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 
 ---
 
-## Fase 0 — Andaime   ⏳ em andamento
+## Fase 0 — Andaime   ✅ concluída
 
 **Objetivo:** Vite + React + Tailwind + react-router; `MobileFrame`; rotas
 `/quiz/:escolaId` e `/quiz/:escolaId/:albumId` com mock. (plan §8.1)
 **Depende de:** —
 
 **Tarefas:**
-- [ ] T0.1 Scaffold Vite + React; estrutura de `src/` conforme plan §6.
-- [ ] T0.2 ESLint + Prettier com defaults (AGENTS §Formatação). Sem debate de estilo.
-- [ ] T0.3 Vitest configurado; `npm test` roda sem setup manual (AGENTS §Testes).
-- [ ] T0.4 Scripts `dev`/`test`/`lint`/`build` no `package.json` (AGENTS §Observabilidade).
-- [ ] T0.5 Tailwind + `components/layout/MobileFrame.jsx` centrado ~390px (P-03).
-- [ ] T0.6 `App.jsx` com rotas: `/quiz/:escolaId`, `/quiz/:escolaId/:albumId`, `*` → `NaoEncontrado` (plan §2).
-- [ ] T0.7 Páginas-stub renderizando mock dentro do `MobileFrame` (sem Supabase ainda).
-- [ ] T0.8 `.env.example` com `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY`; `.env` no gitignore (plan §7).
+- [x] T0.1 Scaffold Vite + React; estrutura de `src/` conforme plan §6.
+- [x] T0.2 ESLint + Prettier com defaults (AGENTS §Formatação). Sem debate de estilo.
+- [x] T0.3 Vitest configurado; `npm test` roda sem setup manual (AGENTS §Testes).
+- [x] T0.4 Scripts `dev`/`test`/`lint`/`build` no `package.json` (AGENTS §Observabilidade).
+- [x] T0.5 Tailwind + `components/layout/MobileFrame.jsx` centrado ~390px (P-03).
+- [x] T0.6 `App.jsx` com rotas: `/quiz/:escolaId`, `/quiz/:escolaId/:albumId`, `*` → `NaoEncontrado` (plan §2).
+- [x] T0.7 Páginas-stub renderizando mock dentro do `MobileFrame` (sem Supabase ainda).
+- [x] T0.8 `.env.example` com `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY`; `.env` no gitignore (plan §7).
 
 **Pronto quando:** `npm install && npm run dev` sobe; as rotas renderizam mock no
 `MobileFrame`; `npm test`/`lint`/`build` verdes (P-03, setup idempotente).
 
-**Concluída:** —
+**Concluída:** ✅ 2026-06-06 · commit `f5d32fc` · 5 testes verdes (MobileFrame + roteamento)
 
 ---
 
