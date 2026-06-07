@@ -77,6 +77,9 @@ validando liberação; estados de erro amigáveis. (plan §8.2, §3)
 - [x] T1.7 `SeletorAlbuns` (liberados clicáveis + bloqueados 🔒) + `HeaderEscola`
   com logos (RF-01a/02); `AvisoTela` unifica telas amigáveis.
 - [x] T1.8 Testes de página (RTL + `FakeColegioRepo`) cobrindo entrada e liberação.
+- [x] T1.9 Ambientes por schema (`dev`/`hml`/`prd`) no mesmo projeto; app aponta
+  via `VITE_SUPABASE_SCHEMA` (default `dev`); PostgREST expõe os schemas; testes
+  seguem sem banco. (refino pós-fechamento)
 
 **Pronto quando:** `/quiz/:escolaId` resolve os 5 desfechos e `/quiz/:escolaId/:albumId`
 barra álbum não liberado; `npm test`/`lint`/`build` verdes; anon lê e escrita
@@ -93,6 +96,7 @@ bloqueada no banco real (RF-01/01a/01b/02/14/15 — parte do aceite §10.1).
 - Automático: `npm test` (18 verdes — sem banco, via FakeColegioRepo).
 
 **Concluída:** ✅ 2026-06-06 · commit `a3b2d0d` · 18 testes verdes · advisors limpos
+**Refino:** ambientes por schema (dev/hml/prd) · 2026-06-07 · commit `d4e1f5a`
 
 ---
 
