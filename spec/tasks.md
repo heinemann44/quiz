@@ -21,7 +21,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 0 | Andaime | ✅ concluída |
 | 1 | Dados / Supabase | ✅ concluída |
 | 2 | Motor | ✅ concluída |
-| 3 | Tipos de passo | ⬜ |
+| 3 | Tipos de passo | ✅ concluída |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ⬜ |
 | 5 | Preencher conteúdo (JSON) | ⬜ |
 | 6 | Deploy + validação | ⬜ |
@@ -131,14 +131,41 @@ bloqueada no banco real (RF-01/01a/01b/02/14/15 — parte do aceite §10.1).
 
 ---
 
-## Fase 3 — Tipos de passo   ⬜
+## Fase 3 — Tipos de passo   ✅ concluída
 
 **Objetivo:** ~6 componentes de passo + sub-fluxos de erro e recompensa, lendo
 config + cascata de cores. (plan §8.4, §6)
 **Depende de:** Fase 2.
-_Detalhar tarefas ao iniciar a fase — um componente por tipo (P-02), validar contra print em `doc/`._
 
-**Concluída:** —
+**📦 Insumos do usuário:** nenhum (arte real só na Fase 4 → placeholders). Logo da
+consultoria: optou por **placeholder** por ora.
+
+**Tarefas:**
+- [x] T3.1 ui/: `TextoRico` (negrito/\n, DRY), `BotaoAcao`, `Figura` (fallback
+  RN-02), `Personagem` (variante esq|dir|centro), `BalaoPersonagem` (topo|lateral),
+  `OpcaoResposta` (X no erro), `CaixaConteudo`.
+- [x] T3.2 `layout/HeaderAlbum` ("Álbum de Figurinhas" + contador, RF-09).
+- [x] T3.3 passos/: Capa, BoasVindas, Conteudo (com/sem recompensa), Pergunta
+  (+ sub-tela de erro), Trofeu, Encerramento — um por tipo (P-02).
+- [x] T3.4 recompensa/: `RevelacaoFigurinha` (card) + `FigurinhaCheia` (RF-06).
+- [x] T3.5 `PassoRenderer` (motor→UI) + `AlbumContext` (tema/assets/escola);
+  `campos.js` normaliza string|objeto (plan §5.3).
+- [x] T3.6 dev/: `PreviewPage` + `configExemplo` + rota `/preview` (só DEV).
+- [x] T3.7 Testes RTL: TextoRico, PassoRenderer e fluxo completo no PreviewPage.
+
+**Pronto quando:** todos os tipos renderizam lendo a config + cascata; erro/recompensa
+funcionam; `npm test`/`lint`/`build` verdes. (cores via config — aceite §10.9; arte na Fase 4)
+
+**🧪 Como testar:** `npm run dev` e abrir **`/quiz/colegio-demo/eca-digital`**? não —
+ainda é stub. Use o preview de dev:
+- Abra **`http://localhost:5173/preview`** e clique "Próxima página" pelo fluxo:
+  capa → boas-vindas → conteúdo → **pergunta** (erre → X + "Volte"; acerte →
+  **revelação → figurinha cheia**) → **troféu "S"** → conteúdo "Abrir figurinha"
+  → pergunta **Sim/Não** → troféu "2" → **encerramento** com código "S 2".
+- Arte aparece como **placeholder** (🧑‍🚀/🎴/🏆) — real entra na Fase 4.
+- Automático: `npm test` (o fluxo todo está em `src/dev/PreviewPage.test.jsx`).
+
+**Concluída:** ✅ 2026-06-07 · commit `18a4293` · 53 testes verdes
 
 ---
 
