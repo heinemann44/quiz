@@ -4,7 +4,7 @@
   "titulo": "ECA Digital",
   "subtitulo": "Álbum 1 — Coleção Álbum Interativo",
   "assetsBasePath": "/assets/eca-digital",
-  "fundoComemoracao": "fundos/comemoracao.png",
+  "fundoComemoracao": "fundos/fundo-figurinha.png",
 
   "tema": {
     "corPrimaria": "#3B4BC8",
@@ -41,7 +41,10 @@
       "id": "sec01-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 01",
-      "personagem": { "imagem": "personagens/astro.png", "posicao": "direita" },
+      "personagem": {
+        "imagem": "personagens/enki-secao-1.png",
+        "posicao": "direita"
+      },
       "balao": {
         "texto": "Oi, meu nome é Astro! Vou te ajudar nessa aventura. Vamos começar?",
         "variante": "topo"
@@ -57,7 +60,7 @@
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 01",
       "personagem": {
-        "imagem": "personagens/inanna.png",
+        "imagem": "personagens/inanna-pergunta-1.png",
         "posicao": "direita"
       },
       "balao": {
@@ -80,7 +83,6 @@
           "numero": 1,
           "titulo": "Proteção às crianças na internet",
           "legenda": "Capítulo 1 — ECA Digital (Art. 1º)",
-          "imagemCard": "figurinhas/01-card.png",
           "imagemCheia": "figurinhas/01.png"
         }
       }

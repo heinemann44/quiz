@@ -1,33 +1,47 @@
 # Assets — Álbum 1 (eca-digital)
 
-Coloque os arquivos de arte aqui. Os caminhos batem com os referenciados em
-`src/config/albuns/eca-digital.json` (`assetsBasePath: /assets/eca-digital`).
-Enquanto um arquivo não existe, a tela mostra um **placeholder** — nada quebra.
+Caminhos batem com `assetsBasePath: /assets/eca-digital` do
+`src/config/albuns/eca-digital.json`. Arquivo ausente → a tela mostra
+**placeholder** (nada quebra).
 
-## Lote mínimo (Fase 4 — seção 1)
+## Convenção de nomes (em uso)
 
-| Arquivo | O quê | Formato |
-|---|---|---|
-| `fundos/capa.png` | fundo da capa | PNG ou JPG |
-| `fundos/comemoracao.png` | fundo das telas de figurinha | PNG ou JPG |
-| `personagens/astro.png` | mascote (tela de conteúdo) | **PNG transparente** |
-| `personagens/inanna.png` | personagem (tela de pergunta) | **PNG transparente** |
-| `figurinhas/01.png` | figurinha 01 em tela cheia | **PNG transparente** |
-| `figurinhas/01-card.png` | (opcional) versão "card" da figurinha 01 | PNG |
-| `trofeus/01.png` | troféu 01 (letra "S") | **PNG transparente** |
+- **personagens/** `<personagem>-<contexto>.png`, contexto ∈
+  `secao-N` (conteúdo) · `pergunta-N` · `resposta-errada-pergunta-N` (erro) ·
+  `informativo-secao-N`. Personagens: `enki`, `inanna`, `enlil`, `joao`.
+- **figurinhas/** numeração global 2 dígitos: `01.png` … `06.png` (tela cheia);
+  card opcional `NN-card.png` (se ausente, usa a cheia).
+- **trofeus/** na ordem: `01.png` (letra "S"), `02.png` (número "2").
+- **fundos/** `secao-1.png`…`secao-5.png` (fundo de cada seção),
+  `fundo-figurinha.png` (telas de figurinha), `header-figurinha.png`, `capa.png`.
 
-> A logo da **consultoria** vai em `public/marca/consultoria.png` (chrome do app).
-> A logo da **escola** vem do banco (`escolas.logo_url`, Cloudinary) — não é arquivo aqui.
+## Cobertura por seção
 
-## Convenção de nomes (para escalar nas Fases 5 e 7)
+| Seção | conteúdo | pergunta | erro | figurinha(s) |
+|---|---|---|---|---|
+| 1 | enki-secao-1 | inanna-pergunta-1 | inanna-resposta-errada-pergunta-1 | 01 |
+| 2 | enki-secao-2 | enlil-pergunta-2 | enlil-resposta-errada-pergunta-2 | 02 |
+| 3 | enki-secao-3 | joao-pergunta-3 | joao-resposta-errada-pergunta-3 | 03 |
+| 4 | enki-secao-4 + inanna-informativo-secao-4 | inanna-pergunta-4 | inanna-resposta-errada-pergunta-4 | 04, 05 |
+| 5 | joao-secao-5 | joao-pergunta-5 | — sem tela de erro (volta ao tema da seção 5) | 06 |
 
-- **figurinhas/** numeração global de 2 dígitos: `01.png` … `06.png` (tela cheia);
-  card opcional `NN-card.png`.
-- **trofeus/** na ordem: `01.png` (letra "S"), `02.png` (número "2"), …
-- **personagens/** por nome: `astro.png`, `inanna.png`; poses futuras `nome-pose.png`.
-- **fundos/** `capa.png`, `comemoracao.png`; fundos de seção futuros `secao-NN.png`.
+## Pendências (fornecer)
 
-## Dimensões (mobile ~390px, exporte ~2x)
+- `fundos/capa.png` — fundo da capa.
+- `public/marca/consultoria.png` — logo da consultoria (chrome do app).
 
-- Fundos: ~780 px de largura.
-- Personagens / figurinhas / troféus: ~400–600 px no maior lado, fundo transparente.
+### Temporários (substituir depois)
+
+Da **pergunta 5 em diante** alguns assets são provisórios (tirados de print) e
+serão trocados pelo usuário: `figurinhas/06.png`, `trofeus/02.png`,
+`personagens/joao-secao-5.png`, `personagens/joao-pergunta-5.png` (por isso saíram
+menores/baixa-res). Servem para montar o fluxo enquanto a arte final não vem.
+
+## Notas
+
+- **Peso:** ~49 MB. Otimização (resize/compressão) ficou para a **Fase 6 (deploy)**.
+- A logo da **escola** vem do banco (`escolas.logo_url`, Cloudinary) — não é arquivo aqui.
+- Assets que o motor **ainda não consome** (entram na Fase 5 com ajuste de
+  componente): fundo por seção (`secao-N.png` nas telas de conteúdo/pergunta),
+  troca de pose do personagem no **erro** (`*-resposta-errada-*`) e
+  `header-figurinha.png`.
