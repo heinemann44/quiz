@@ -1,0 +1,36 @@
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useQuiz } from '../engine/useQuiz.js';
+import { precarregar } from '../engine/preload.js';
+import { AlbumProvider } from './AlbumContext.jsx';
+import PassoRenderer from './passos/PassoRenderer.jsx';
+
+/**
+ * Monta o motor de um álbum: pré-carrega assets (RNF-03), roda a máquina de
+ * passos e renderiza pelo PassoRenderer. Usado pela AlbumPage (config real) e
+ * pelo PreviewPage (config de exemplo).
+ * @param {{ config: object, escola: object|null }} props
+ */
+export default function AlbumRunner({ config, escola }) {
+  const quiz = useQuiz(config);
+  useEffect(() => {
+    precarregar(config);
+  }, [config]);
+
+  const valor = {
+    tema: config.tema,
+    assetsBasePath: config.assetsBasePath,
+    fundoComemoracao: config.fundoComemoracao,
+    escola,
+  };
+  return (
+    <AlbumProvider valor={valor}>
+      <PassoRenderer quiz={quiz} />
+    </AlbumProvider>
+  );
+}
+
+AlbumRunner.propTypes = {
+  config: PropTypes.object.isRequired,
+  escola: PropTypes.object,
+};

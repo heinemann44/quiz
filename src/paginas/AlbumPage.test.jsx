@@ -10,9 +10,23 @@ const abrir = (id, albumId, valor) =>
   });
 
 describe('AlbumPage — validação de liberação (RF-01b)', () => {
-  it('álbum liberado → entra (stub do motor)', async () => {
+  it('álbum liberado → entra no motor (capa do álbum)', async () => {
     abrir('colegio-x', 'eca-digital', colegio([vinculo('eca-digital', true)]));
-    expect(await screen.findByText('Álbum liberado')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('button', { name: 'Próxima página' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('ECA Digital')).toBeInTheDocument();
+  });
+
+  it('liberado no banco mas sem config → não encontrado (RF-01b)', async () => {
+    abrir(
+      'colegio-x',
+      'mundo-do-trabalho',
+      colegio([vinculo('mundo-do-trabalho', true)]),
+    );
+    expect(
+      await screen.findByText('Página não encontrada'),
+    ).toBeInTheDocument();
   });
 
   it('álbum não liberado → bloqueado, sem revelar se existe', async () => {

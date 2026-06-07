@@ -14,7 +14,9 @@ describe('App — roteamento (plan §2)', () => {
       rota: '/quiz/colegio-demo',
       porId: { 'colegio-demo': colegio([vinculo('eca-digital', true)]) },
     });
-    expect(await screen.findByText('Álbum liberado')).toBeInTheDocument();
-    expect(screen.getByText('eca-digital')).toBeInTheDocument();
+    expect(
+      await screen.findByRole('button', { name: 'Próxima página' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('ECA Digital')).toBeInTheDocument();
   });
 });

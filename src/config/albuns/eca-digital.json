@@ -1,0 +1,110 @@
+{
+  "albumId": "eca-digital",
+  "numeroAlbum": 1,
+  "titulo": "ECA Digital",
+  "subtitulo": "Álbum 1 — Coleção Álbum Interativo",
+  "assetsBasePath": "/assets/eca-digital",
+  "fundoComemoracao": "fundos/comemoracao.png",
+
+  "tema": {
+    "corPrimaria": "#3B4BC8",
+    "corSecundaria": "#D4A017",
+    "corFundo": "#E8E0F0",
+    "corTexto": "#1A1A2E",
+    "corAcerto": "#22C55E",
+    "corErro": "#EF4444",
+    "fonteTitulo": "Poppins, sans-serif",
+    "fonteCorpo": "Inter, sans-serif"
+  },
+
+  "passos": [
+    {
+      "id": "capa",
+      "tipo": "capa",
+      "titulo": "ECA Digital",
+      "imagemFundo": "fundos/capa.png",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "boas-vindas",
+      "tipo": "boas-vindas",
+      "paragrafos": [
+        "Bem-vindo(a) ao **Álbum 1** da Coleção Álbum Interativo ECA Digital!",
+        "Sua missão é descobrir como o ECA Digital ajuda você, criança ou adolescente, a se proteger na internet.",
+        "Aqui você aprende seus **direitos e deveres** no mundo digital.",
+        "Responda às perguntas e revele cada figurinha para avançar na sua jornada.",
+        "Cada troféu traz uma **letra ou um número** do código secreto. Sua aventura começa agora!"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 01",
+      "personagem": { "imagem": "personagens/astro.png", "posicao": "direita" },
+      "balao": {
+        "texto": "Oi, meu nome é Astro! Vou te ajudar nessa aventura. Vamos começar?",
+        "variante": "topo"
+      },
+      "blocos": [
+        "A lei **protege crianças** em jogos, aplicativos e sites.",
+        "Se um serviço digital é feito para o público — ou **pode ser acessado** por crianças — ele precisa adotar medidas de proteção, mesmo que a empresa seja de outro país."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 01",
+      "personagem": {
+        "imagem": "personagens/inanna.png",
+        "posicao": "direita"
+      },
+      "balao": {
+        "texto": "Oi, meu nome é Inanna! Acerte a resposta e abra a **1ª figurinha**.",
+        "variante": "topo"
+      },
+      "balaoErro": "Leia com atenção e tente de novo!",
+      "enunciado": "Quando um aplicativo ou jogo precisa proteger crianças?",
+      "opcoes": [
+        { "rotulo": "A", "texto": "Só quando é um app pago" },
+        { "rotulo": "B", "texto": "Só quando os pais autorizam" },
+        {
+          "rotulo": "C",
+          "texto": "Sempre que crianças puderem usar, mesmo sem ser o público-alvo"
+        }
+      ],
+      "respostaCorreta": "C",
+      "recompensa": {
+        "figurinha": {
+          "numero": 1,
+          "titulo": "Proteção às crianças na internet",
+          "legenda": "Capítulo 1 — ECA Digital (Art. 1º)",
+          "imagemCard": "figurinhas/01-card.png",
+          "imagemCheia": "figurinhas/01.png"
+        }
+      }
+    },
+    {
+      "id": "sec01-trofeu",
+      "tipo": "trofeu",
+      "valor": "S",
+      "tipoValor": "letra",
+      "legenda": "Primeira letra do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/01.png",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "fim",
+      "tipo": "encerramento",
+      "mostrarCodigoSecreto": true,
+      "paragrafos": [
+        "**Missão cumprida... por enquanto!**",
+        "Parabéns! Você completou esta etapa do Álbum 1 da Coleção Álbum Interativo ECA Digital.",
+        "Guarde as letras e os números dos seus troféus.",
+        "Continue nos próximos álbuns para se tornar um(a) **Guardião(ã) Digital**. Sua aventura continua!"
+      ]
+    }
+  ]
+}

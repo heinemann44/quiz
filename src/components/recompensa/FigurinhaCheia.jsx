@@ -5,14 +5,16 @@ import { resolverEstilo } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import { estiloFundo } from './fundo.js';
 
 // 2ª tela da recompensa: figurinha em tamanho cheio + título/legenda (RF-06).
 export default function FigurinhaCheia({ figurinha, contador, onAvancar }) {
-  const { tema, assetsBasePath } = useAlbum();
+  const { tema, assetsBasePath, fundoComemoracao } = useAlbum();
+  const fundo = resolverAsset(assetsBasePath, fundoComemoracao);
   return (
     <section
-      className="flex flex-1 flex-col"
-      style={{ backgroundColor: tema.corFundo }}
+      className="flex flex-1 flex-col bg-cover bg-center"
+      style={estiloFundo(tema, fundo)}
     >
       <HeaderAlbum contador={contador} />
       <div

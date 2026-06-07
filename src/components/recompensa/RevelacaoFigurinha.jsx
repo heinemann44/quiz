@@ -5,20 +5,22 @@ import { resolverEstilo } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import { estiloFundo } from './fundo.js';
 
 const dois = (n) => String(n ?? '').padStart(2, '0');
 
 // 1ª tela da recompensa: card "Figurinha Nº NN" sobre fundo comemorativo (RF-06).
 export default function RevelacaoFigurinha({ figurinha, contador, onAvancar }) {
-  const { tema, assetsBasePath } = useAlbum();
+  const { tema, assetsBasePath, fundoComemoracao } = useAlbum();
   const src = resolverAsset(
     assetsBasePath,
     figurinha.imagemCard ?? figurinha.imagemCheia,
   );
+  const fundo = resolverAsset(assetsBasePath, fundoComemoracao);
   return (
     <section
-      className="flex flex-1 flex-col"
-      style={{ backgroundColor: tema.corFundo }}
+      className="flex flex-1 flex-col bg-cover bg-center"
+      style={estiloFundo(tema, fundo)}
     >
       <HeaderAlbum contador={contador} />
       <div className="flex flex-1 flex-col items-center justify-center gap-3 p-6 text-center">
