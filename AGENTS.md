@@ -21,6 +21,10 @@ arquivo a cada iteração. Linhas curtas, imperativas: cada linha gasta contexto
 4. `doc/` — **SSOT visual** (prints reais). *Imagem vence texto* em divergência.
 5. Código — consequência, nunca origem da verdade.
 
+> `spec/tasks.md` rastreia **execução** (o que já foi feito), derivado de `plan.md
+> §8`. Não é fonte da verdade nem origina requisito — fica abaixo do plan, acima
+> do código. Atualize-o a cada tarefa (ver Fluxo por tarefa, passo 7).
+
 Antes de codar uma seção/tela, **abra o print** em `doc/<tema-X>/` — as pastas
 `tema-1..tema-5` são as **seções do Álbum 1** (não álbuns). Os nomes de arquivo
 (`pergunta-N`, `correto-N`, `errado-N`, `figurinha-N`, `trofeu-N`) mapeiam para os
@@ -170,7 +174,10 @@ funcional (com `.env` de exemplo). Sem passo manual escondido.
 3. **TDD** na lógica do motor (teste primeiro).
 4. Implemente a **menor fatia ponta a ponta** que funciona.
 5. **Commit pequeno e reversível**, mensagem no imperativo dizendo o *porquê*.
+   Escopo de fase: `feat(fase-N): ...` — amarra o histórico do git às fases.
 6. **Revise** contra spec + print + estas regras.
+7. **Registre o progresso** em `spec/tasks.md`: marque `[x]` só com o "Pronto"
+   atingido; ao fechar uma fase, preencha o selo (`✅ data · commit`) e o mapa.
 
 ### Ordem das fases (`plan.md` §8)
 0 Andaime → 1 Dados/Supabase (`escolas` + `escola_albuns`, entrada/seletor) → 2 Motor
