@@ -32,7 +32,12 @@ export default [
     },
   },
   {
-    files: ['**/*.{test,spec}.{js,jsx}', 'vitest.setup.js'],
+    // testes e utilitários de teste: globais do Vitest + sem regra de fast-refresh
+    files: [
+      '**/*.{test,spec}.{js,jsx}',
+      'src/test/**/*.{js,jsx}',
+      'vitest.setup.js',
+    ],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -47,6 +52,7 @@ export default [
         afterAll: 'readonly',
       },
     },
+    rules: { 'react-refresh/only-export-components': 'off' },
   },
   prettier, // desliga regras de formatação que brigam com o Prettier — fica por último
 ];
