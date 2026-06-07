@@ -16,7 +16,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | Fase | Tema | Estado |
 |---|---|---|
 | 0 | Andaime | ✅ concluída |
-| 1 | Dados / Supabase | ⬜ |
+| 1 | Dados / Supabase | ✅ concluída |
 | 2 | Motor | ⬜ |
 | 3 | Tipos de passo | ⬜ |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ⬜ |
@@ -49,15 +49,34 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 
 ---
 
-## Fase 1 — Dados / Supabase   ⬜
+## Fase 1 — Dados / Supabase   ✅ concluída
 
 **Objetivo:** tabelas `escolas` + `escola_albuns` + RLS; `services/supabase.js`
 (`getColegio`); `QuizEntradaPage` (direto/seletor/indisponível) + `AlbumPage`
 validando liberação; estados de erro amigáveis. (plan §8.2, §3)
 **Depende de:** Fase 0.
-_Detalhar tarefas ao iniciar a fase._
 
-**Concluída:** —
+**Tarefas:**
+- [x] T1.1 Migration `escolas` + `escola_albuns` + RLS (SELECT público) + GRANT
+  SELECT ao anon; escrita bloqueada. Versionada em `supabase/migrations/` (plan §3).
+- [x] T1.2 `supabase/seed.sql` com 4 cenários de dev (direto / seletor+🔒 / sem
+  álbuns / inativo).
+- [x] T1.3 `services/supabase.js` embrulha o supabase-js: `colegioRepo.getColegio`
+  → `{ escola, albuns }`, cliente preguiçoso (AGENTS §Dependências).
+- [x] T1.4 DI: `ColegioRepoContext` (injeta repo) + `FakeColegioRepo` (test double)
+  + hook `useColegio` (carregando|pronto|erro).
+- [x] T1.5 `resolverEntrada` puro + testes TDD (inexistente|inativo|indisponivel|
+  direto|seletor) (RF-01/14/15).
+- [x] T1.6 `QuizEntradaPage` despacha os 5 desfechos; `AlbumPage` valida liberação (RF-01b).
+- [x] T1.7 `SeletorAlbuns` (liberados clicáveis + bloqueados 🔒) + `HeaderEscola`
+  com logos (RF-01a/02); `AvisoTela` unifica telas amigáveis.
+- [x] T1.8 Testes de página (RTL + `FakeColegioRepo`) cobrindo entrada e liberação.
+
+**Pronto quando:** `/quiz/:escolaId` resolve os 5 desfechos e `/quiz/:escolaId/:albumId`
+barra álbum não liberado; `npm test`/`lint`/`build` verdes; anon lê e escrita
+bloqueada no banco real (RF-01/01a/01b/02/14/15 — parte do aceite §10.1).
+
+**Concluída:** ✅ 2026-06-06 · commit `a3b2d0d` · 18 testes verdes · advisors limpos
 
 ---
 
