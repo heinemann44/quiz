@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
-// Opção de resposta: círculo do rótulo + texto. X vermelho quando foi a escolha
-// errada (RF-05). Não clicável na sub-tela de erro.
+// Opção de resposta (card): círculo do rótulo no topo (cor `corRotulo`) + texto
+// abaixo. Usado em grade de colunas (doc/tema-N). X vermelho quando foi a escolha
+// errada (RF-05); não clicável na sub-tela de erro.
 export default function OpcaoResposta({
   rotulo,
   texto,
@@ -14,19 +15,21 @@ export default function OpcaoResposta({
       type="button"
       onClick={onClick}
       disabled={!onClick}
-      className="flex items-center gap-3 rounded-lg border p-3 text-left disabled:opacity-100"
-      style={{
-        backgroundColor: estilo.corFundo,
-        color: estilo.corTexto,
-        borderColor: estilo.corBorda,
-      }}
+      className="relative mt-4 flex flex-col items-center rounded-lg px-2 pb-3 pt-6 text-center text-xs leading-snug shadow-sm disabled:opacity-100"
+      style={{ backgroundColor: estilo.corFundo, color: estilo.corTexto }}
     >
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-bold">
+      <span
+        className="absolute -top-4 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold shadow"
+        style={{ backgroundColor: estilo.corRotulo, color: estilo.corTexto }}
+      >
         {rotulo}
       </span>
-      <span className="flex-1">{texto}</span>
+      <span>{texto}</span>
       {errada && (
-        <span aria-label="resposta errada" className="font-bold text-red-600">
+        <span
+          aria-label="resposta errada"
+          className="absolute right-1 top-1 font-bold text-red-600"
+        >
           ✕
         </span>
       )}

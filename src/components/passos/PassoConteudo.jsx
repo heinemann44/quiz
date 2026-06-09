@@ -11,8 +11,7 @@ import {
   estiloBloco,
 } from './campos.js';
 import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
+import PersonagemComBalao from './PersonagemComBalao.jsx';
 import CaixaConteudo from '../ui/CaixaConteudo.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
 import RodapeAcao from '../ui/RodapeAcao.jsx';
@@ -31,44 +30,16 @@ export default function PassoConteudo({ passo, onAvancar }) {
     >
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
       <div className="flex flex-1 flex-col gap-6 p-4">
-        {(passo.personagem || passo.balao) && (
-          <div
-            className={`relative z-10 flex items-start ${
-              passo.personagem?.posicao === 'esquerda' ? 'flex-row-reverse' : ''
-            }`}
-          >
-            {/* Balão à esquerda (toma o espaço livre); robô à direita, maior e
-                alinhado ao topo. Wrappers neutralizam o self-* dos componentes,
-                que foi pensado pra empilhamento vertical (doc/tema-N). */}
-            <div className="flex-1">
-              {passo.balao && (
-                <BalaoPersonagem
-                  texto={textoBalao(passo.balao)}
-                  estilo={resolverEstilo(
-                    tema,
-                    passo.estilo,
-                    estiloBalao(passo.balao),
-                  )}
-                  variante={varianteBalao(passo.balao)}
-                  bico={
-                    passo.personagem
-                      ? passo.personagem.posicao === 'esquerda'
-                        ? 'esquerda'
-                        : 'direita'
-                      : undefined
-                  }
-                />
-              )}
-            </div>
-            {passo.personagem && (
-              <div className="shrink-0">
-                <Personagem src={personagemSrc} className="h-60 w-35" />
-              </div>
-            )}
-          </div>
-        )}
+        <PersonagemComBalao
+          src={personagemSrc}
+          posicao={passo.personagem?.posicao}
+          tamanho="h-60 w-35"
+          balaoTexto={textoBalao(passo.balao)}
+          balaoEstilo={resolverEstilo(tema, passo.estilo, estiloBalao(passo.balao))}
+          balaoVariante={varianteBalao(passo.balao)}
+        />
         {/* Cards puxados pra cima (-mt) pra o personagem (z-10 acima) ficar um
-            pouco por cima do quadro. Fundo do card vem de tema.corCaixa (P-11). */}
+            pouco por cima do quadro. Fundo do card vem de tema.caixa (P-11). */}
         <div className="-mt-26 flex flex-col gap-3">
           {(passo.blocos ?? []).map((bloco, i) => (
             <CaixaConteudo
@@ -76,7 +47,7 @@ export default function PassoConteudo({ passo, onAvancar }) {
               texto={textoBloco(bloco)}
               estilo={resolverEstilo(
                 tema,
-                { corFundo: tema.corCaixa },
+                tema.caixa,
                 passo.estilo,
                 estiloBloco(bloco),
               )}

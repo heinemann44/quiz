@@ -29,11 +29,13 @@ export default function PerguntaLista({
   const personagem = erro
     ? (passo.personagemErro ?? passo.personagem)
     : passo.personagem;
+  const esquerda = personagem?.posicao === 'esquerda';
   const fundoSecao = resolverAsset(assetsBasePath, passo.imagemFundo);
-  const estiloEnunciado = resolverEstilo(tema, {
-    corFundo: tema.corPrimaria,
-    corTexto: '#FFFFFF',
-  });
+  const estiloEnunciado = resolverEstilo(
+    tema,
+    { corFundo: tema.corPrimaria, corTexto: '#FFFFFF' },
+    tema.enunciado,
+  );
   return (
     <section
       className="flex flex-1 flex-col bg-cover bg-center"
@@ -41,27 +43,53 @@ export default function PerguntaLista({
     >
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
       <div className="flex flex-1 flex-col gap-3 p-4">
-        {personagem && (
-          <Personagem
-            src={resolverAsset(assetsBasePath, personagem.imagem)}
-            posicao={personagem.posicao}
-          />
-        )}
-        {balao && (
-          <BalaoPersonagem
-            texto={textoBalao(balao)}
-            estilo={resolverEstilo(tema, passo.estilo, estiloBalao(balao))}
-            variante={varianteBalao(balao)}
-          />
-        )}
-        <CaixaConteudo texto={passo.enunciado} estilo={estiloEnunciado} />
-        <div className="flex flex-col gap-2">
+        {/* Zona-topo de altura fixa: o personagem fica ancorado na base, então
+            aumentá-lo faz a cabeça crescer PRA CIMA (atrás do balão), sem empurrar
+            enunciado/opções. A altura da zona (h-56) define onde o enunciado
+            começa; o tamanho do personagem é independente. Camadas: balão (z-20)
+            na frente do personagem (z-10), que cobre o enunciado (atrás). */}
+        <div className="relative z-10 h-56">
+          {balao && (
+            <div
+              className={`absolute top-0 z-20 w-1/2 ${esquerda ? 'right-0' : 'left-0'}`}
+            >
+              <BalaoPersonagem
+                texto={textoBalao(balao)}
+                estilo={resolverEstilo(tema, passo.estilo, estiloBalao(balao))}
+                variante={varianteBalao(balao)}
+                bico={esquerda ? 'esquerda' : 'direita'}
+              />
+            </div>
+          )}
+          {personagem && (
+            <div className={`absolute -bottom-25 ${esquerda ? 'left-0' : 'right-0'}`}>
+              <Personagem
+                src={resolverAsset(assetsBasePath, personagem.imagem)}
+                className="h-80 w-52"
+              />
+            </div>
+          )}
+        </div>
+        <CaixaConteudo
+          texto={passo.enunciado}
+          estilo={estiloEnunciado}
+          className="relative -mt-2 text-center font-semibold"
+        />
+        <div
+          className={`grid gap-2 ${passo.opcoes.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}
+        >
           {passo.opcoes.map((opcao) => (
             <OpcaoResposta
               key={opcao.rotulo}
               rotulo={opcao.rotulo}
               texto={opcao.texto}
-              estilo={resolverEstilo(tema, passo.estilo, opcao.estilo)}
+              estilo={resolverEstilo(
+                tema,
+                tema.caixa,
+                { corRotulo: tema.corSecundaria },
+                passo.estilo,
+                opcao.estilo,
+              )}
               errada={erro && opcao.rotulo === opcaoErrada}
               onClick={erro ? undefined : () => onResponder(opcao.rotulo)}
             />

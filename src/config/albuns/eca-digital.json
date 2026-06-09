@@ -16,12 +16,13 @@
     "corErro": "#EF4444",
     "fonteTitulo": "Poppins, sans-serif",
     "fonteCorpo": "Inter, sans-serif",
-    "corCaixa": "#FFFFFF",
     "botao": {
       "corFundo": "#ccaa61",
       "corTexto": "#000000",
       "corCirculo": "#64819c"
-    }
+    },
+    "caixa": { "corFundo": "#FFFFFF" },
+    "enunciado": { "corFundo": "#0755c3", "corTexto": "#FFFFFF" }
   },
 
   "passos": [
@@ -74,15 +75,15 @@
       "imagemFundo": "fundos/secao-1.png",
       "personagem": {
         "imagem": "personagens/inanna-pergunta-1.png",
-        "posicao": "direita"
+        "posicao": "esquerda"
       },
       "personagemErro": {
         "imagem": "personagens/inanna-resposta-errada-pergunta-1.png",
         "posicao": "esquerda"
       },
       "balao": {
-        "texto": "Oi, meu nome é **Inanna**! Acerte a resposta e abra a **1ª figurinha**.",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "texto": "Oi, meu nome é **Inanna** acerte a resposta e abra a 1ª figurinha.",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000", "corDestaque": "#FFFFFF" },
         "variante": "topo"
       },
       "balaoErro": {
