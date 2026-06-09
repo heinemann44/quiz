@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { useAlbum } from '../AlbumContext.jsx';
 import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo } from '../../engine/estilo.js';
+import { estiloDoBotao } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import RodapeAcao from '../ui/RodapeAcao.jsx';
 import { estiloFundoTela } from '../ui/fundoTela.js';
 
 // 2ª tela da recompensa: figurinha em tamanho cheio + título/legenda (RF-06).
@@ -31,13 +32,13 @@ export default function FigurinhaCheia({ figurinha, contador, onAvancar }) {
         {figurinha.titulo && <h2 className="font-bold">{figurinha.titulo}</h2>}
         {figurinha.legenda && <p className="text-sm">{figurinha.legenda}</p>}
       </div>
-      <div className="p-4 text-center">
+      <RodapeAcao>
         <BotaoAcao
           texto="Próxima página"
           onClick={onAvancar}
-          estilo={resolverEstilo(tema, { corFundo: tema.corPrimaria })}
+          estilo={estiloDoBotao(tema)}
         />
-      </div>
+      </RodapeAcao>
     </section>
   );
 }

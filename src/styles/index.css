@@ -1,1 +1,8 @@
 @import 'tailwindcss';
+
+/* Quiz para crianças: fonte-base um pouco maior pra leitura. As medidas do
+   Tailwind são em rem, então tudo (texto e espaços) escala junto a partir daqui
+   — este é o lever único pra calibrar o tamanho geral. Padrão do browser = 16px. */
+html {
+  font-size: 18px;
+}

@@ -15,7 +15,13 @@
     "corAcerto": "#22C55E",
     "corErro": "#EF4444",
     "fonteTitulo": "Poppins, sans-serif",
-    "fonteCorpo": "Inter, sans-serif"
+    "fonteCorpo": "Inter, sans-serif",
+    "corCaixa": "#FFFFFF",
+    "botao": {
+      "corFundo": "#ccaa61",
+      "corTexto": "#000000",
+      "corCirculo": "#64819c"
+    }
   },
 
   "passos": [
@@ -23,20 +29,21 @@
       "id": "capa",
       "tipo": "capa",
       "imagemFundo": "fundos/capa.png",
+      "corFundo": "#001041",
       "textoBotao": "Próxima página"
     },
     {
       "id": "boas-vindas",
       "tipo": "boas-vindas",
       "paragrafos": [
-        "Bem-vindo(a) ao **Álbum 1** da **Coleção Álbum Interativo ECA Digital**!",
+        "Bem-vindo(a) ao Álbum **1** da **Coleção Álbum Interativo ECA Digital**!",
         "Sua missão é descobrir como o ECA Digital ajuda você, criança ou adolescente, a se proteger na internet.",
-        "Aqui, você aprenderá seus **direitos e deveres** no mundo digital.",
+        "Aqui, você aprenderá seus direitos e deveres no mundo digital.",
         "Responda às perguntas e revele cada figurinha para avançar na sua jornada.",
         "Conquiste troféus, complete desafios e descubra novas figurinhas pelo caminho.",
-        "Para conquistar todas as figurinhas, todos os troféus e se tornar um(a) verdadeiro(a) **Guardião(ã) Digital**, você também precisará completar os Álbuns 2 e 3.",
-        "Cada troféu traz um **número** ou uma **letra**, que formarão um código secreto; ao final deste Álbum 1 está explicado o que esse código oferece.",
-        "Sua aventura começa agora!"
+        "Para conquistar todas as figurinhas, todos os troféus e se tornar um(a) verdadeiro(a) Guardião(ã) Digital, você também precisará completar os Álbuns 2 e 3.",
+        "Cada troféu traz um **número** ou uma **letra**, que formarão um código secreto; ao final deste Álbum **\"1\"** está explicado o que esse código oferece.",
+        "⭐ Sua aventura começa agora!"
       ],
       "textoBotao": "Próxima página"
     },
@@ -51,13 +58,12 @@
         "posicao": "direita"
       },
       "balao": {
-        "texto": "Oi, meu nome é **Enki** e vou ajudar você nessa aventura, vamos começar!",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "texto": "Oi, meu nome é **ENKI** e vou ajudar você nessa aventura, vamos começar!",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000", "corDestaque": "#FFFFFF" },
         "variante": "topo"
       },
       "blocos": [
-        "A lei **protege crianças e adolescentes** em jogos, aplicativos e sites.",
-        "Se um serviço digital é feito para o público — ou **pode ser acessado** por crianças — ele precisa adotar medidas de proteção, mesmo que a empresa seja de outro país."
+        "A lei **protege crianças e adolescentes** em jogos, aplicativos e sites.\n\nSe um serviço digital é feito para o público, ou **pode ser acessado** facilmente **por eles**, devem ser adotadas medidas de proteção, mesmo que a empresa seja de outro país."
       ],
       "textoBotao": "Próxima página"
     },

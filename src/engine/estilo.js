@@ -10,6 +10,28 @@ export function resolverEstilo(tema, ...camadas) {
   return [baseDoTema(tema), ...camadas].reduce(mesclar, {});
 }
 
+/**
+ * Estilo do botão de ação, lido de `tema.botao` (pílula, texto e círculo do play),
+ * com fallback para as cores do tema. Camadas extras (passo/elemento) ainda
+ * vencem. Centraliza a base num lugar só (DRY) — antes repetida em cada passo
+ * como `{ corFundo: corPrimaria }`. (cores na config, P-11 — doc/inicio)
+ * @param {object} tema
+ * @param {...(object|undefined)} camadas  passo.botao?.estilo, …
+ * @returns {object}
+ */
+export function estiloDoBotao(tema = {}, ...camadas) {
+  const botao = tema.botao ?? {};
+  return resolverEstilo(
+    tema,
+    {
+      corFundo: botao.corFundo ?? tema.corPrimaria,
+      corTexto: botao.corTexto ?? tema.corSecundaria,
+      corCirculo: botao.corCirculo ?? tema.corPrimaria,
+    },
+    ...camadas,
+  );
+}
+
 function mesclar(acc, camada) {
   if (!camada) return acc;
   for (const [chave, valor] of Object.entries(camada)) {

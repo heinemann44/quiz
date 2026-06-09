@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useAlbum } from '../AlbumContext.jsx';
 import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo } from '../../engine/estilo.js';
+import { resolverEstilo, estiloDoBotao } from '../../engine/estilo.js';
 import { SubTela } from '../../engine/maquina.js';
 import { textoBalao, estiloBalao, varianteBalao } from './campos.js';
 import HeaderEscola from '../layout/HeaderEscola.jsx';
@@ -10,6 +10,7 @@ import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
 import CaixaConteudo from '../ui/CaixaConteudo.jsx';
 import OpcaoResposta from '../ui/OpcaoResposta.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import RodapeAcao from '../ui/RodapeAcao.jsx';
 import { estiloFundoTela } from '../ui/fundoTela.js';
 
 // Layout padrão da pergunta: enunciado + lista de opções A/B/C (doc/tema-N).
@@ -68,13 +69,13 @@ export default function PerguntaLista({
         </div>
       </div>
       {erro && (
-        <div className="p-4 text-center">
+        <RodapeAcao>
           <BotaoAcao
             texto={passo.textoBotaoErro ?? 'Volte'}
             onClick={onVoltarErro}
-            estilo={resolverEstilo(tema, { corFundo: tema.corPrimaria })}
+            estilo={estiloDoBotao(tema)}
           />
-        </div>
+        </RodapeAcao>
       )}
     </section>
   );

@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { useAlbum } from '../AlbumContext.jsx';
 import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo } from '../../engine/estilo.js';
+import { estiloDoBotao } from '../../engine/estilo.js';
 import HeaderAlbum from '../layout/HeaderAlbum.jsx';
 import Figura from '../ui/Figura.jsx';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
+import RodapeAcao from '../ui/RodapeAcao.jsx';
 import { estiloFundoTela } from '../ui/fundoTela.js';
 
 const dois = (n) => String(n ?? '').padStart(2, '0');
@@ -29,13 +30,13 @@ export default function RevelacaoFigurinha({ figurinha, contador, onAvancar }) {
         </p>
         <Figura src={src} alt="" placeholder="🎴" className="h-56 w-44" />
       </div>
-      <div className="p-4 text-center">
+      <RodapeAcao>
         <BotaoAcao
           texto="Próxima página"
           onClick={onAvancar}
-          estilo={resolverEstilo(tema, { corFundo: tema.corPrimaria })}
+          estilo={estiloDoBotao(tema)}
         />
-      </div>
+      </RodapeAcao>
     </section>
   );
 }

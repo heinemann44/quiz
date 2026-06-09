@@ -294,6 +294,32 @@ hoje placeholder) ajuda a fechar o header. Apontar telas prioritárias se houver
 - [ ] T5.5.5 Conferência em ~390px no `MobileFrame` (P-03) e ajuste de novas
   variantes nomeadas onde o layout não couber nas atuais (P-11).
 
+**⚖️ Regra (exceção a "a imagem vence"):** a **posição do botão de ação** é fixa —
+canto **inferior-direito**, 16px, via `RodapeAcao` — e **prevalece sobre os prints**
+em todas as telas. Não reposicionar o botão pra imitar `doc/`.
+
+**Em andamento (parcial — não fecha box ainda):**
+- **Capa** (parte de T5.5.4): encaixe da arte sem corte (`object-contain`,
+  centralizada) e `corFundo` marinho `#001041` no passo (config, P-11) pra a
+  sobra casar com a ilustração. Botão segue o padrão (direita-embaixo), não mais
+  o centralizado do print — decisão do usuário.
+- **Botão de ação padronizado** (transversal): `BotaoAcao` redesenhado conforme
+  modelo do usuário — pílula glossy + texto caixa-alta + círculo com play. Cores
+  em `tema.botao` (`corFundo`/`corTexto`/`corCirculo`, P-11) via helper
+  `estiloDoBotao`. Posição única (canto inferior-direito, 16px) no novo
+  `RodapeAcao`, aplicado nas 7 telas que usam o botão.
+- **Boas-vindas** (parte de T5.5.4): espaçamento (`gap`/`leading`) e fonte
+  ajustados pra caber sem rolagem; emoji no JSON.
+- **Seção 1 — conteúdo** (parte de T5.5.1): balão + robô lado a lado (robô maior,
+  sobreposto ao quadro via `z-10`/`-mt`); **bico** triângulo-retângulo na lateral
+  (`clip-path`); quadro único com fundo branco (`tema.corCaixa`, P-11).
+- **Balão de fala** (transversal): negrito é estilo do componente; `**…**` no
+  texto marca a **cor de destaque** (`corDestaque`), não o negrito.
+- **Header** (`HeaderEscola`): placeholders de logo viram badge na `corPrimaria`
+  (mesmo padrão dos dois lados); logos/título reduzidos pra caber em 1 linha.
+- **Fonte-base** global 18px (público infantil) em `styles/index.css` — lever
+  único de escala geral.
+
 **Pronto quando:** cada tela é visualmente equivalente ao print de `doc/`
 (a imagem vence); `npm test`/`lint`/`build` verdes; nenhuma coordenada x/y no JSON.
 

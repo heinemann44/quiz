@@ -8,13 +8,18 @@ const POSICAO = {
   centro: 'self-center',
 };
 
-export default function Personagem({ src, alt = '', posicao = 'direita' }) {
+export default function Personagem({
+  src,
+  alt = '',
+  posicao = 'direita',
+  className = 'h-40 w-32',
+}) {
   return (
     <Figura
       src={src}
       alt={alt}
       placeholder="🧑‍🚀"
-      className={`h-40 w-32 ${POSICAO[posicao] ?? ''}`}
+      className={`${className} ${POSICAO[posicao] ?? ''}`}
     />
   );
 }
@@ -23,4 +28,5 @@ Personagem.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   posicao: PropTypes.oneOf(['esquerda', 'direita', 'centro']),
+  className: PropTypes.string,
 };
