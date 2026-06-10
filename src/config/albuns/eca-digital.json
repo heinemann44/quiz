@@ -60,7 +60,11 @@
       },
       "balao": {
         "texto": "Oi, meu nome é **ENKI** e vou ajudar você nessa aventura, vamos começar!",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000", "corDestaque": "#FFFFFF" },
+        "estilo": {
+          "corFundo": "#D4A017",
+          "corTexto": "#000000",
+          "corDestaque": "#FFFFFF"
+        },
         "variante": "topo"
       },
       "blocos": [
@@ -83,7 +87,11 @@
       },
       "balao": {
         "texto": "Oi, meu nome é **Inanna** acerte a resposta e abra a 1ª figurinha.",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000", "corDestaque": "#FFFFFF" },
+        "estilo": {
+          "corFundo": "#D4A017",
+          "corTexto": "#000000",
+          "corDestaque": "#FFFFFF"
+        },
         "variante": "topo"
       },
       "balaoErro": {
@@ -119,8 +127,8 @@
         "posicao": "direita"
       },
       "blocos": [
-        "Crianças e adolescentes têm o direito de receber orientação e acompanhamento de seus pais ou responsáveis quando estão usando a internet.",
-        "Os pais ou responsáveis têm o **dever de ajudar, proteger e acompanhar** seus filhos para que usem a internet de forma segura."
+        "Crianças e adolescentes\ntêm o direito de receber orientação e acompanhamento de seus pais ou responsáveis quando estão usando a internet.",
+        "Os pais ou responsáveis têm o dever de **ajudar, proteger e acompanhar** seus filhos para que usem a internet de forma segura."
       ],
       "textoBotao": "Próxima página"
     },
@@ -138,8 +146,12 @@
         "posicao": "direita"
       },
       "balao": {
-        "texto": "Oi, meu nome é **Enlil**! Acerte a resposta e abra a **2ª figurinha**.",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "texto": "Oi, meu nome é **Enlil** Acerte a resposta e abra a 2ª figurinha",
+        "estilo": {
+          "corFundo": "#D4A017",
+          "corTexto": "#000000",
+          "corDestaque": "#FFFFFF"
+        },
         "variante": "topo"
       },
       "balaoErro": {

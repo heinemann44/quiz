@@ -10,6 +10,9 @@ import Encerramento from './Encerramento.jsx';
 import Sec01Conteudo from './Sec01Conteudo.jsx';
 import Sec01Pergunta from './Sec01Pergunta.jsx';
 import Sec01Erro from './Sec01Erro.jsx';
+import Sec02Conteudo from './Sec02Conteudo.jsx';
+import Sec02Pergunta from './Sec02Pergunta.jsx';
+import Sec02Erro from './Sec02Erro.jsx';
 
 // Registro das telas — a config seleciona a tela por NOME (variante nomeada,
 // P-11), nunca por coordenada. O motor segue genérico: ele só resolve o nome e
@@ -41,6 +44,9 @@ export const TELA_POR_ID = {
   'sec01-conteudo': Sec01Conteudo,
   'sec01-pergunta': Sec01Pergunta,
   'sec01-pergunta-erro': Sec01Erro,
+  'sec02-conteudo': Sec02Conteudo,
+  'sec02-pergunta': Sec02Pergunta,
+  'sec02-pergunta-erro': Sec02Erro,
 };
 
 /** Nome da tela principal de um passo: `passo.tela` (override) ou o id. */
