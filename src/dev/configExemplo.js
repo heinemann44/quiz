@@ -15,6 +15,7 @@ export const configExemplo = {
   tema: {
     corPrimaria: '#3B4BC8',
     corSecundaria: '#D4A017',
+    corErro: '#EF4444',
     corFundo: '#E8E0F0',
     corTexto: '#1A1A2E',
     fonteCorpo: 'Inter, sans-serif',

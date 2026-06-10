@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import PerguntaBaloes from './PerguntaBaloes.jsx';
+import Baloes from './Baloes.jsx';
 import { AlbumProvider } from '../AlbumContext.jsx';
 
 const valor = {
@@ -8,8 +8,9 @@ const valor = {
   escola: null,
 };
 const passo = {
+  id: 'sec05-pergunta',
   tipo: 'pergunta',
-  variante: 'baloes',
+  tela: 'baloes',
   enunciado: 'Os apps devem criar alertas?',
   opcoes: [
     { rotulo: 'sim', texto: 'Sim' },
@@ -21,11 +22,11 @@ const passo = {
 const montar = (onResponder) =>
   render(
     <AlbumProvider valor={valor}>
-      <PerguntaBaloes passo={passo} onResponder={onResponder} />
+      <Baloes passo={passo} onResponder={onResponder} />
     </AlbumProvider>,
   );
 
-describe('PerguntaBaloes (variante Sim/Não)', () => {
+describe('Baloes (variante Sim/Não)', () => {
   it('mostra o enunciado no balão e as opções como balões', () => {
     montar(vi.fn());
     expect(

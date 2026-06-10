@@ -8,7 +8,7 @@ import BotaoAcao from '../ui/BotaoAcao.jsx';
 import RodapeAcao from '../ui/RodapeAcao.jsx';
 
 // Troféu: imagem + valor (letra/número) do código secreto + "anote!" (RF-10).
-export default function PassoTrofeu({ passo, onAvancar }) {
+export default function Trofeu({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   return (
     <section
@@ -37,7 +37,7 @@ export default function PassoTrofeu({ passo, onAvancar }) {
   );
 }
 
-PassoTrofeu.propTypes = {
+Trofeu.propTypes = {
   passo: PropTypes.object.isRequired,
   onAvancar: PropTypes.func,
 };

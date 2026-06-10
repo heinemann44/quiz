@@ -3,7 +3,7 @@ import { useAlbum } from '../AlbumContext.jsx';
 import TextoRico from '../ui/TextoRico.jsx';
 
 // Encerramento (terminal, sem botão): texto + resumo do código secreto (RF-11).
-export default function PassoEncerramento({
+export default function Encerramento({
   passo,
   codigoSecreto = [],
   figurinhas = [],
@@ -32,7 +32,7 @@ export default function PassoEncerramento({
   );
 }
 
-PassoEncerramento.propTypes = {
+Encerramento.propTypes = {
   passo: PropTypes.object.isRequired,
   codigoSecreto: PropTypes.array,
   figurinhas: PropTypes.array,

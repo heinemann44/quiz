@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useColegio } from './useColegio.js';
 import { carregarAlbum } from '../config/albuns/index.js';
 import { validarConfig } from '../engine/tipos.js';
+import { validarTelas } from '../components/telas/registro.js';
 import { logEstruturado } from '../services/log.js';
 import Carregando from '../components/ui/Carregando.jsx';
 import AvisoTela from '../components/ui/AvisoTela.jsx';
@@ -38,7 +39,7 @@ export default function AlbumPage() {
   const config = carregarAlbum(albumId);
   if (!config) return <NaoEncontrado />; // liberado no banco, mas sem config (RF-01b)
 
-  const problemas = validarConfig(config);
+  const problemas = [...validarConfig(config), ...validarTelas(config)];
   if (problemas.length > 0) {
     logEstruturado('erro', 'config-invalida', { albumId, problemas });
     return (

@@ -94,20 +94,24 @@ src/
 ├── engine/       useQuiz.js (máquina de passos) · tipos.js (validação) · estilo.js (cascata de cores) · preload.js
 ├── components/
 │   ├── layout/   MobileFrame · HeaderEscola · HeaderAlbum
-│   ├── passos/   UM componente por TIPO (P-02): Capa, BoasVindas, Conteudo, Pergunta, Trofeu, Encerramento
-│   ├── recompensa/  RevelacaoFigurinha · FigurinhaCheia
-│   └── ui/       Personagem · BalaoPersonagem · OpcaoResposta · CaixaConteudo · BotaoAcao · TextoRico
+│   ├── telas/    TELAS (P-02): registro.js (nome→tela) · Renderer · layout padrão
+│   │            por tipo (Capa/Conteudo/Pergunta/Erro/Baloes/Trofeu/…) + telas
+│   │            próprias montadas uma a uma (SecNN…) + Figurinha/FigurinhaCheia
+│   └── ui/       ELEMENTOS (átomos PUROS, sem posição): Personagem · BalaoPersonagem ·
+│                Enunciado · OpcaoResposta · OpcaoBalao · CaixaConteudo · BotaoAcao · TextoRico
 ├── config/albuns/<id>.json   ← SSOT do álbum (P-01)
 └── services/supabase.js      ← cliente + getColegio(id) → { escola, albunsLiberados }
 public/assets/<id>/  fundos · personagens · figurinhas · trofeus
 ```
 
-- Caminhos previsíveis, convenção de framework. Tela nova **de um tipo existente** =
-  entrada no JSON. Tipo novo de passo = novo componente em `passos/`. Tela **única**
-  (capa, boas-vindas, encerramento) = componente próprio à mão.
-- **Cores na config, layout no componente** (P-11): cor por cascata `tema`→`passo`→
-  `elemento`; posição por **variante nomeada** (ex.: personagem `esquerda|direita`,
-  balão `topo|lateral`), nunca x/y/âncora no JSON.
+- Caminhos previsíveis, convenção de framework. Tela que **repete** um layout
+  existente = entrada no JSON. Tela que **diverge** do print = **tela própria** em
+  `telas/SecNN….jsx` + 1 linha no `registro.js` (zero acoplamento; ajustar uma
+  NÃO afeta outra). Tipo novo de passo = nova tela-base + entrada em `TELA_POR_TIPO`.
+- **Cores na config, layout na TELA** (P-11): cor por cascata `tema`→`passo`→
+  `elemento`; **elementos `ui/` são puros (texto+cores, sem posição)** e a tela os
+  posiciona. Config seleciona **variante nomeada** (qual tela: `passo.tela`/
+  `telaErro`; personagem `esquerda|direita`), nunca x/y/âncora no JSON.
 - Sub-fluxo de recompensa (card → tela cheia) é **derivado** do campo `recompensa`
   do passo, não um passo separado na config.
 - **Rotas:** `/quiz/:escolaId` (entrada → direto | seletor | indisponível) e
@@ -152,7 +156,9 @@ funcional (com `.env` de exemplo). Sem passo manual escondido.
 
 - **P-01 — Config é a SSOT.** Nenhum texto/cor/imagem de álbum no JSX. Qualquer
   string de conteúdo hard-coded no código é bug. Conteúdo é JSON, não código.
-- **P-02 — Motor genérico.** Um componente por *tipo* de passo, nunca por tela.
+- **P-02 — Motor genérico.** O motor despacha por tipo/sub-tela e **seleciona a
+  tela nomeada** (registro): layout padrão por tipo + telas próprias montadas uma a
+  uma. Motor não conhece telas concretas; config seleciona nome, nunca coordenada.
 - **P-03 — Mobile-first ~390px** dentro de `MobileFrame` no desktop.
 - **P-04 / P-05 — Zero dado do aluno, zero persistência.** Sem login, formulário,
   analytics de aluno, `localStorage`/cookies de progresso. Recarregar reinicia.

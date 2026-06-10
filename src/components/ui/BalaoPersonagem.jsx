@@ -28,19 +28,19 @@ BicoBalao.propTypes = {
   cor: PropTypes.string,
 };
 
-// Balão de fala. variante topo|lateral só muda layout; cores vêm da config.
-// Sem borda (evita contorno em currentColor); `bico` desenha a ponta na base e
-// `corDestaque` pinta o negrito.
-export default function BalaoPersonagem({
-  texto,
-  estilo = {},
-  variante = 'lateral',
-  bico,
-}) {
+// Elemento PURO: a "nuvem" do balão de fala — só a forma + cores + texto rico.
+// Sem alinhamento próprio (era `variante topo|lateral` com `self-*`): ONDE o balão
+// fica é decisão da TELA. `bico` desenha a ponta apontando pro personagem;
+// `corDestaque` pinta o **negrito**.
+export default function BalaoPersonagem({ texto, estilo = {}, bico }) {
   return (
     <div
-      className={`relative rounded-2xl p-3 text-sm font-bold ${variante === 'topo' ? 'self-center' : 'self-start'}`}
-      style={{ backgroundColor: estilo.corFundo, color: estilo.corTexto }}
+      className="relative rounded-2xl p-3 text-sm font-bold"
+      style={{
+        backgroundColor: estilo.corFundo,
+        color: estilo.corTexto,
+        fontSize: estilo.tamanhoFonte, // tipografia da cascata (P-11); sobrepõe text-sm quando definida
+      }}
     >
       <TextoRico texto={texto} corDestaque={estilo.corDestaque} />
       {bico && <BicoBalao direcao={bico} cor={estilo.corFundo} />}
@@ -51,6 +51,5 @@ export default function BalaoPersonagem({
 BalaoPersonagem.propTypes = {
   texto: PropTypes.string,
   estilo: PropTypes.object,
-  variante: PropTypes.oneOf(['topo', 'lateral']),
   bico: PropTypes.oneOf(['esquerda', 'direita']),
 };

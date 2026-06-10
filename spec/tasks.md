@@ -24,7 +24,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 3 | Tipos de passo | ✅ concluída |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
 | 5 | Preencher conteúdo (JSON) | ✅ concluída |
-| 5.5 | Fidelidade visual ao protótipo (pixel-perfect) | ⬜ |
+| 5.5 | Fidelidade visual (telas montadas uma a uma · pixel-perfect) | ⏳ |
 | 6 | Deploy + validação | ⬜ |
 | 7 | Replicação (Álbuns 2 e 3) | ⬜ |
 
@@ -270,7 +270,7 @@ placeholder) · commit `8a39bb4`
 
 ---
 
-## Fase 5.5 — Fidelidade visual ao protótipo (pixel-perfect)   ⬜
+## Fase 5.5 — Fidelidade visual: telas montadas uma a uma (pixel-perfect)   ⏳
 
 **Objetivo:** aproximar cada tela do Álbum 1 do respectivo print em `doc/`
 (composição/posição), fechando o item de "Pronto" *"bate com o print"*. É trabalho
@@ -279,10 +279,23 @@ mexe no JSON de conteúdo** já entregue (P-01). (lacuna do `plan.md §8`, inser
 entre Fase 5 e 6)
 **Depende de:** Fase 5.
 
+**🏗️ Mudança de arquitetura (emenda v2.1):** o que vazava ajustes de uma tela pra
+outra (telas diferentes num componente só, ex.: `pergunta` e `erro` com
+`-bottom-25` compartilhado) virou: **elementos puros** em `ui/` (sem posição) +
+**telas montadas uma a uma** em `telas/` (cada uma dona do seu layout), com o
+motor genérico selecionando a **tela nomeada** (`registro.js`). Agora ajustar uma
+tela **não afeta as outras** — base estável pro pixel-perfect.
+
 **📦 Insumos do usuário:** `public/marca/consultoria.png` (logo da consultoria,
 hoje placeholder) ajuda a fechar o header. Apontar telas prioritárias se houver.
 
 **Tarefas (detalhar tela a tela ao iniciar, abrindo cada print):**
+- [x] T5.5.0 **Arquitetura "telas uma a uma"** (emenda v2.1): `ui/` vira elementos
+  PUROS (Personagem/BalaoPersonagem/OpcaoResposta sem posição; novo `Enunciado`);
+  `telas/` com layout padrão por tipo + **`Pergunta` separada de `Erro`** + telas
+  próprias da seção 1 (`Sec01*`); `registro.js` + `Renderer` (seleção por nome,
+  motor genérico); guarda `validarTelas`; teste de regressão pergunta×erro. Removidos
+  `passos/` e `recompensa/`. `tela: "baloes"` no JSON (era `variante`).
 - [ ] T5.5.1 Layout das telas de **conteúdo** (`doc/tema-N`): personagem grande na
   lateral/posição certa, balão com bico, caixas como no print.
 - [ ] T5.5.2 Layout das telas de **pergunta** e **erro** (`pergunta-N`/`errado-N`):
@@ -319,6 +332,21 @@ em todas as telas. Não reposicionar o botão pra imitar `doc/`.
   (mesmo padrão dos dois lados); logos/título reduzidos pra caber em 1 linha.
 - **Fonte-base** global 18px (público infantil) em `styles/index.css` — lever
   único de escala geral.
+- **Telas próprias:** seção 1 (`Sec01Conteudo/Pergunta/Erro`) já é componente
+  próprio (isolado). Seções 2–5 ainda usam o **layout padrão do tipo** (telas-base
+  compartilhadas) — viram tela própria quando o print exigir divergência, criando
+  `telas/SecNN….jsx` + 1 linha no `registro.js` (zero acoplamento).
+- **✅ Erro da pergunta 1 (`Sec01Erro`) — pixel-perfect concluído** (T5.5.2 parcial):
+  personagem (pose de erro) na metade direita/topo; balão na 2ª coluna; stack à
+  esquerda (meio vertical, gap 12px) com enunciado + opção errada + botão.
+  - Novo elemento **`ui/BotaoVoltar.jsx`** (retângulo dourado + borda escura + seta
+    azul curva em SVG) — separado do `BotaoAcao` de "Próxima página", que estava
+    sendo reusado errado.
+  - **Exceção à regra do botão:** aqui o "Volte" fica **no fluxo** (abaixo da opção),
+    não no `RodapeAcao` inferior-direito — decisão do usuário para esta tela. A
+    regra do canto inferior-direito segue valendo para o CTA primário "Próxima
+    página".
+  - `tamanhoFonte` passou a ser honrado pela cascata em `BalaoPersonagem` (P-11).
 
 **Pronto quando:** cada tela é visualmente equivalente ao print de `doc/`
 (a imagem vence); `npm test`/`lint`/`build` verdes; nenhuma coordenada x/y no JSON.

@@ -7,7 +7,7 @@ import BotaoAcao from '../ui/BotaoAcao.jsx';
 import RodapeAcao from '../ui/RodapeAcao.jsx';
 
 // Boas-vindas: texto corrido da missão + botão (doc/inicio/boas-vindas.png).
-export default function PassoBoasVindas({ passo, onAvancar }) {
+export default function BoasVindas({ passo, onAvancar }) {
   const { tema } = useAlbum();
   const estiloBotao = estiloDoBotao(tema, passo.botao?.estilo);
   return (
@@ -31,7 +31,7 @@ export default function PassoBoasVindas({ passo, onAvancar }) {
   );
 }
 
-PassoBoasVindas.propTypes = {
+BoasVindas.propTypes = {
   passo: PropTypes.object.isRequired,
   onAvancar: PropTypes.func,
 };

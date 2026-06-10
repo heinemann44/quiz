@@ -32,6 +32,21 @@ export function estiloDoBotao(tema = {}, ...camadas) {
   );
 }
 
+/**
+ * Cor da barra de enunciado da pergunta: faixa na `corPrimaria` com texto branco,
+ * sobrescrita opcional por `tema.enunciado`. Centraliza a resolução repetida nas
+ * telas de pergunta/erro (DRY) — só cor, layout é da tela (P-11).
+ * @param {object} tema
+ * @returns {object}
+ */
+export function estiloEnunciado(tema = {}) {
+  return resolverEstilo(
+    tema,
+    { corFundo: tema.corPrimaria, corTexto: '#FFFFFF' },
+    tema.enunciado,
+  );
+}
+
 function mesclar(acc, camada) {
   if (!camada) return acc;
   for (const [chave, valor] of Object.entries(camada)) {

@@ -12,7 +12,7 @@ import RodapeAcao from '../ui/RodapeAcao.jsx';
 // (sem cortar, pra não comer os logos das bordas) sempre deixa sobra em cima/
 // embaixo. Pintamos essa sobra com a cor da própria arte (passo.corFundo, P-11)
 // para ela virar continuação da ilustração — não uma moldura.
-export default function PassoCapa({ passo, onAvancar }) {
+export default function Capa({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   const fundo = resolverAsset(assetsBasePath, passo.imagemFundo);
   const corFundo = passo.corFundo ?? tema.corFundo;
@@ -47,7 +47,7 @@ export default function PassoCapa({ passo, onAvancar }) {
   );
 }
 
-PassoCapa.propTypes = {
+Capa.propTypes = {
   passo: PropTypes.object.isRequired,
   onAvancar: PropTypes.func,
 };

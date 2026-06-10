@@ -26,7 +26,7 @@ describe('config eca-digital.json', () => {
 
   it('a pergunta 5 usa balões Sim/Não e volta ao conteúdo ao errar (SSOT/emenda RF-05)', () => {
     const perg5 = config.passos.find((p) => p.id === 'sec05-pergunta');
-    expect(perg5.variante).toBe('baloes');
+    expect(perg5.tela).toBe('baloes');
     expect(perg5.aoErrar).toBe('voltar-conteudo');
     expect(perg5.opcoes.map((o) => o.rotulo)).toEqual(['sim', 'nao']);
   });

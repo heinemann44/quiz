@@ -10,11 +10,12 @@ import { estiloFundoTela } from '../ui/fundoTela.js';
 
 // Variante "balões" (doc/tema-5/pergunta-5): enunciado num balão no topo e o
 // personagem segurando as opções Sim/Não. Não tem sub-tela de erro — errar volta
-// ao conteúdo da seção (passo.aoErrar, resolvido no motor).
-export default function PerguntaBaloes({ passo, onResponder }) {
+// ao conteúdo da seção (passo.aoErrar, resolvido no motor). Selecionada por nome
+// na config (`tela: "baloes"`), mantendo o motor genérico (P-11).
+export default function Baloes({ passo, onResponder }) {
   const { tema, assetsBasePath, escola } = useAlbum();
   const fundoSecao = resolverAsset(assetsBasePath, passo.imagemFundo);
-  const estiloEnunciado = resolverEstilo(
+  const estiloBalao = resolverEstilo(
     tema,
     { corFundo: '#FFFFFF', corTexto: tema.corTexto },
     passo.estilo,
@@ -26,11 +27,7 @@ export default function PerguntaBaloes({ passo, onResponder }) {
     >
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
       <div className="flex flex-1 flex-col items-center gap-4 p-4">
-        <BalaoPersonagem
-          texto={passo.enunciado}
-          estilo={estiloEnunciado}
-          variante="topo"
-        />
+        <BalaoPersonagem texto={passo.enunciado} estilo={estiloBalao} />
         <div className="flex w-full justify-center gap-8">
           {passo.opcoes.map((opcao) => (
             <OpcaoBalao
@@ -44,7 +41,7 @@ export default function PerguntaBaloes({ passo, onResponder }) {
         {passo.personagem && (
           <Personagem
             src={resolverAsset(assetsBasePath, passo.personagem.imagem)}
-            posicao={passo.personagem.posicao ?? 'centro'}
+            className="h-44 w-36"
           />
         )}
       </div>
@@ -52,7 +49,7 @@ export default function PerguntaBaloes({ passo, onResponder }) {
   );
 }
 
-PerguntaBaloes.propTypes = {
+Baloes.propTypes = {
   passo: PropTypes.object.isRequired,
   onResponder: PropTypes.func,
 };

@@ -79,7 +79,7 @@
       },
       "personagemErro": {
         "imagem": "personagens/inanna-resposta-errada-pergunta-1.png",
-        "posicao": "esquerda"
+        "posicao": "direita"
       },
       "balao": {
         "texto": "Oi, meu nome é **Inanna** acerte a resposta e abra a 1ª figurinha.",
@@ -348,7 +348,7 @@
     {
       "id": "sec05-pergunta",
       "tipo": "pergunta",
-      "variante": "baloes",
+      "tela": "baloes",
       "aoErrar": "voltar-conteudo",
       "tituloHeader": "ECA Digital — seção 05",
       "imagemFundo": "fundos/secao-5.png",

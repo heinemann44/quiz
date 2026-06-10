@@ -31,7 +31,7 @@ describe('PreviewPage — fluxo completo dos passos', () => {
     clicarTexto(/público infantil/);
     expect(screen.getByText(/Figurinha Nº 01/)).toBeInTheDocument();
     proxima();
-    expect(screen.getByText('Proteção às crianças')).toBeInTheDocument();
+    expect(screen.getByAltText('Proteção às crianças')).toBeInTheDocument();
     proxima();
 
     // troféu "S"

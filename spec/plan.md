@@ -188,13 +188,15 @@ Duas coisas mantidas **separadas de propósito** (P-11), para não cair no anti-
 ```
 Elementos que aceitam `estilo` na config: `passo` (tela), `balao`, `enunciado`, `opcoes`/`opcao`, `blocos`, `botao`.
 
-**b) Layout/posição → no componente do tipo (Tailwind/JSX), via variantes nomeadas.** A config só **escolhe uma variante discreta**; as coordenadas/medidas vivem no código do componente, não no JSON.
+**b) Layout/posição → no componente de tela (Tailwind/JSX), via variantes nomeadas.** A config só **escolhe nomes discretos**; as coordenadas/medidas vivem no código, não no JSON. O nome mais importante é **qual TELA renderizar** — a tela é dona do posicionamento (P-02/P-11):
 ```jsonc
-"personagem": { "imagem": "personagens/inanna.png", "posicao": "esquerda" }, // esquerda|direita|centro
-"balao":      { "texto": "...", "variante": "topo" }                         // topo|lateral
+"tela":     "baloes",     // (opcional) seleciona uma tela nomeada no registro;
+                          //  default = o id do passo (tela própria) ou o layout padrão do tipo
+"telaErro": "sec01-pergunta-erro", // (opcional) tela da sub-tela de erro; default `${id}-erro`
+"personagem": { "imagem": "personagens/inanna.png", "posicao": "esquerda" } // esquerda|direita|centro
 ```
 
-> **Não existe posicionamento livre na config** (sem âncora/x/y/rotação/z-index). Variação de layout que não couber numa variante existente vira **nova variante no componente** ou **componente próprio** — nunca coordenada no JSON. Telas únicas (capa, boas-vindas, encerramento) são componentes feitos à mão que leem só conteúdo + cores.
+> **Não existe posicionamento livre na config** (sem âncora/x/y/rotação/z-index). Variação de layout que não couber no layout padrão do tipo vira **tela própria** (`components/telas/SecNN….jsx`) registrada por nome — nunca coordenada no JSON. Telas únicas (capa, boas-vindas, encerramento) são componentes feitos à mão que leem só conteúdo + cores. Os **elementos** (`components/ui/`) são átomos puros (texto + cores, sem posição); a **tela** os compõe.
 
 ### 5.3 Passos (campos comuns)
 Todo passo tem `id` (único) e `tipo`. Opcionalmente: `tituloHeader`, `imagemFundo`, `personagem`, `balao`, `estilo` (do passo) e `botao`.
@@ -259,23 +261,21 @@ src/
 │   │   ├── MobileFrame.jsx       → moldura de celular no desktop (P-03)
 │   │   ├── HeaderEscola.jsx      → logo escola + título seção + logo consultoria
 │   │   └── HeaderAlbum.jsx       → faixa "Álbum de Figurinhas" + contador
-│   ├── passos/                   → UM componente por TIPO (P-02)
-│   │   ├── PassoCapa.jsx
-│   │   ├── PassoBoasVindas.jsx
-│   │   ├── PassoConteudo.jsx
-│   │   ├── PassoPergunta.jsx     → inclui sub-tela de erro
-│   │   ├── PassoTrofeu.jsx
-│   │   └── PassoEncerramento.jsx
-│   ├── recompensa/
-│   │   ├── RevelacaoFigurinha.jsx
-│   │   └── FigurinhaCheia.jsx
-│   └── ui/
+│   ├── telas/                    → TELAS (P-02): Renderer seleciona a tela nomeada
+│   │   ├── registro.js          → nome→componente (por tipo = fallback; por id = própria)
+│   │   ├── Renderer.jsx         → motor→UI: resolve a tela do passo/sub-tela
+│   │   ├── Capa·BoasVindas·Conteudo·Pergunta·Erro·Baloes·Trofeu·Encerramento.jsx  (layout padrão do tipo)
+│   │   ├── Figurinha·FigurinhaCheia.jsx   (sub-fluxo de recompensa)
+│   │   └── SecNN….jsx           → telas próprias, montadas uma a uma (ex.: Sec01Pergunta)
+│   └── ui/                       → ELEMENTOS: átomos PUROS (texto+cores, sem posição)
 │       ├── Personagem.jsx
-│       ├── BalaoPersonagem.jsx
-│       ├── OpcaoResposta.jsx     → círculo do rótulo + texto (+ X no erro)
-│       ├── CaixaConteudo.jsx     → bloco texto/destaque
-│       ├── BotaoAcao.jsx
-│       └── TextoRico.jsx         → renderiza **negrito** e \n
+│       ├── BalaoPersonagem.jsx  → balão de fala (+ bico)
+│       ├── Enunciado.jsx        → barra do enunciado da pergunta
+│       ├── OpcaoResposta.jsx    → círculo do rótulo + texto (+ X no erro)
+│       ├── OpcaoBalao.jsx       → opção Sim/Não (variante balões)
+│       ├── CaixaConteudo.jsx    → bloco texto/destaque
+│       ├── BotaoAcao.jsx · RodapeAcao.jsx
+│       └── TextoRico.jsx        → renderiza **negrito** e \n
 ├── config/
 │   └── albuns/
 │       └── eca-digital.json
@@ -284,7 +284,7 @@ src/
 └── styles/  (tailwind)
 ```
 
-> A base entrega **só estes ~6 componentes de passo + recompensa + ui**. As demais seções/figurinhas do fluxo viram entradas no JSON — é assim que você montará o resto tela a tela.
+> A base entrega o **layout padrão de cada tipo** (telas-base) + os elementos `ui/`. Telas que repetem o padrão são entradas no JSON; telas que divergem do print viram **tela própria** em `telas/` (montadas uma a uma) — é assim que se fecha o pixel-perfect sem acoplar uma tela na outra.
 
 ### Assets por álbum
 ```
