@@ -24,7 +24,8 @@ export default function OpcaoResposta({
         className={`absolute flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold shadow ${errada ? '-left-4 top-1/2 -translate-y-1/2' : '-top-4'}`}
         style={{
           backgroundColor: errada ? estilo.corErro : estilo.corRotulo,
-          color: errada ? '#FFFFFF' : estilo.corTexto,
+          // letra da bola: cor própria (corRotuloTexto) ou cai na cor do texto.
+          color: errada ? '#FFFFFF' : (estilo.corRotuloTexto ?? estilo.corTexto),
         }}
       >
         {errada ? '✕' : rotulo}

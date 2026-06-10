@@ -39,11 +39,12 @@ export function estiloDoBotao(tema = {}, ...camadas) {
  * @param {object} tema
  * @returns {object}
  */
-export function estiloEnunciado(tema = {}) {
+export function estiloEnunciado(tema = {}, ...camadas) {
   return resolverEstilo(
     tema,
     { corFundo: tema.corPrimaria, corTexto: '#FFFFFF' },
     tema.enunciado,
+    ...camadas,
   );
 }
 

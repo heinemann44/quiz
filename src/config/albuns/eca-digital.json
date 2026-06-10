@@ -188,7 +188,7 @@
       },
       "balao": {
         "texto": "Agora que você já conseguiu 2 figurinhas, vamos abrir mais uma para ganhar seu **primeiro troféu**!",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000" },
         "variante": "topo"
       },
       "blocos": [
@@ -216,9 +216,16 @@
       },
       "balaoErro": {
         "texto": "Leia com atenção",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#1A1A2E" }
       },
       "enunciado": "O que a tecnologia deve garantir, além da proteção, para todas as crianças e adolescentes no digital?",
+      "estiloEnunciado": { "corFundo": "#ed9e74", "corTexto": "#000000" },
+      "estiloOpcao": {
+        "corFundo": "#bd8e10",
+        "corTexto": "#FFFFFF",
+        "corRotulo": "#FFFFFF",
+        "corRotuloTexto": "#000000"
+      },
       "opcoes": [
         { "rotulo": "A", "texto": "Inclusão e respeito às diferenças." },
         {
@@ -244,6 +251,7 @@
       "legenda": "Primeira letra do código secreto",
       "instrucao": "anote!",
       "imagemTrofeu": "trofeus/01.png",
+      "imagemFundo": "fundos/trofeu-1.png",
       "textoBotao": "Próxima página"
     },
 

@@ -22,7 +22,7 @@ export default function FigurinhaCheia({ figurinha, onAvancar }) {
         <Figura
           src={resolverAsset(assetsBasePath, figurinha.imagemCheia)}
           alt={figurinha.alt ?? figurinha.titulo ?? ''}
-          className="h-full w-full scale-120"
+          className="h-full w-full scale-108"
         />
       </div>
       <RodapeAcao>

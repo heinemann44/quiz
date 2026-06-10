@@ -114,7 +114,11 @@ describe('AlbumPage — fluxo completo do Álbum 1 (Fase 5)', () => {
     ).toBeInTheDocument();
     clica('Inclusão e respeito às diferenças.');
     revela(3);
-    expect(screen.getByText('S')).toBeInTheDocument();
+    // Troféu 1 (Sec03Trofeu): valor "S" exibido junto do "anote!"; a legenda é o
+    // marcador estável da tela. O código "S 2" é conferido no encerramento.
+    expect(
+      screen.getByText('Primeira letra do código secreto'),
+    ).toBeInTheDocument();
     proxima();
 
     // Seção 4: pergunta (2 opções) → figurinha 04; informativo → figurinha 05
