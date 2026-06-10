@@ -285,7 +285,7 @@
       },
       "balao": {
         "texto": "Vamos continuar nossa aventura.",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" },
         "variante": "topo"
       },
       "balaoErro": {
@@ -293,6 +293,7 @@
         "estilo": { "corFundo": "#D4A017", "corTexto": "#1A1A2E" }
       },
       "enunciado": "Como deve ser a segurança dos jovens no ambiente digital?",
+      "estiloEnunciado": { "corFundo": "#2c14b4" },
       "opcoes": [
         {
           "rotulo": "A",
@@ -328,7 +329,7 @@
       },
       "blocos": [
         {
-          "texto": "**Riscos a combater:** exploração, abuso sexual, violência física, intimidação, assédio e o incentivo a produtos como bebidas alcoólicas, tabaco, conteúdo pornográfico, autodiagnóstico, bullying e automedicação.",
+          "texto": "Exploração, abuso sexual, violência física, intimidação, assédio e o incentivo a produtos como bebidas alcoólicas, tabaco, conteúdo pornográfico, autodiagnóstico, bullying e automedicação.",
           "estilo": { "corFundo": "#1A1A2E", "corTexto": "#FFFFFF" }
         },
         {
