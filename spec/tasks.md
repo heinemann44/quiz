@@ -24,7 +24,7 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 3 | Tipos de passo | ✅ concluída |
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
 | 5 | Preencher conteúdo (JSON) | ✅ concluída |
-| 5.5 | Fidelidade visual (telas montadas uma a uma · pixel-perfect) | ⏳ |
+| 5.5 | Fidelidade visual (telas montadas uma a uma · pixel-perfect) | ✅ concluída |
 | 6 | Deploy + validação | ⬜ |
 | 7 | Replicação (Álbuns 2 e 3) | ⬜ |
 
@@ -270,7 +270,7 @@ placeholder) · commit `8a39bb4`
 
 ---
 
-## Fase 5.5 — Fidelidade visual: telas montadas uma a uma (pixel-perfect)   ⏳
+## Fase 5.5 — Fidelidade visual: telas montadas uma a uma (pixel-perfect)   ✅ concluída
 
 **Objetivo:** aproximar cada tela do Álbum 1 do respectivo print em `doc/`
 (composição/posição), fechando o item de "Pronto" *"bate com o print"*. É trabalho
@@ -296,22 +296,22 @@ hoje placeholder) ajuda a fechar o header. Apontar telas prioritárias se houver
   próprias da seção 1 (`Sec01*`); `registro.js` + `Renderer` (seleção por nome,
   motor genérico); guarda `validarTelas`; teste de regressão pergunta×erro. Removidos
   `passos/` e `recompensa/`. `tela: "baloes"` no JSON (era `variante`).
-- [ ] T5.5.1 Layout das telas de **conteúdo** (`doc/tema-N`): personagem grande na
-  lateral/posição certa, balão com bico, caixas como no print.
-- [ ] T5.5.2 Layout das telas de **pergunta** e **erro** (`pergunta-N`/`errado-N`):
-  enunciado, opções e pose de erro posicionados como no print.
-- [ ] T5.5.3 Layout das telas de **figurinha** (`correto-N`/`figurinha-N`): card
-  sobre o fundo comemorativo, banner e contador na posição do print.
-- [ ] T5.5.4 **Capa**, **boas-vindas**, **troféu**, **encerramento** e a variante
-  **balões** (`tema-5/pergunta-5`) batendo com os prints.
-- [ ] T5.5.5 Conferência em ~390px no `MobileFrame` (P-03) e ajuste de novas
-  variantes nomeadas onde o layout não couber nas atuais (P-11).
+- [x] T5.5.1 Layout das telas de **conteúdo** (`doc/tema-N`): cada seção virou tela
+  própria (`SecNNConteudo`) — personagem posicionado, balão com bico, caixa(s).
+- [x] T5.5.2 Layout das telas de **pergunta** e **erro** (`pergunta-N`/`errado-N`):
+  `SecNNPergunta` + `SecNNErro` por seção, com pose de erro e cores próprias.
+- [x] T5.5.3 Telas de **figurinha** (`Figurinha`/`FigurinhaCheia`): card e figurinha
+  cheia sobre o fundo comemorativo, header ajustado (contador removido a pedido).
+- [x] T5.5.4 **Capa**, **boas-vindas**, **troféu** (`Sec03Trofeu`/`Sec05Trofeu`),
+  **encerramento** e os **balões** (`Sec05Pergunta`) batendo com os prints.
+- [x] T5.5.5 Conferência em ~390px no `MobileFrame` (P-03); extensões nomeadas onde
+  faltou (`oval`/`bicoTopo` no balão, `corRotuloTexto`, `children` na caixa) — P-11.
 
 **⚖️ Regra (exceção a "a imagem vence"):** a **posição do botão de ação** é fixa —
 canto **inferior-direito**, 16px, via `RodapeAcao` — e **prevalece sobre os prints**
 em todas as telas. Não reposicionar o botão pra imitar `doc/`.
 
-**Em andamento (parcial — não fecha box ainda):**
+**Notas de implementação (concluído — Álbum 1 inteiro como telas próprias):**
 - **Capa** (parte de T5.5.4): encaixe da arte sem corte (`object-contain`,
   centralizada) e `corFundo` marinho `#001041` no passo (config, P-11) pra a
   sobra casar com a ilustração. Botão segue o padrão (direita-embaixo), não mais
@@ -332,10 +332,16 @@ em todas as telas. Não reposicionar o botão pra imitar `doc/`.
   (mesmo padrão dos dois lados); logos/título reduzidos pra caber em 1 linha.
 - **Fonte-base** global 18px (público infantil) em `styles/index.css` — lever
   único de escala geral.
-- **Telas próprias:** seção 1 (`Sec01Conteudo/Pergunta/Erro`) já é componente
-  próprio (isolado). Seções 2–5 ainda usam o **layout padrão do tipo** (telas-base
-  compartilhadas) — viram tela própria quando o print exigir divergência, criando
-  `telas/SecNN….jsx` + 1 linha no `registro.js` (zero acoplamento).
+- **Telas próprias (todas as 5 seções):** `SecNNConteudo/Pergunta/Erro` + troféus
+  (`Sec03/Sec05Trofeu`), informativo (`Sec04Informativo`) e balões (`Sec05Pergunta`)
+  — cada uma registrada por id em `registro.js`, isolada (ajustar uma não afeta as
+  outras). Telas-base por tipo seguem como fallback p/ dev/preview e álbuns futuros.
+- **Padrões próprios por tela:** seção 4 informativo (personagem grande à esquerda +
+  box escuro ao lado + box azul largo; balão **oval** inclinado); seção 5 conteúdo
+  (caixa no topo, personagem colado abaixo) e pergunta (balão de fala desenhado na
+  tela, Sim/Não sobrepostos ao personagem). Erros 3 e 4 com arranjo invertido.
+- **Encerramento:** resumo do código secreto migrou para parágrafos na config
+  (sem bloco fixo no componente); fonte reduzida.
 - **✅ Erro da pergunta 1 (`Sec01Erro`) — pixel-perfect concluído** (T5.5.2 parcial):
   personagem (pose de erro) na metade direita/topo; balão na 2ª coluna; stack à
   esquerda (meio vertical, gap 12px) com enunciado + opção errada + botão.
@@ -351,7 +357,16 @@ em todas as telas. Não reposicionar o botão pra imitar `doc/`.
 **Pronto quando:** cada tela é visualmente equivalente ao print de `doc/`
 (a imagem vence); `npm test`/`lint`/`build` verdes; nenhuma coordenada x/y no JSON.
 
-**Concluída:** —
+**🧪 Como testar:** `npm run dev` → **`/quiz/colegio-demo/eca-digital`**. Caminhe
+capa → boas-vindas → **5 seções** (cada conteúdo/pergunta/erro como tela própria;
+erre uma pergunta e confira a pose de erro + "Volte" no fluxo) → figurinhas 01–06
+(card → cheia ampliada) → troféus **"S"** e **"2"** (faixa branca, fundo
+`trofeu-1.png`) → seção 5 balões **Sim/Não** (errar "Não" volta ao conteúdo) →
+encerramento com o resumo do código nos parágrafos. Confira em ~390px no
+`MobileFrame`. Automático: `npm test` (68 verdes).
+
+**Concluída:** ✅ 2026-06-11 · commits `16e3091`→`42c6357` (5 seções + encerramento
+como telas próprias por id) · 68 testes verdes · logo da consultoria segue placeholder.
 
 ---
 
