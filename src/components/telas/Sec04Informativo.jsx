@@ -43,17 +43,10 @@ export default function Sec04Informativo({ passo, onAvancar }) {
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
 
       <div className="relative flex flex-1 flex-col gap-1 p-2">
-        {/* Inanna: esquerda, grande, ancorada embaixo e NA FRENTE (z-10). */}
-        {personagemSrc && (
-          <div className="pointer-events-none absolute top-25 left-0 z-10 w-[38%]">
-            <Personagem src={personagemSrc} className="w-full max-w-none" />
-          </div>
-        )}
-
-        {/* Balão OVAL e inclinado em direção à Inanna (-rotate-6 = layout da tela,
-            P-11), diferente do padrão retangular. */}
+        {/* Balão OVAL e inclinado em direção à Inanna (-rotate-15 = layout da tela,
+            P-11), diferente do padrão retangular. Em fluxo, no topo. */}
         {balaoTexto && (
-          <div className="relative z-20 ml-[10%] w-[75%] -rotate-15">
+          <div className="z-20 ml-[10%] w-[75%] -rotate-15">
             <BalaoPersonagem
               texto={balaoTexto}
               estilo={{ ...balaoEstilo, tamanhoFonte: '0.8rem' }}
@@ -63,24 +56,32 @@ export default function Sec04Informativo({ passo, onAvancar }) {
           </div>
         )}
 
-        {/* Box ESCURO (1º bloco): à direita, ao lado da personagem. */}
-        {blocos[0] && (
-          <div className="z-0 ml-auto w-[67%]">
-            <CaixaConteudo
-              texto={textoBloco(blocos[0])}
-              estilo={estiloBox(blocos[0])}
-            />
-          </div>
-        )}
+        {/* Linha: Inanna (esquerda) ao lado do box ESCURO (direita). A Inanna
+            agora está EM FLUXO (não mais absolute), então a altura da linha é a
+            dela — e o box AZUL abaixo cai logo abaixo da personagem. -mt sobe a
+            cabeça pra tucar sob o balão (mantém a sobreposição do print). */}
+        <div className="flex items-start gap-1">
+          {personagemSrc && (
+            <div className="z-10 w-[38%] shrink-0">
+              <Personagem src={personagemSrc} className="w-full max-w-none" />
+            </div>
+          )}
+          {blocos[0] && (
+            <div className="z-0 mt-2 flex-1">
+              <CaixaConteudo
+                texto={textoBloco(blocos[0])}
+                estilo={estiloBox(blocos[0])}
+              />
+            </div>
+          )}
+        </div>
 
-        {/* Box AZUL (2º bloco): mais largo, abaixo. */}
+        {/* Box AZUL (2º parágrafo): largura total, logo ABAIXO da personagem. */}
         {blocos[1] && (
-          <div className="z-0 ml-auto w-[100%]">
-            <CaixaConteudo
-              texto={textoBloco(blocos[1])}
-              estilo={estiloBox(blocos[1])}
-            />
-          </div>
+          <CaixaConteudo
+            texto={textoBloco(blocos[1])}
+            estilo={estiloBox(blocos[1])}
+          />
         )}
       </div>
 

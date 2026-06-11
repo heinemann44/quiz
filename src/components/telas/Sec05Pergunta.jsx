@@ -52,7 +52,7 @@ export default function Sec05Pergunta({ passo, onResponder }) {
           {personagemSrc && (
             <Personagem
               src={personagemSrc}
-              className="h-64 w-auto max-w-none"
+              className="h-80 w-auto max-w-none"
             />
           )}
           <div className="absolute left-1/2 top-1/5 flex -translate-x-1/2 -translate-y-1/2 items-center gap-13">

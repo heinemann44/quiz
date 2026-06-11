@@ -26,18 +26,31 @@ export default function Sec01Conteudo({ passo, onAvancar }) {
   const fundoSecao = resolverAsset(assetsBasePath, passo.imagemFundo);
   const esquerda = passo.personagem?.posicao === 'esquerda';
   const balaoTexto = textoBalao(passo.balao);
-  const balaoEstilo = resolverEstilo(tema, passo.estilo, estiloBalao(passo.balao));
+  const balaoEstilo = resolverEstilo(
+    tema,
+    passo.estilo,
+    estiloBalao(passo.balao),
+  );
   return (
     <section
       className="flex flex-1 flex-col bg-cover bg-center"
       style={estiloFundoTela(tema, fundoSecao)}
     >
       {escola && <HeaderEscola escola={escola} titulo={passo.tituloHeader} />}
-      <div className="flex flex-1 flex-col gap-6 p-4">
-        <div
-          className={`relative z-10 flex items-start ${esquerda ? 'flex-row-reverse' : ''}`}
-        >
-          <div className="relative z-10 flex-1">
+      <div className="flex flex-1 flex-col p-4">
+        {/* Layout fixado pelo usuário (fase 6, responsivo): balão 2/3 da largura
+            no topo-esquerda, em camada ACIMA do personagem; personagem 1/3 no
+            topo-direita com +20px de padding no topo; caixa de texto em largura
+            total logo abaixo do personagem (sem sobreposição). */}
+        {/* Grid com balão e personagem na MESMA célula: flex lado a lado nunca
+            sobrepõe (encolhe pra caber). Como camadas, cada um tem largura e
+            âncora próprias e o balão (z-10) cobre o personagem na interseção. */}
+        <div className="grid items-start">
+          <div
+            className={`relative z-10 col-start-1 row-start-1 w-2/3 ${
+              esquerda ? 'justify-self-end' : 'justify-self-start'
+            }`}
+          >
             {balaoTexto && (
               <BalaoPersonagem
                 texto={balaoTexto}
@@ -53,12 +66,16 @@ export default function Sec01Conteudo({ passo, onAvancar }) {
             )}
           </div>
           {personagemSrc && (
-            <div className="shrink-0">
-              <Personagem src={personagemSrc} className="h-60 w-35" />
+            <div
+              className={`col-start-1 row-start-1 w-2/5 pt-6 ${
+                esquerda ? 'justify-self-start' : 'justify-self-end'
+              }`}
+            >
+              <Personagem src={personagemSrc} className="w-full" />
             </div>
           )}
         </div>
-        <div className="-mt-26 flex flex-col gap-3">
+        <div className="flex flex-col">
           {(passo.blocos ?? []).map((bloco, i) => (
             <CaixaConteudo
               key={i}
