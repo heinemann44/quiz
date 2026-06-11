@@ -351,14 +351,14 @@
       "id": "sec05-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 05",
-      "imagemFundo": "fundos/secao-5.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
       "personagem": {
         "imagem": "personagens/joao-secao-5.png",
         "posicao": "esquerda"
       },
       "balao": {
         "texto": "Veja, a resposta está em **negrito**.",
-        "estilo": { "corFundo": "#D4A017", "corTexto": "#FFFFFF" },
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" },
         "variante": "topo"
       },
       "blocos": [
@@ -369,10 +369,9 @@
     {
       "id": "sec05-pergunta",
       "tipo": "pergunta",
-      "tela": "baloes",
       "aoErrar": "voltar-conteudo",
       "tituloHeader": "ECA Digital — seção 05",
-      "imagemFundo": "fundos/secao-5.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
       "personagem": {
         "imagem": "personagens/joao-pergunta-5.png",
         "posicao": "centro"
@@ -382,12 +381,12 @@
         {
           "rotulo": "sim",
           "texto": "Sim",
-          "estilo": { "corFundo": "#22C55E", "corTexto": "#FFFFFF" }
+          "estilo": { "corFundo": "#22C55E", "corTexto": "#000000" }
         },
         {
           "rotulo": "nao",
           "texto": "Não",
-          "estilo": { "corFundo": "#22C55E", "corTexto": "#FFFFFF" }
+          "estilo": { "corFundo": "#22C55E", "corTexto": "#000000" }
         }
       ],
       "respostaCorreta": "sim",
@@ -407,6 +406,7 @@
       "legenda": "Primeiro número do código secreto",
       "instrucao": "anote!",
       "imagemTrofeu": "trofeus/02.png",
+      "imagemFundo": "fundos/trofeu-1.png",
       "textoBotao": "Próxima página"
     },
 
@@ -415,16 +415,18 @@
       "tipo": "encerramento",
       "mostrarCodigoSecreto": true,
       "paragrafos": [
-        "**Missão cumprida... por enquanto!**",
-        "Parabéns! Você completou o **Álbum 1** da **Coleção Álbum Interativo ECA Digital**.",
-        "Você revelou novas figurinhas e conquistou novos troféus.",
+        "MISSÃO CUMPRIDA... POR ENQUANTO!",
+        "Parabéns! Você completou o Álbum **1** da **Coleção Álbum Interativo ECA Digital**.",
+        "Você revelou novas figurinhas.",
+        "Você conquistou novos troféus.",
         "Guarde as letras e os números dos seus troféus.",
-        "Continue no Álbum 2 para se tornar um(a) **Guardião(ã) Digital**.",
-        "Com o código secreto completo dos 3 álbuns você desbloqueia:",
-        "• O álbum completo, com todas as figurinhas.",
-        "• Todos os troféus conquistados.",
-        "• Seu Certificado de Conhecimento sobre o ECA Digital, com o seu nome.",
-        "Sua aventura continua no próximo álbum!"
+        "Continue no Álbum 2 para se tornar um(a) Guardião(ã) Digital.",
+        "Sua aventura continua!",
+        "Aqui você conquistou a letra **\"S\"** e o número **\"2\"** do seu código secreto.",
+        "**•** O álbum completo, com todas as figurinhas.",
+        "**•** Todos os troféus conquistados.",
+        "**•** Seu Certificado de Conhecimento sobre o ECA Digital, com o seu nome.",
+        "Sua missão continua no próximo álbum!"
       ]
     }
   ]

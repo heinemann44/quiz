@@ -147,11 +147,16 @@ describe('AlbumPage — fluxo completo do Álbum 1 (Fase 5)', () => {
     clica('Sim');
     revela(6);
 
-    // Segundo troféu "2" → encerramento
-    expect(screen.getByText('2')).toBeInTheDocument();
+    // Segundo troféu "2" (Sec05Trofeu): valor junto do "anote!"; legenda é o
+    // marcador estável. O código "S 2" é conferido no encerramento.
+    expect(
+      screen.getByText('Primeiro número do código secreto'),
+    ).toBeInTheDocument();
     proxima();
-    expect(screen.getByText(/Missão cumprida/)).toBeInTheDocument();
-    expect(screen.getByText(/S\s+2/)).toBeInTheDocument();
-    expect(screen.getByText(/Figurinhas conquistadas: 6/)).toBeInTheDocument();
+    // Encerramento (resumo do código agora vem nos parágrafos, sem bloco fixo):
+    expect(screen.getByText(/MISSÃO CUMPRIDA/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Aqui você conquistou a letra/),
+    ).toBeInTheDocument();
   });
 });

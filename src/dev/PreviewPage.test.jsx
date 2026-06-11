@@ -54,9 +54,7 @@ describe('PreviewPage — fluxo completo dos passos', () => {
     expect(screen.getByText('2')).toBeInTheDocument();
     proxima();
 
-    // encerramento: código secreto S 2 e 3 figurinhas
+    // encerramento (só os parágrafos; o bloco de código foi removido da tela)
     expect(screen.getByText(/Missão cumprida/)).toBeInTheDocument();
-    expect(screen.getByText(/S\s+2/)).toBeInTheDocument();
-    expect(screen.getByText(/Figurinhas conquistadas: 3/)).toBeInTheDocument();
   });
 });

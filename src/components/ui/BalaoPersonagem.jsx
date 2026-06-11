@@ -6,7 +6,7 @@ import TextoRico from './TextoRico.jsx';
 // à base do balão, ponta saindo pra fora. O canto do balão daquele lado fica
 // RETO (rounded-*-none), então o bico encosta flush, sem invadir o texto (só 2px
 // de sobreposição pra não dar fresta).
-function BicoBalao({ direcao, cor, oval }) {
+function BicoBalao({ direcao, cor, oval, topo }) {
   const direita = direcao !== 'esquerda';
   // Oval: rabinho apontando pra BAIXO, no fundo da elipse (centro = ponto mais
   // baixo, então conecta sempre); a inclinação do balão dá a direção pro
@@ -30,18 +30,22 @@ function BicoBalao({ direcao, cor, oval }) {
     );
   }
   // Retângulo: triângulo retângulo colado na lateral do lado do personagem.
+  // No rodapé (bottom-0) ou no TOPO (top-0, triângulo espelhado na vertical).
+  const vert = topo ? 'top-0' : 'bottom-0';
+  const clip = topo
+    ? direita
+      ? 'polygon(0 100%, 0 0, 100% 0)'
+      : 'polygon(100% 100%, 100% 0, 0 0)'
+    : direita
+      ? 'polygon(0 0, 0 100%, 100% 100%)'
+      : 'polygon(100% 0, 100% 100%, 0 100%)';
   return (
     <span
       aria-hidden="true"
-      className={`absolute bottom-0 h-4 w-4 ${
+      className={`absolute h-4 w-4 ${vert} ${
         direita ? 'left-full -translate-x-0.5' : 'right-full translate-x-0.5'
       }`}
-      style={{
-        backgroundColor: cor,
-        clipPath: direita
-          ? 'polygon(0 0, 0 100%, 100% 100%)'
-          : 'polygon(100% 0, 100% 100%, 0 100%)',
-      }}
+      style={{ backgroundColor: cor, clipPath: clip }}
     />
   );
 }
@@ -50,6 +54,7 @@ BicoBalao.propTypes = {
   direcao: PropTypes.oneOf(['esquerda', 'direita']),
   cor: PropTypes.string,
   oval: PropTypes.bool,
+  topo: PropTypes.bool,
 };
 
 // Elemento PURO: a "nuvem" do balão de fala — só a forma + cores + texto rico.
@@ -61,17 +66,21 @@ export default function BalaoPersonagem({
   estilo = {},
   bico,
   oval = false,
+  bicoTopo = false,
 }) {
   // oval: elipse (rounded-[50%]) com texto centralizado e mais respiro pra caber
   // na curva. retângulo: cantos arredondados, exceto o do bico (que fica reto).
   const base = oval ? 'rounded-[50%] px-8 py-6 text-center' : 'rounded-2xl p-3';
-  const cantoBico = oval
-    ? ''
-    : bico === 'direita'
-      ? 'rounded-br-none'
-      : bico === 'esquerda'
-        ? 'rounded-bl-none'
-        : '';
+  const cantoBico =
+    oval || !bico
+      ? ''
+      : bicoTopo
+        ? bico === 'direita'
+          ? 'rounded-tr-none'
+          : 'rounded-tl-none'
+        : bico === 'direita'
+          ? 'rounded-br-none'
+          : 'rounded-bl-none';
   return (
     <div
       className={`relative text-sm font-bold ${base} ${cantoBico}`}
@@ -82,7 +91,14 @@ export default function BalaoPersonagem({
       }}
     >
       <TextoRico texto={texto} corDestaque={estilo.corDestaque} />
-      {bico && <BicoBalao direcao={bico} cor={estilo.corFundo} oval={oval} />}
+      {bico && (
+        <BicoBalao
+          direcao={bico}
+          cor={estilo.corFundo}
+          oval={oval}
+          topo={bicoTopo}
+        />
+      )}
     </div>
   );
 }
@@ -92,4 +108,5 @@ BalaoPersonagem.propTypes = {
   estilo: PropTypes.object,
   bico: PropTypes.oneOf(['esquerda', 'direita']),
   oval: PropTypes.bool,
+  bicoTopo: PropTypes.bool,
 };
