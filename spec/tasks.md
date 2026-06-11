@@ -370,13 +370,45 @@ como telas próprias por id) · 68 testes verdes · logo da consultoria segue pl
 
 ---
 
-## Fase 6 — Deploy + validação   ⬜
+## Fase 6 — Deploy + validação   🟡
 
-**Objetivo:** deploy Vercel + `.env` no painel; validação com escola fictícia. (plan §8.7)
-**Depende de:** Fase 5.
-_Detalhar tarefas ao iniciar a fase._
+**Objetivo:** deploy Vercel (via GitHub) + env vars no painel; validação com escola
+fictícia. (plan §8.7) **Depende de:** Fase 5.
 
-**Concluída:** —
+**Decisões da abertura (2026-06-11):** deploy **GitHub → Vercel** (o usuário liga o
+repo no painel); validação **só em `hml`** (Preview); env vars no **padrão do plan**
+(só a anon key no front, P-10; schema por ambiente).
+
+**Tarefas (preparo de código — feito pelo agente):**
+- [x] **`vercel.json`** com SPA rewrite (`/(.*) → /index.html`). Sem ele os deep
+      links `/quiz/:escolaId/:albumId` dão 404 ao recarregar/abrir direto. Rewrite
+      roda **após** o filesystem na Vercel → assets e build seguem servidos diretos.
+- [x] **`hml` populado** via MCP com as 4 escolas fictícias (mesmos 5 desfechos do
+      seed `dev`: direto, seletor, sem-álbuns, inativo). Project
+      `slrsvoyyegqyeuhkzutz`.
+- [x] `npm run build` / `lint` / `test` (68) verdes; `get_advisors security` sem alertas.
+
+**Tarefas (ação do usuário no painel — fora do código):**
+- [ ] Conectar `heinemann44/quiz` na Vercel (framework autodetectado: Vite).
+- [ ] Env vars (Settings → Environment Variables):
+      - `VITE_SUPABASE_URL` = `https://slrsvoyyegqyeuhkzutz.supabase.co`
+      - `VITE_SUPABASE_ANON_KEY` = anon key (legacy JWT `eyJ...`) — **só a anon key** (P-10)
+      - `VITE_SUPABASE_SCHEMA` = `prd` (Production) · `hml` (Preview)
+- [ ] Validar pela **Preview** (schema `hml`) — ver "Como testar" abaixo.
+
+**🧪 Como testar (após o deploy):** abra um deploy **Preview** (qualquer branch/PR ≠
+`main` → usa `VITE_SUPABASE_SCHEMA=hml`). Na URL `…vercel.app`:
+- `/quiz/colegio-demo` → entra **direto** no álbum `eca-digital` (1 liberado).
+- `/quiz/colegio-multi` → **seletor** (2 liberados + 1 🔒 bloqueado).
+- `/quiz/colegio-sem-albuns` → **indisponível** (sem vínculos).
+- `/quiz/colegio-inativo` → **indisponível** (escola inativa vence).
+- `/quiz/colegio-xyz` → **não encontrado** (RF-15).
+- **Deep link + reload:** abra `/quiz/colegio-demo/eca-digital` direto e **recarregue
+  (F5)** — tem que carregar a tela, não 404 (valida o `vercel.json`).
+- Caminhe o Álbum 1 ponta a ponta em ~390px no `MobileFrame`.
+
+**Concluída:** — _(preparo de código pronto; aguarda o usuário ligar o repo na
+Vercel + configurar env vars + validar a Preview/hml)_
 
 ---
 
