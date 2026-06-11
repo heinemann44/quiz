@@ -370,7 +370,7 @@ como telas próprias por id) · 68 testes verdes · logo da consultoria segue pl
 
 ---
 
-## Fase 6 — Deploy + validação   🟡
+## Fase 6 — Deploy + validação   ✅
 
 **Objetivo:** deploy Vercel (via GitHub) + env vars no painel; validação com escola
 fictícia. (plan §8.7) **Depende de:** Fase 5.
@@ -389,12 +389,23 @@ repo no painel); validação **só em `hml`** (Preview); env vars no **padrão d
 - [x] `npm run build` / `lint` / `test` (68) verdes; `get_advisors security` sem alertas.
 
 **Tarefas (ação do usuário no painel — fora do código):**
-- [ ] Conectar `heinemann44/quiz` na Vercel (framework autodetectado: Vite).
-- [ ] Env vars (Settings → Environment Variables):
+- [x] Conectar `heinemann44/quiz` na Vercel (framework autodetectado: Vite).
+- [x] Env vars (Settings → Environment Variables):
       - `VITE_SUPABASE_URL` = `https://slrsvoyyegqyeuhkzutz.supabase.co`
       - `VITE_SUPABASE_ANON_KEY` = anon key (legacy JWT `eyJ...`) — **só a anon key** (P-10)
       - `VITE_SUPABASE_SCHEMA` = `prd` (Production) · `hml` (Preview)
-- [ ] Validar pela **Preview** (schema `hml`) — ver "Como testar" abaixo.
+- [x] **Validado na Preview (`hml`)** — branch `homolog`. Fluxo ponta a ponta OK no
+      aparelho após os ajustes de responsividade abaixo.
+
+**Ajustes de responsividade (no celular real, sobre a Preview/hml):**
+- [x] **Barras laterais no celular:** `MobileFrame` virou coluna **fluida**
+      (`w-full`) com teto `sm:max-w-[390px]` só no desktop. (commit `f500986`)
+- [x] **Botão cortado no celular:** `min-h-screen` → `min-h-dvh` (o `100vh` do
+      Chrome Android ignora a barra de URL e empurrava o `RodapeAcao` pra fora).
+- [x] **Telas pixel-perfect refeitas em proporção da largura** (% no lugar de px
+      fixos), pra acompanhar a coluna fluida sem quebrar a composição: `Sec01Conteudo`
+      (balão+personagem em grid/camadas), `Sec04Informativo` (Inanna em fluxo → 2º
+      parágrafo abaixo dela), `Sec05Pergunta`.
 
 **🧪 Como testar (após o deploy):** abra um deploy **Preview** (qualquer branch/PR ≠
 `main` → usa `VITE_SUPABASE_SCHEMA=hml`). Na URL `…vercel.app`:
@@ -407,8 +418,14 @@ repo no painel); validação **só em `hml`** (Preview); env vars no **padrão d
   (F5)** — tem que carregar a tela, não 404 (valida o `vercel.json`).
 - Caminhe o Álbum 1 ponta a ponta em ~390px no `MobileFrame`.
 
-**Concluída:** — _(preparo de código pronto; aguarda o usuário ligar o repo na
-Vercel + configurar env vars + validar a Preview/hml)_
+**Pendente para PRODUÇÃO (go-live — fora do escopo da validação):** popular o
+schema `prd` com as escolas reais e apontar a Production (push em `main`). A
+Production hoje usa `prd` (vazio) → mostra "indisponível" até o seed real. Decidir
+no go-live (pode acompanhar a Fase 7).
+
+**Concluída (validação):** ✅ 2026-06-11 · commits `a4101fc` (vercel.json + seed hml)
+→ `f500986` (responsividade no celular) · Preview/`hml` validada ponta a ponta no
+aparelho · 68 testes verdes. _Go-live em `prd` pendente (ver acima)._
 
 ---
 
