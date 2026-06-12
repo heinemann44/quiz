@@ -15,18 +15,30 @@ const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 // o deploy sobrescreve via VITE_SUPABASE_SCHEMA (Vercel, por ambiente).
 const schema = import.meta.env.VITE_SUPABASE_SCHEMA || 'dev';
 
-// Cliente preguiçoso: só nasce no primeiro acesso real ao banco. Assim importar
-// este módulo (ex.: em teste com FakeColegioRepo) não exige .env configurado.
-let clientMemo;
+// Cliente preguiçoso e SINGLETON GLOBAL: guardado em globalThis (não num `let` de
+// módulo) para sobreviver ao hot-reload do Vite em dev. Com `let`, cada HMR recria
+// o client e deixa instâncias do GoTrue duplicadas brigando pela sessão — aí o
+// upload do Storage pega `getSession()` vazio e vai como anon (403 de RLS). Um só
+// GoTrue garante que a sessão do login vale nas escritas autenticadas.
+const CHAVE_CLIENT = Symbol.for('album.supabaseClient');
 function client() {
   if (!url || !anonKey) {
     throw new Error(
       'Supabase não configurado: defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY no .env',
     );
   }
-  if (!clientMemo) clientMemo = createClient(url, anonKey, { db: { schema } });
-  return clientMemo;
+  if (!globalThis[CHAVE_CLIENT]) {
+    globalThis[CHAVE_CLIENT] = createClient(url, anonKey, { db: { schema } });
+  }
+  return globalThis[CHAVE_CLIENT];
 }
+
+// Client compartilhado (mesma instância carrega a sessão do Auth → as policies de
+// `authenticated` valem nas escritas do backoffice). Embrulho único do supabase-js.
+export const clienteSupabase = client;
+
+// Ambiente atual (= schema) — o adminRepo usa pra isolar a logo em logos/<schema>/.
+export const ambiente = schema;
 
 // Bucket público das logos das escolas (emenda ao P-10: Storage no lugar do
 // Cloudinary). Storage é global no projeto — o mesmo bucket serve dev/hml/prd.

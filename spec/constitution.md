@@ -56,6 +56,13 @@ Stack fixa em planos gratuitos: **React + Vite + Tailwind** (front), **Vercel** 
 > logo; o app isola por ambiente em subpastas (`logos/<schema>/<arquivo>`, pois o
 > Storage não tem schema) e resolve a URL pública por `urlPublicaLogo`.
 
+> **Emenda E-02 (2026-06-11):** introduz um **backoffice** admin (`/admin`) com
+> **Supabase Auth** (e-mail/senha) e **escrita** no banco/Storage. P-04/P-05
+> (sem login, sem escrita, sem persistência) regem **o app do aluno** — seguem
+> intactos lá. O backoffice é outro ator: escrita liberada só para usuário
+> `authenticated` via RLS; a anon key do front segue só-leitura. Auth é recurso do
+> Supabase (sem novo fornecedor; P-10 preservado).
+
 ---
 
 ## Governança

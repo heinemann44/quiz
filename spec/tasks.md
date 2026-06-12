@@ -436,3 +436,54 @@ aparelho · 68 testes verdes. _Go-live em `prd` pendente (ver acima)._
 _Detalhar por álbum ao iniciar. Se exigir código, é sinal de gap na base → volte à fase certa._
 
 **Concluída:** —
+
+---
+
+## Fase 8 — Backoffice (admin)   ✅
+
+**Objetivo:** painel `/admin` (mesmo app, fora do `MobileFrame`) para o CRUD de
+**colégios**, dos **álbuns liberados** por colégio (com o **link de acesso**) e da
+**logo** do colégio. Escopo enxuto ("só o necessário"). **Emenda E-02.**
+
+**Decisões da abertura (2026-06-11):**
+- **Auth:** Supabase Auth **e-mail/senha**; usuários admin criados no painel.
+- **Catálogo de álbuns:** vem do **código** (`config/albuns/*.json`) — álbum segue
+  SSOT em JSON (P-01); backoffice só liga/desliga e ordena por colégio.
+- **Local:** rotas `/admin/*` no **mesmo app**, atrás de login, fora do `MobileFrame`.
+- **Segurança (inegociável):** escrita só para `authenticated` (RLS por role); a
+  anon key segue só-leitura. P-04/P-05 valem para o app do **aluno**, não pro admin.
+
+**Tarefas:**
+- [x] Migration `0005`: policies de escrita (`authenticated`) em `escolas` +
+      `escola_albuns` (dev/hml/prd) e no bucket `logos`. Aplicada via MCP.
+- [x] Helpers puros + teste: `listarAlbuns()` (catálogo) e `linkDeAcesso(escolaId)`.
+- [x] `services/auth.js` (entrar/sair/sessão) e `services/adminRepo.js` (CRUD
+      escolas, vínculos, logo) — embrulhando o Supabase (DI, AGENTS §Dependências).
+- [x] UI `/admin`: login → lista de colégios → edição (nome/ativo, logo
+      upload/remover, álbuns liberados + ordem, link copiável).
+- [x] `App.jsx`: `/admin/*` fora do `MobileFrame`; guard de sessão.
+
+**Insumo do usuário:** criar o 1º usuário admin no painel do Supabase
+(Authentication → Users) — e-mail/senha. Sem isso não há login.
+
+**Armadilhas resolvidas no diagnóstico do upload de logo (403 RLS):**
+- **Client singleton (HMR):** o client do supabase-js virou singleton em
+  `globalThis` — com `let` de módulo o hot-reload recriava instâncias do GoTrue e
+  a sessão sumia no request de Storage (ia como anon).
+- **Policy de SELECT é obrigatória no upsert:** o upload usa `x-upsert`
+  (INSERT…ON CONFLICT) e o `remove()` exigem que a linha seja **visível** —
+  removê-la (pra calar o advisor "public bucket listing") quebrava o upsert e
+  fazia o remove virar no-op silencioso. Restaurada e documentada no `0005`.
+- **Cache da logo:** o arquivo é versionado (`<id>-<timestamp>.<ext>`) — URL nova
+  a cada troca, senão browser/CDN serviam a imagem antiga (max-age 3600).
+- _Nota: a troca da signing key do projeto p/ HS256 foi feita no diagnóstico mas
+  NÃO era a causa (as escritas PostgREST já passavam com ES256). Reversível._
+
+**🧪 Como testar:** `npm run dev` → `/admin`. Login (admin criado no painel) →
+lista de colégios → **+ Novo** (slug+nome) → editar: trocar nome/ativo, **logo**
+(clicar na imagem → enviar/trocar/remover), **álbuns** (Não incluído/Liberado/
+Bloqueado 🔒 + ordem), **link** copiável. Salvar reflete em `/quiz/:escolaId`.
+
+**Concluída:** ✅ 2026-06-12 · backoffice `/admin` funcional (CRUD colégios +
+vínculos + logo no Storage) validado no dev. Migration `0005`; services `auth`/
+`adminRepo`; UI em `paginas/admin` + `components/admin`.
