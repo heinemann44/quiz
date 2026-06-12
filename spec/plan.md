@@ -13,7 +13,7 @@
 | Frontend | React + Vite + Tailwind CSS | — |
 | Roteamento | react-router-dom | — |
 | Config das escolas | Supabase (Postgres) via `@supabase/supabase-js` | Free (500MB) |
-| Logos das escolas | Cloudinary | Free (25GB) |
+| Logos das escolas | Supabase Storage (bucket público `logos`) — emenda E-01 | Free (1GB) |
 | Assets dos álbuns | `public/assets/<albumId>/` (servidos pela Vercel/CDN) | — |
 | Hospedagem | Vercel (deploy via GitHub) | Hobby |
 
@@ -63,7 +63,7 @@ Duas tabelas: `escolas` (1 linha por colégio) e `escola_albuns` (1 linha por á
 |---|---|---|
 | `id` | text (PK) | Slug da escola, usado na URL (ex.: `colegio-abc`) |
 | `nome` | text | Nome de exibição |
-| `logo_url` | text | URL da logo no Cloudinary |
+| `logo_url` | text | Caminho da logo no bucket `logos` do Storage (E-01); resolvido por `urlPublicaLogo` |
 | `ativo` | boolean | `false` desativa **todos** os links do colégio sem excluir |
 | `criado_em` | timestamptz | Default `now()` |
 
@@ -294,7 +294,7 @@ public/assets/eca-digital/
 ├── figurinhas/    (NN.png e, opcional, NN_card.png)
 └── trofeus/
 ```
-Logos das **escolas** ficam no Cloudinary (vêm de `logo_url`). A logo da **consultoria** é asset estático do app.
+Logos das **escolas** ficam no Supabase Storage (bucket `logos`; `logo_url` guarda o caminho — E-01). A logo da **consultoria** é asset estático do app.
 
 ---
 

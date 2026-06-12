@@ -28,10 +28,34 @@ function client() {
   return clientMemo;
 }
 
+// Bucket público das logos das escolas (emenda ao P-10: Storage no lugar do
+// Cloudinary). Storage é global no projeto — o mesmo bucket serve dev/hml/prd.
+const BUCKET_LOGOS = 'logos';
+
+/**
+ * Resolve a referência da logo (coluna `logo_url`) para uma URL exibível.
+ * Aceita o CAMINHO no bucket (ex.: "colegio-demo.png") → URL pública do Storage,
+ * ou uma URL http(s) já pronta (compat/placeholder), repassada como veio. Função
+ * pura (não toca o client): montar a URL pública é só concatenação.
+ *
+ * Storage não tem schema como o Postgres, então isolamos por AMBIENTE numa
+ * subpasta: `logos/<schema>/<caminho>` (mesmo VITE_SUPABASE_SCHEMA do client).
+ * Assim dev/hml/prd não compartilham arquivo — espelha o schema-por-ambiente.
+ * @param {string} ref caminho no bucket de logos ou URL completa
+ * @returns {string} URL pública da logo, ou '' quando não há referência
+ */
+export function urlPublicaLogo(ref) {
+  if (!ref) return '';
+  if (/^https?:\/\//.test(ref)) return ref;
+  const base = import.meta.env.VITE_SUPABASE_URL ?? '';
+  const ambiente = import.meta.env.VITE_SUPABASE_SCHEMA || 'dev';
+  return `${base}/storage/v1/object/public/${BUCKET_LOGOS}/${ambiente}/${ref}`;
+}
+
 const mapEscola = (linha) => ({
   id: linha.id,
   nome: linha.nome,
-  logoUrl: linha.logo_url,
+  logoUrl: urlPublicaLogo(linha.logo_url),
   ativo: linha.ativo,
 });
 

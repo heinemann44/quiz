@@ -48,7 +48,13 @@ Tentativas ilimitadas por pergunta. Errar nunca bloqueia o avanço nem retira re
 A transição entre passos é **troca direta de componente** acionada por botão (o botão padrão é "Próxima página"). Animações não fazem parte do escopo da base; arte comemorativa (ex.: fundo de fogos na revelação da figurinha) é **imagem estática**, não animação.
 
 ### P-10 — Custo inicial zero
-Stack fixa em planos gratuitos: **React + Vite + Tailwind** (front), **Vercel** (host/CDN), **Supabase** (config das escolas), **Cloudinary** (logos). Trocar qualquer peça da stack é uma emenda à constituição, não uma decisão de implementação.
+Stack fixa em planos gratuitos: **React + Vite + Tailwind** (front), **Vercel** (host/CDN), **Supabase** (config das escolas **e logos**, via Storage). Trocar qualquer peça da stack é uma emenda à constituição, não uma decisão de implementação.
+
+> **Emenda E-01 (2026-06-11):** logos das escolas migram de **Cloudinary → Supabase
+> Storage** (bucket público `logos`). Motivo: remove um fornecedor da stack; o
+> Supabase já está aprovado. `escolas.logo_url` passa a guardar o **arquivo** da
+> logo; o app isola por ambiente em subpastas (`logos/<schema>/<arquivo>`, pois o
+> Storage não tem schema) e resolve a URL pública por `urlPublicaLogo`.
 
 ---
 

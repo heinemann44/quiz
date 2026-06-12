@@ -4,11 +4,14 @@ set search_path to dev;
 
 truncate escola_albuns, escolas cascade;
 
+-- logo_url = ARQUIVO no bucket `logos` (não mais URL). O app prefixa o ambiente
+-- (logos/<schema>/<arquivo>) ao montar a URL pública (urlPublicaLogo). Arquivo
+-- ausente cai no placeholder do header.
 insert into escolas (id, nome, logo_url, ativo) values
-  ('colegio-demo',       'Colégio Demo',        'https://placehold.co/160x80/3B4BC8/FFFFFF?text=Demo',  true),
-  ('colegio-multi',      'Colégio Multi Álbum', 'https://placehold.co/160x80/22C55E/FFFFFF?text=Multi', true),
-  ('colegio-sem-albuns', 'Colégio Sem Álbuns',  'https://placehold.co/160x80/D4A017/FFFFFF?text=Sem',   true),
-  ('colegio-inativo',    'Colégio Inativo',     'https://placehold.co/160x80/EF4444/FFFFFF?text=Off',   false);
+  ('colegio-demo',       'Colégio Demo',        'colegio-demo.png',       true),
+  ('colegio-multi',      'Colégio Multi Álbum', 'colegio-multi.png',      true),
+  ('colegio-sem-albuns', 'Colégio Sem Álbuns',  'colegio-sem-albuns.png', true),
+  ('colegio-inativo',    'Colégio Inativo',     'colegio-inativo.png',    false);
 
 insert into escola_albuns (escola_id, album_id, liberado, ordem) values
   ('colegio-demo',    'eca-digital',         true,  1),  -- 1 liberado → entra direto
