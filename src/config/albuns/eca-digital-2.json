@@ -1,0 +1,50 @@
+{
+  "albumId": "eca-digital-2",
+  "numeroAlbum": 2,
+  "titulo": "ECA Digital — Álbum 2",
+  "subtitulo": "Álbum 2 — Coleção Álbum Interativo",
+  "assetsBasePath": "/assets/eca-digital-2",
+
+  "tema": {
+    "corPrimaria": "#3B4BC8",
+    "corSecundaria": "#D4A017",
+    "corFundo": "#E8E0F0",
+    "corTexto": "#1A1A2E",
+    "corAcerto": "#22C55E",
+    "corErro": "#EF4444",
+    "fonteTitulo": "Poppins, sans-serif",
+    "fonteCorpo": "Inter, sans-serif",
+    "botao": {
+      "corFundo": "#ccaa61",
+      "corTexto": "#000000",
+      "corCirculo": "#64819c"
+    },
+    "caixa": { "corFundo": "#FFFFFF" },
+    "enunciado": { "corFundo": "#0755c3", "corTexto": "#FFFFFF" }
+  },
+
+  "passos": [
+    {
+      "id": "capa",
+      "tipo": "capa",
+      "imagemFundo": "fundos/capa.jpg",
+      "corFundo": "#080424",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "boas-vindas",
+      "tipo": "boas-vindas",
+      "paragrafos": [
+        "Bem-vindo(a) ao Álbum **2** da **Coleção Álbum Interativo ECA Digital**!",
+        "Sua missão é descobrir como o ECA Digital ajuda você, criança ou adolescente, a se proteger na internet.",
+        "Aqui, você aprenderá seus direitos e deveres no mundo digital.",
+        "Responda às perguntas e revele cada figurinha para avançar na sua jornada.",
+        "Conquiste troféus, complete desafios e descubra novas figurinhas pelo caminho.",
+        "Para conquistar todas as figurinhas, todos os troféus e se tornar um(a) verdadeiro(a) Guardião(ã) Digital, você também precisará completar os Álbuns 1 e 3.",
+        "Cada troféu traz um **número** ou uma **letra**, que formarão um código secreto; ao final deste Álbum **\"2\"** está explicado o que esse código oferece.",
+        "⭐ Sua aventura continua agora!"
+      ],
+      "textoBotao": "Próxima página"
+    }
+  ]
+}
