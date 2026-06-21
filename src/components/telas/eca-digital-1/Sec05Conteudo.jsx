@@ -1,21 +1,21 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo, estiloDoBotao } from '../../engine/estilo.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { resolverEstilo, estiloDoBotao } from '../../../engine/estilo.js';
 import {
   textoDoBotao,
   textoBalao,
   estiloBalao,
   textoBloco,
   estiloBloco,
-} from './campos.js';
-import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
-import CaixaConteudo from '../ui/CaixaConteudo.jsx';
-import BotaoAcao from '../ui/BotaoAcao.jsx';
-import RodapeAcao from '../ui/RodapeAcao.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+} from '../campos.js';
+import HeaderEscola from '../../layout/HeaderEscola.jsx';
+import Personagem from '../../ui/Personagem.jsx';
+import BalaoPersonagem from '../../ui/BalaoPersonagem.jsx';
+import CaixaConteudo from '../../ui/CaixaConteudo.jsx';
+import BotaoAcao from '../../ui/BotaoAcao.jsx';
+import RodapeAcao from '../../ui/RodapeAcao.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
 // TELA PRÓPRIA do conteúdo da seção 5 (doc/tema-5/tema-5.png). Padrão INVERTIDO:
 // a caixa de texto fica no TOPO (full width); abaixo, João à esquerda e o balão à

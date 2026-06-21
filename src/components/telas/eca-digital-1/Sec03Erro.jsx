@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo, estiloEnunciado } from '../../engine/estilo.js';
-import { textoBalao, estiloBalao } from './campos.js';
-import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
-import Enunciado from '../ui/Enunciado.jsx';
-import OpcaoResposta from '../ui/OpcaoResposta.jsx';
-import BotaoVoltar from '../ui/BotaoVoltar.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { resolverEstilo, estiloEnunciado } from '../../../engine/estilo.js';
+import { textoBalao, estiloBalao } from '../campos.js';
+import HeaderEscola from '../../layout/HeaderEscola.jsx';
+import Personagem from '../../ui/Personagem.jsx';
+import BalaoPersonagem from '../../ui/BalaoPersonagem.jsx';
+import Enunciado from '../../ui/Enunciado.jsx';
+import OpcaoResposta from '../../ui/OpcaoResposta.jsx';
+import BotaoVoltar from '../../ui/BotaoVoltar.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
 // TELA PRÓPRIA do erro da pergunta 3 (doc/tema-3/errado-3.png). INVERTIDA em
 // relação aos erros 1/2: personagem (pose de erro) na metade ESQUERDA/topo; balão

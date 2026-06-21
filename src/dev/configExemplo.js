@@ -1,5 +1,5 @@
 // Config de EXEMPLO só para o preview de dev (/preview). NÃO é o álbum real —
-// esse é o config/albuns/eca-digital.json da Fase 4. Cobre todos os tipos e
+// esse é o config/albuns/eca-digital-1.json da Fase 4. Cobre todos os tipos e
 // variantes (2 e 3 opções, A/B/C e Sim/Não, personagem esq/dir, balão topo/lateral).
 export const escolaExemplo = {
   id: 'colegio-demo',

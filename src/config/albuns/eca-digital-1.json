@@ -1,9 +1,9 @@
 {
-  "albumId": "eca-digital",
+  "albumId": "eca-digital-1",
   "numeroAlbum": 1,
   "titulo": "ECA Digital",
   "subtitulo": "Álbum 1 — Coleção Álbum Interativo",
-  "assetsBasePath": "/assets/eca-digital",
+  "assetsBasePath": "/assets/eca-digital-1",
   "fundoComemoracao": "fundos/fundo-figurinha.png",
   "headerFigurinha": "fundos/header-figurinha.png",
 

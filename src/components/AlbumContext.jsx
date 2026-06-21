@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // Ambiente do álbum compartilhado pelos componentes de passo: tema (cascata de
 // cores), assetsBasePath (resolução de imagem) e escola (header). Evita drilling.
 const AlbumContext = createContext({
+  albumId: '',
   tema: {},
   assetsBasePath: '',
   escola: null,
@@ -19,6 +20,7 @@ export function AlbumProvider({ valor, children }) {
 
 AlbumProvider.propTypes = {
   valor: PropTypes.shape({
+    albumId: PropTypes.string,
     tema: PropTypes.object,
     assetsBasePath: PropTypes.string,
     escola: PropTypes.object,

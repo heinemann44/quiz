@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo, estiloEnunciado } from '../../engine/estilo.js';
-import { textoBalao, estiloBalao } from './campos.js';
-import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import BalaoPersonagem from '../ui/BalaoPersonagem.jsx';
-import Enunciado from '../ui/Enunciado.jsx';
-import OpcaoResposta from '../ui/OpcaoResposta.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { resolverEstilo, estiloEnunciado } from '../../../engine/estilo.js';
+import { textoBalao, estiloBalao } from '../campos.js';
+import HeaderEscola from '../../layout/HeaderEscola.jsx';
+import Personagem from '../../ui/Personagem.jsx';
+import BalaoPersonagem from '../../ui/BalaoPersonagem.jsx';
+import Enunciado from '../../ui/Enunciado.jsx';
+import OpcaoResposta from '../../ui/OpcaoResposta.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
-// TELA PRÓPRIA da pergunta da seção 1 (doc/tema-1/pergunta-1.png). Endereçada
-// pelo id "sec01-pergunta". Ajuste posição do personagem/balão/opções AQUI sem
-// medo: mexer aqui não toca a tela de erro nem as outras seções.
-export default function Sec01Pergunta({ passo, onResponder }) {
+// TELA PRÓPRIA da pergunta da seção 2 (doc/tema-2/pergunta-2.png). Endereçada por
+// "sec02-pergunta". Espelha o layout-base de pergunta: personagem + balão no topo,
+// enunciado e opções em grade. Ajuste AQUI sem afetar outras telas.
+export default function Sec02Pergunta({ passo, onResponder }) {
   const { tema, assetsBasePath, escola } = useAlbum();
   const { balao, personagem } = passo;
   const esquerda = personagem?.posicao === 'esquerda';
@@ -47,11 +47,11 @@ export default function Sec01Pergunta({ passo, onResponder }) {
           )}
           {personagem && (
             <div
-              className={`absolute -bottom-25 ${esquerda ? 'left-0' : 'right-0'}`}
+              className={`absolute -bottom-17 ${esquerda ? 'left-0' : 'right-0'}`}
             >
               <Personagem
                 src={resolverAsset(assetsBasePath, personagem.imagem)}
-                className="h-90 w-52"
+                className="h-80 w-52"
               />
             </div>
           )}
@@ -79,7 +79,7 @@ export default function Sec01Pergunta({ passo, onResponder }) {
   );
 }
 
-Sec01Pergunta.propTypes = {
+Sec02Pergunta.propTypes = {
   passo: PropTypes.object.isRequired,
   onResponder: PropTypes.func,
 };

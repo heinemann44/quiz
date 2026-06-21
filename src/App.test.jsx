@@ -12,7 +12,7 @@ describe('App — roteamento (plan §2)', () => {
   it('entrada com 1 álbum liberado redireciona direto para o álbum (RF-01)', async () => {
     renderRota(<App />, {
       rota: '/quiz/colegio-demo',
-      porId: { 'colegio-demo': colegio([vinculo('eca-digital', true)]) },
+      porId: { 'colegio-demo': colegio([vinculo('eca-digital-1', true)]) },
     });
     // 1 álbum liberado entra direto no motor: a capa do álbum traz o botão de
     // avanço (o seletor, não — confirma o redirect direto, RF-01).

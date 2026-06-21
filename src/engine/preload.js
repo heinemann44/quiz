@@ -2,7 +2,7 @@
 // componentes de passo (Fase 3). assetsBasePath + relativo; absoluto/http passa direto.
 
 /**
- * @param {string} base  assetsBasePath da config (ex.: "/assets/eca-digital")
+ * @param {string} base  assetsBasePath da config (ex.: "/assets/eca-digital-1")
  * @param {string} caminho  relativo (ex.: "fundos/capa.png") ou absoluto
  * @returns {string}
  */

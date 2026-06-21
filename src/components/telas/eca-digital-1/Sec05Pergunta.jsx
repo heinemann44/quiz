@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo } from '../../engine/estilo.js';
-import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import OpcaoBalao from '../ui/OpcaoBalao.jsx';
-import TextoRico from '../ui/TextoRico.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { resolverEstilo } from '../../../engine/estilo.js';
+import HeaderEscola from '../../layout/HeaderEscola.jsx';
+import Personagem from '../../ui/Personagem.jsx';
+import OpcaoBalao from '../../ui/OpcaoBalao.jsx';
+import TextoRico from '../../ui/TextoRico.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
 // TELA PRÓPRIA da pergunta da seção 5 (doc/tema-5/pergunta-5.png). Variante balões
 // Sim/Não: enunciado numa caixa clara no topo; João no CENTRO com as opções nas

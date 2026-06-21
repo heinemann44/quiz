@@ -3,6 +3,7 @@ import Renderer from './Renderer.jsx';
 import { AlbumProvider } from '../AlbumContext.jsx';
 
 const valor = {
+  albumId: 'eca-digital-1',
   tema: { corPrimaria: '#000' },
   assetsBasePath: '',
   escola: null,

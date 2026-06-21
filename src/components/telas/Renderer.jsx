@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import { SubTela } from '../../engine/maquina.js';
+import { useAlbum } from '../AlbumContext.jsx';
 import {
   TELA_POR_TIPO,
-  TELA_POR_ID,
   TELA_ERRO_PADRAO,
+  TELA_POR_ALBUM,
+  TELA_COMPARTILHADA,
   nomeDaTela,
   nomeDaTelaErro,
 } from './registro.js';
@@ -17,7 +19,11 @@ import FigurinhaCheia from './FigurinhaCheia.jsx';
  * @param {{ quiz: ReturnType<import('../../engine/useQuiz.js').useQuiz> }} props
  */
 export default function Renderer({ quiz }) {
+  const { albumId } = useAlbum();
   const { passo, subTela } = quiz;
+  // Telas do álbum + variantes compartilhadas: resolução por ACESSO A MEMBRO (não
+  // chamada de função) — exigência do react-hooks/static-components no render.
+  const doAlbum = TELA_POR_ALBUM[albumId] ?? {};
 
   if (subTela === SubTela.CARD || subTela === SubTela.CHEIA) {
     const Tela = subTela === SubTela.CARD ? Figurinha : FigurinhaCheia;
@@ -33,7 +39,9 @@ export default function Renderer({ quiz }) {
   if (subTela === SubTela.ERRO) {
     // Tela de erro própria (por id/nome) ou a base de erro. Lookup no registro
     // (acesso a membro) — referência estável, sem criar componente no render.
-    const TelaErro = TELA_POR_ID[nomeDaTelaErro(passo)] ?? TELA_ERRO_PADRAO;
+    const nomeErro = nomeDaTelaErro(passo);
+    const TelaErro =
+      doAlbum[nomeErro] ?? TELA_COMPARTILHADA[nomeErro] ?? TELA_ERRO_PADRAO;
     return (
       <TelaErro
         passo={passo}
@@ -45,7 +53,9 @@ export default function Renderer({ quiz }) {
 
   // Tela própria (por id/nome) tem prioridade; sem ela, cai no layout padrão do
   // tipo (P-11: "sem variante → layout padrão").
-  const Tela = TELA_POR_ID[nomeDaTela(passo)] ?? TELA_POR_TIPO[passo.tipo];
+  const nome = nomeDaTela(passo);
+  const Tela =
+    doAlbum[nome] ?? TELA_COMPARTILHADA[nome] ?? TELA_POR_TIPO[passo.tipo];
   // Props uniformes: cada tela usa só o que precisa (avançar, responder ou o
   // resumo do encerramento). Mantém o renderer genérico, sem um wiring por tipo.
   return Tela ? (

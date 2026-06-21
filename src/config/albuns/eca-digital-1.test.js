@@ -1,10 +1,10 @@
 import { validarConfig } from '../../engine/tipos.js';
-import config from './eca-digital.json';
+import config from './eca-digital-1.json';
 
 const passosDoTipo = (tipo) => config.passos.filter((p) => p.tipo === tipo);
 
 // Guarda: o álbum real precisa passar na validação do motor (RF-03/04).
-describe('config eca-digital.json', () => {
+describe('config eca-digital-1.json', () => {
   it('passa na validação do motor sem problemas', () => {
     expect(validarConfig(config)).toEqual([]);
   });

@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { estiloDoBotao } from '../../engine/estilo.js';
-import { textoDoBotao } from './campos.js';
-import Figura from '../ui/Figura.jsx';
-import BotaoAcao from '../ui/BotaoAcao.jsx';
-import RodapeAcao from '../ui/RodapeAcao.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { estiloDoBotao } from '../../../engine/estilo.js';
+import { textoDoBotao } from '../campos.js';
+import Figura from '../../ui/Figura.jsx';
+import BotaoAcao from '../../ui/BotaoAcao.jsx';
+import RodapeAcao from '../../ui/RodapeAcao.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
-// TELA PRÓPRIA do 1º troféu — "S" (doc/trofeu/trofeu-1.png). Endereçada por
-// "sec03-trofeu". Troféu grande e centralizado; abaixo a legenda do código e o
-// valor junto do "anote!" ("S" anote!). Ajuste AQUI sem afetar outras telas.
-export default function Sec03Trofeu({ passo, onAvancar }) {
+// TELA PRÓPRIA do 2º troféu — "2" (doc/trofeu/trofeu-2.png). Endereçada por
+// "sec05-trofeu". Espelha o Sec03Trofeu: troféu grande sobre o fundo, faixa branca
+// com a legenda do código e o valor junto do "anote!" ("2" anote!).
+export default function Sec05Trofeu({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   const fundo = resolverAsset(assetsBasePath, passo.imagemFundo);
   return (
@@ -45,7 +45,7 @@ export default function Sec03Trofeu({ passo, onAvancar }) {
   );
 }
 
-Sec03Trofeu.propTypes = {
+Sec05Trofeu.propTypes = {
   passo: PropTypes.object.isRequired,
   onAvancar: PropTypes.func,
 };

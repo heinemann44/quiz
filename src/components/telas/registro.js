@@ -7,34 +7,21 @@ import Erro from './Erro.jsx';
 import Baloes from './Baloes.jsx';
 import Trofeu from './Trofeu.jsx';
 import Encerramento from './Encerramento.jsx';
-import Sec01Conteudo from './Sec01Conteudo.jsx';
-import Sec01Pergunta from './Sec01Pergunta.jsx';
-import Sec01Erro from './Sec01Erro.jsx';
-import Sec02Conteudo from './Sec02Conteudo.jsx';
-import Sec02Pergunta from './Sec02Pergunta.jsx';
-import Sec02Erro from './Sec02Erro.jsx';
-import Sec03Conteudo from './Sec03Conteudo.jsx';
-import Sec03Pergunta from './Sec03Pergunta.jsx';
-import Sec03Erro from './Sec03Erro.jsx';
-import Sec03Trofeu from './Sec03Trofeu.jsx';
-import Sec04Conteudo from './Sec04Conteudo.jsx';
-import Sec04Pergunta from './Sec04Pergunta.jsx';
-import Sec04Erro from './Sec04Erro.jsx';
-import Sec04Informativo from './Sec04Informativo.jsx';
-import Sec05Conteudo from './Sec05Conteudo.jsx';
-import Sec05Pergunta from './Sec05Pergunta.jsx';
-import Sec05Trofeu from './Sec05Trofeu.jsx';
+import ecaDigital1 from './eca-digital-1/registro.js';
 
 // Registro das telas — a config seleciona a tela por NOME (variante nomeada,
 // P-11), nunca por coordenada. O motor segue genérico: ele só resolve o nome e
-// busca aqui. Duas faixas:
+// busca aqui. Três faixas:
 //
 // 1) TELA_POR_TIPO — layout PADRÃO de cada tipo (fallback). É o que o preview de
-//    dev e álbuns futuros usam sem precisar nomear tela a tela.
-// 2) TELA_POR_ID — telas montadas UMA A UMA, endereçadas pelo id do passo (ou
-//    pelo nome em `passo.tela`/`passo.telaErro`). Cada uma é dona do seu layout;
-//    mexer numa NÃO afeta as outras. Adicionar uma tela própria = criar o
-//    componente + uma linha aqui (zero acoplamento).
+//    dev e álbuns sem tela própria usam, sem nomear tela a tela.
+// 2) TELA_COMPARTILHADA — variantes nomeadas reutilizáveis por QUALQUER álbum
+//    (ex.: pergunta Sim/Não `baloes`).
+// 3) TELA_POR_ALBUM — telas montadas UMA A UMA, escopadas por álbum. O id
+//    ("sec01-conteudo") só vale dentro do seu álbum, então álbuns diferentes
+//    reusam os mesmos ids sem colisão. Cada tela é dona do seu layout; mexer numa
+//    NÃO afeta as outras. Álbum novo = nova pasta `telas/<albumId>/` + registro +
+//    uma linha aqui (zero acoplamento, zero código de motor).
 
 export const TELA_POR_TIPO = {
   [TipoPasso.CAPA]: Capa,
@@ -48,59 +35,70 @@ export const TELA_POR_TIPO = {
 // Tela-base da sub-tela de erro (a pergunta não tem um "tipo" próprio de erro).
 export const TELA_ERRO_PADRAO = Erro;
 
-export const TELA_POR_ID = {
-  // Variante nomeada reutilizável (pergunta Sim/Não).
+// Variante nomeada reutilizável por qualquer álbum (pergunta Sim/Não). Exportado
+// como OBJETO (não função) para o Renderer resolver a tela por ACESSO A MEMBRO —
+// chamar função no render dispara react-hooks/static-components.
+export const TELA_COMPARTILHADA = {
   baloes: Baloes,
-  // Telas próprias do Álbum 1 — seção 1.
-  'sec01-conteudo': Sec01Conteudo,
-  'sec01-pergunta': Sec01Pergunta,
-  'sec01-pergunta-erro': Sec01Erro,
-  'sec02-conteudo': Sec02Conteudo,
-  'sec02-pergunta': Sec02Pergunta,
-  'sec02-pergunta-erro': Sec02Erro,
-  'sec03-conteudo': Sec03Conteudo,
-  'sec03-pergunta': Sec03Pergunta,
-  'sec03-pergunta-erro': Sec03Erro,
-  'sec03-trofeu': Sec03Trofeu,
-  'sec04-conteudo': Sec04Conteudo,
-  'sec04-pergunta': Sec04Pergunta,
-  'sec04-pergunta-erro': Sec04Erro,
-  'sec04-informativo': Sec04Informativo,
-  'sec05-conteudo': Sec05Conteudo,
-  'sec05-pergunta': Sec05Pergunta,
-  'sec05-trofeu': Sec05Trofeu,
 };
+
+// Telas próprias por álbum. Adicionar álbum 2/3 = importar o registro da pasta e
+// somar uma linha aqui (ex.: 'eca-digital-2': ecaDigital2).
+export const TELA_POR_ALBUM = {
+  'eca-digital-1': ecaDigital1,
+};
+
+const registroDoAlbum = (albumId) => TELA_POR_ALBUM[albumId] ?? {};
+
+/**
+ * Resolve a tela própria/variante de um passo dentro de um álbum: primeiro a tela
+ * própria do álbum, depois a variante compartilhada. `undefined` se não houver.
+ * Uso fora do render (validação) — o Renderer resolve por acesso a membro.
+ * @param {string} albumId
+ * @param {string} nome  id do passo ou `passo.tela`/`passo.telaErro`
+ */
+export const telaPorId = (albumId, nome) =>
+  registroDoAlbum(albumId)[nome] ?? TELA_COMPARTILHADA[nome];
 
 /** Nome da tela principal de um passo: `passo.tela` (override) ou o id. */
 export const nomeDaTela = (passo) => passo?.tela ?? passo?.id;
 
 /** Nome da tela de erro: `passo.telaErro` (override) ou `${id}-erro`. */
-export const nomeDaTelaErro = (passo) =>
-  passo?.telaErro ?? `${passo?.id}-erro`;
+export const nomeDaTelaErro = (passo) => passo?.telaErro ?? `${passo?.id}-erro`;
 
-/** Todos os nomes válidos no registro (telas próprias + variantes nomeadas). */
-export const nomesDeTela = () => Object.keys(TELA_POR_ID);
+/** Nomes válidos para um álbum (telas próprias + variantes compartilhadas). */
+const nomesDeTela = (albumId) => [
+  ...Object.keys(registroDoAlbum(albumId)),
+  ...Object.keys(TELA_COMPARTILHADA),
+];
 
 /**
  * Guarda leve: todo passo precisa resolver para uma tela renderável e todo
- * override `tela`/`telaErro` precisa existir no registro. Mensagens com contexto
- * (valor recebido + opções), no padrão do `validarConfig` (AGENTS §Erros). Roda
- * na carga, junto da validação de conteúdo — fora do motor (que segue genérico).
+ * override `tela`/`telaErro` precisa existir no registro DO ÁLBUM (ou nas
+ * compartilhadas). Mensagens com contexto (valor recebido + opções), no padrão do
+ * `validarConfig` (AGENTS §Erros). Roda na carga, junto da validação de conteúdo
+ * — fora do motor (que segue genérico).
  * @param {object} config
  * @returns {string[]} problemas (vazio = ok)
  */
 export function validarTelas(config) {
-  const nomes = nomesDeTela();
+  const albumId = config?.albumId;
+  const nomes = nomesDeTela(albumId);
+  const existe = (nome) => telaPorId(albumId, nome) != null;
   const problemas = [];
   for (const passo of config?.passos ?? []) {
     const ref = `passo "${passo?.id}"`;
-    if (passo?.tela && !TELA_POR_ID[passo.tela]) {
-      problemas.push(`tela "${passo.tela}" do ${ref} não existe no registro [${nomes.join(',')}]`);
-    } else if (!passo?.tela && !TELA_POR_ID[passo?.id] && !TELA_POR_TIPO[passo?.tipo]) {
+    if (passo?.tela && !existe(passo.tela)) {
+      problemas.push(
+        `tela "${passo.tela}" do ${ref} não existe no álbum "${albumId}" [${nomes.join(',')}]`,
+      );
+    } else if (!passo?.tela && !existe(passo?.id) && !TELA_POR_TIPO[passo?.tipo]) {
       problemas.push(`${ref} (tipo "${passo?.tipo}") não tem tela própria nem layout padrão`);
     }
-    if (passo?.telaErro && !TELA_POR_ID[passo.telaErro]) {
-      problemas.push(`telaErro "${passo.telaErro}" do ${ref} não existe no registro [${nomes.join(',')}]`);
+    if (passo?.telaErro && !existe(passo.telaErro)) {
+      problemas.push(
+        `telaErro "${passo.telaErro}" do ${ref} não existe no álbum "${albumId}" [${nomes.join(',')}]`,
+      );
     }
   }
   return problemas;

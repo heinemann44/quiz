@@ -25,8 +25,9 @@ Nenhum requisito nasce aqui; se faltar requisito, vá ao `spec.md`/`plan.md`.
 | 4 | Álbum 1 mínimo (valida `spec.md §10`) | ✅ concluída |
 | 5 | Preencher conteúdo (JSON) | ✅ concluída |
 | 5.5 | Fidelidade visual (telas montadas uma a uma · pixel-perfect) | ✅ concluída |
-| 6 | Deploy + validação | ⬜ |
-| 7 | Replicação (Álbuns 2 e 3) | ⬜ |
+| 6 | Deploy + validação | ✅ validada em `hml` (go-live `prd` pendente) |
+| 7 | Replicação (Álbuns 2 e 3) | ⏳ reestruturação feita; conteúdo pendente |
+| 8 | Backoffice (admin) | ✅ concluída |
 
 ---
 
@@ -429,11 +430,39 @@ aparelho · 68 testes verdes. _Go-live em `prd` pendente (ver acima)._
 
 ---
 
-## Fase 7 — Replicação   ⬜
+## Fase 7 — Replicação   ⏳
 
-**Objetivo:** Álbuns 2 e 3 = novo JSON + assets, **zero código**. (plan §8.8)
+**Objetivo:** Álbuns 2 e 3 (mesmo tema **ECA Digital**) = novo JSON + assets +
+telas próprias por álbum. (plan §8.8)
 **Depende de:** Fase 6.
-_Detalhar por álbum ao iniciar. Se exigir código, é sinal de gap na base → volte à fase certa._
+
+**Decisões da abertura (2026-06-21):**
+- **Identidade:** tema ≠ álbum. O id passa a carregar o número:
+  `eca-digital-1` (era `eca-digital`), `eca-digital-2`, `eca-digital-3`.
+- **Telas:** os álbuns 2/3 **divergem por seção** (não reusam o layout do 1) →
+  telas próprias **escopadas por álbum** (sem colisão de id).
+
+**Reestruturação (pré-requisito — feita pelo agente):**
+- [x] **Telas namespaced por álbum:** as 17 telas próprias do Álbum 1 foram para
+  `src/components/telas/eca-digital-1/` + `registro.js` do álbum. O registro
+  central virou **escopado por `albumId`** (`TELA_POR_ALBUM` + `TELA_COMPARTILHADA`
+  + `TELA_POR_TIPO`); o `Renderer` lê o `albumId` do `AlbumContext`. Mexer numa
+  tela/álbum não afeta os outros; os ids `sec01-…` agora valem **por álbum**.
+- [x] **Renomeação `eca-digital` → `eca-digital-1`:** JSON (`albumId`,
+  `assetsBasePath`), pasta de assets, `index.js`, `seed.sql`, testes e migration
+  `0006` (renomeia `escola_albuns.album_id` em dev/hml/prd — idempotente).
+- [x] **Scaffold dos álbuns 2/3:** `public/assets/eca-digital-2|3/README.md` com a
+  convenção; extensão documentada no `registro.js` e no `index.js`.
+- [x] `npm test` (76) / `lint` / `build` verdes.
+
+**Pendente (conteúdo — precisa de insumos do usuário):**
+- [ ] **Prints/SSOT** dos Álbuns 2 e 3 em `doc/` (hoje só há `tema-1..5` do Álbum 1).
+- [ ] **Arte** em `public/assets/eca-digital-2|3/`.
+- [ ] `eca-digital-2.json` / `eca-digital-3.json` + telas próprias + 1 linha em
+  `index.js` (catálogo) e em `TELA_POR_ALBUM`.
+- [ ] Liberar por colégio (`escola_albuns` / backoffice).
+
+> Se a base exigir **código de motor** novo (não só tela/JSON), é gap → voltar à fase certa.
 
 **Concluída:** —
 

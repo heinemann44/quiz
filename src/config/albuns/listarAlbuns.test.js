@@ -4,7 +4,7 @@ import { listarAlbuns } from './index.js';
 describe('listarAlbuns', () => {
   it('lista o catálogo como { id, titulo }', () => {
     const albuns = listarAlbuns();
-    expect(albuns).toContainEqual({ id: 'eca-digital', titulo: 'ECA Digital' });
+    expect(albuns).toContainEqual({ id: 'eca-digital-1', titulo: 'ECA Digital' });
   });
 
   it('todo item tem id e titulo não-vazios', () => {

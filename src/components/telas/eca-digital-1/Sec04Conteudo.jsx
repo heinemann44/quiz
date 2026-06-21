@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import { useAlbum } from '../AlbumContext.jsx';
-import { resolverAsset } from '../../engine/preload.js';
-import { resolverEstilo, estiloDoBotao } from '../../engine/estilo.js';
-import { textoDoBotao, textoBloco } from './campos.js';
-import HeaderEscola from '../layout/HeaderEscola.jsx';
-import Personagem from '../ui/Personagem.jsx';
-import CaixaConteudo from '../ui/CaixaConteudo.jsx';
-import BotaoAcao from '../ui/BotaoAcao.jsx';
-import RodapeAcao from '../ui/RodapeAcao.jsx';
-import { estiloFundoTela } from '../ui/fundoTela.js';
+import { useAlbum } from '../../AlbumContext.jsx';
+import { resolverAsset } from '../../../engine/preload.js';
+import { resolverEstilo, estiloDoBotao } from '../../../engine/estilo.js';
+import { textoDoBotao, textoBloco } from '../campos.js';
+import HeaderEscola from '../../layout/HeaderEscola.jsx';
+import Personagem from '../../ui/Personagem.jsx';
+import CaixaConteudo from '../../ui/CaixaConteudo.jsx';
+import BotaoAcao from '../../ui/BotaoAcao.jsx';
+import RodapeAcao from '../../ui/RodapeAcao.jsx';
+import { estiloFundoTela } from '../../ui/fundoTela.js';
 
 // TELA PRÓPRIA do conteúdo da seção 4 (doc/tema-4/tema-4.png). Endereçada por
 // "sec04-conteudo". Personagem CENTRALIZADO na horizontal no topo, seguido de UMA

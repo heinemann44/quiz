@@ -1,8 +1,9 @@
-# Assets — Álbum 1 (eca-digital)
+# Assets — Álbum 1 (eca-digital-1)
 
-Caminhos batem com `assetsBasePath: /assets/eca-digital` do
-`src/config/albuns/eca-digital.json`. Arquivo ausente → a tela mostra
-**placeholder** (nada quebra).
+Caminhos batem com `assetsBasePath: /assets/eca-digital-1` do
+`src/config/albuns/eca-digital-1.json`. Arquivo ausente → a tela mostra
+**placeholder** (nada quebra). O tema "ECA Digital" tem 3 álbuns; os assets dos
+álbuns 2 e 3 ficam em `/assets/eca-digital-2` e `/assets/eca-digital-3`.
 
 ## Convenção de nomes (em uso)
 

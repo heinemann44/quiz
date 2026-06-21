@@ -11,7 +11,7 @@ const abrir = (id, albumId, valor) =>
 
 describe('AlbumPage — validação de liberação (RF-01b)', () => {
   it('álbum liberado → entra no motor (capa → boas-vindas)', async () => {
-    abrir('colegio-x', 'eca-digital', colegio([vinculo('eca-digital', true)]));
+    abrir('colegio-x', 'eca-digital-1', colegio([vinculo('eca-digital-1', true)]));
     // A capa é arte cheia (título gravado em capa.png), então valido o motor real
     // avançando para as boas-vindas do Álbum 1.
     fireEvent.click(
@@ -32,17 +32,17 @@ describe('AlbumPage — validação de liberação (RF-01b)', () => {
   });
 
   it('álbum não liberado → bloqueado, sem revelar se existe', async () => {
-    abrir('colegio-x', 'eca-digital', colegio([vinculo('eca-digital', false)]));
+    abrir('colegio-x', 'eca-digital-1', colegio([vinculo('eca-digital-1', false)]));
     expect(await screen.findByText('Álbum não disponível')).toBeInTheDocument();
   });
 
   it('álbum fora do vínculo do colégio → bloqueado', async () => {
-    abrir('colegio-x', 'outro-album', colegio([vinculo('eca-digital', true)]));
+    abrir('colegio-x', 'outro-album', colegio([vinculo('eca-digital-1', true)]));
     expect(await screen.findByText('Álbum não disponível')).toBeInTheDocument();
   });
 
   it('escola inexistente → não encontrado', async () => {
-    abrir('colegio-x', 'eca-digital', null);
+    abrir('colegio-x', 'eca-digital-1', null);
     expect(
       await screen.findByText('Página não encontrada'),
     ).toBeInTheDocument();
@@ -51,8 +51,8 @@ describe('AlbumPage — validação de liberação (RF-01b)', () => {
   it('escola inativa → indisponível', async () => {
     abrir(
       'colegio-x',
-      'eca-digital',
-      colegio([vinculo('eca-digital', true)], { ativo: false }),
+      'eca-digital-1',
+      colegio([vinculo('eca-digital-1', true)], { ativo: false }),
     );
     expect(
       await screen.findByText(/Fale com a sua escola/),
@@ -75,7 +75,7 @@ describe('AlbumPage — fluxo completo do Álbum 1 (Fase 5)', () => {
   };
 
   it('vai da capa ao encerramento com código secreto "S 2" e 6 figurinhas', async () => {
-    abrir('colegio-x', 'eca-digital', colegio([vinculo('eca-digital', true)]));
+    abrir('colegio-x', 'eca-digital-1', colegio([vinculo('eca-digital-1', true)]));
     expect(
       await screen.findByRole('button', { name: 'Próxima página' }),
     ).toBeInTheDocument();

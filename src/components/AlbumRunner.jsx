@@ -18,6 +18,7 @@ export default function AlbumRunner({ config, escola }) {
   }, [config]);
 
   const valor = {
+    albumId: config.albumId,
     tema: config.tema,
     assetsBasePath: config.assetsBasePath,
     fundoComemoracao: config.fundoComemoracao,
