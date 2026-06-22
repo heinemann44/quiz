@@ -179,6 +179,17 @@
           "alt": "Figurinha 9 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec03-trofeu",
+      "tipo": "trofeu",
+      "valor": "G",
+      "tipoValor": "letra",
+      "legenda": "Terceiro item do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/01.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
+      "textoBotao": "Próxima página"
     }
   ]
 }

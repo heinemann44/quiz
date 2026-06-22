@@ -491,6 +491,10 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   sobrepostas às bordas. Correta = "Precisam da autorização dos pais ou responsáveis".
 - [x] **Figurinha nº 09** (arquivo `figurinhas/03.jpg`): revelação **derivada** do
   `recompensa`, igual às nº 07/08.
+- [x] **Troféu "G"** (`Sec03Trofeu`, mesmo padrão do Álbum 1): **3º item do código
+  secreto** da coleção (`valor: "G"`, `tipoValor: "letra"`); `trofeus/01.png` sobre
+  `fundo-figurinha.png` + faixa branca ("Terceiro item do código secreto" / "G"
+  anote!). Motor acumula no código ao entrar no passo.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
