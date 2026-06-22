@@ -470,9 +470,10 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
 - [x] **Seção 1 — pergunta** (`Sec01Pergunta`): balão no topo, personagem central,
   opções em balão **hexagonal** (átomo novo `ui/OpcaoHexagono`) ancoradas às bordas,
   sobrepostas à personagem. Correta = "Deve aparecer no início do acesso".
-- [x] **Figurinha 01**: revelação em 2 telas (telas-base `card→cheia`) com
-  `fundoComemoracao=fundo-figurinha.png` e `headerFigurinha` (banner). Arte é
-  autossuficiente (título/número embutidos) — motor só exibe.
+- [x] **Figurinha nº 07** (arquivo `figurinhas/01.jpg`; numeração é **global na
+  coleção** — álbum 1 usou 01–06): revelação em 2 telas (telas-base `card→cheia`)
+  com `fundoComemoracao=fundo-figurinha.png` e `headerFigurinha` (banner). Arte
+  autossuficiente — motor só exibe.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
