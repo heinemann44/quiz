@@ -45,6 +45,22 @@
         "⭐ Sua aventura continua agora!"
       ],
       "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 06",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-1.png" },
+      "balao": {
+        "texto": "Acho que as respostas estão sempre em negrito",
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#1A1A2E" }
+      },
+      "estilo": { "corTexto": "#000000" },
+      "blocos": [
+        "Artigo 8° O app ou site deve mostrar claramente a **idade indicada para uso**. Ex.: \"Indicado para maiores de 14 anos\". **Deve aparecer no início do acesso**, não em letras miúdas."
+      ],
+      "textoBotao": "Próxima página"
     }
   ]
 }
