@@ -4,6 +4,8 @@
   "titulo": "ECA Digital — Álbum 2",
   "subtitulo": "Álbum 2 — Coleção Álbum Interativo",
   "assetsBasePath": "/assets/eca-digital-2",
+  "fundoComemoracao": "fundos/fundo-figurinha.png",
+  "headerFigurinha": "fundos/header-figurinha.png",
 
   "tema": {
     "corPrimaria": "#3B4BC8",
@@ -61,6 +63,28 @@
         "Artigo 8° O app ou site deve mostrar claramente a **idade indicada para uso**. Ex.: \"Indicado para maiores de 14 anos\". **Deve aparecer no início do acesso**, não em letras miúdas."
       ],
       "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 06",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-1.png" },
+      "enunciado": "Quando o app deve mostrar para qual idade ele é indicado?",
+      "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000", "corBorda": "#FFFFFF" },
+      "opcoes": [
+        { "rotulo": "a", "texto": "Deve aparecer no início do acesso" },
+        { "rotulo": "b", "texto": "Quando for usado por mais de 10 minutos" }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 1,
+          "imagemCheia": "figurinhas/01.jpg",
+          "alt": "Figurinha 1 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }
