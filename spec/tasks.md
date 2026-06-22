@@ -455,12 +455,34 @@ telas próprias por álbum. (plan §8.8)
   convenção; extensão documentada no `registro.js` e no `index.js`.
 - [x] `npm test` (76) / `lint` / `build` verdes.
 
-**Pendente (conteúdo — precisa de insumos do usuário):**
-- [ ] **Prints/SSOT** dos Álbuns 2 e 3 em `doc/` (hoje só há `tema-1..5` do Álbum 1).
-- [ ] **Arte** em `public/assets/eca-digital-2|3/`.
-- [ ] `eca-digital-2.json` / `eca-digital-3.json` + telas próprias + 1 linha em
-  `index.js` (catálogo) e em `TELA_POR_ALBUM`.
-- [ ] Liberar por colégio (`escola_albuns` / backoffice).
+### Álbum 2 (`eca-digital-2`) — ⏳ em construção, TELA A TELA
+
+**Abordagem (diferente do álbum 1):** sem prints em `doc/` — o usuário **descreve o
+layout** em texto, fornece o **conteúdo** e dropa os **assets** em
+`public/assets/eca-digital-2/`, uma tela por vez. Liberado p/ `colegio-multi`
+(dev+hml): deep link `/quiz/colegio-multi/eca-digital-2`. Numeração de seção
+**contínua na coleção** (álbum 2 começa em **"seção 06"** no `tituloHeader`).
+
+- [x] **Capa** (tela-base `Capa`, `fundos/capa.jpg`, `corFundo #080424`).
+- [x] **Boas-vindas** (tela-base, texto da missão; realce/⭐ como o álbum 1).
+- [x] **Seção 1 — conteúdo** (`telas/eca-digital-2/Sec01Conteudo`): enunciado em
+  quadro branco/preto no topo; personagem esq + balão dir com bico no topo. Art. 8.
+- [x] **Seção 1 — pergunta** (`Sec01Pergunta`): balão no topo, personagem central,
+  opções em balão **hexagonal** (átomo novo `ui/OpcaoHexagono`) ancoradas às bordas,
+  sobrepostas à personagem. Correta = "Deve aparecer no início do acesso".
+- [x] **Figurinha 01**: revelação em 2 telas (telas-base `card→cheia`) com
+  `fundoComemoracao=fundo-figurinha.png` e `headerFigurinha` (banner). Arte é
+  autossuficiente (título/número embutidos) — motor só exibe.
+- [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
+  erro de fato (tela de erro dedicada? reler?).
+- [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
+  cabeçalho próprio) — decidir se vira tela-card própria do álbum 2.
+- [ ] **Seções 7+** (conteúdo/pergunta/figurinha 02–09), **troféus/código secreto**
+  (a figurinha traz um "2" no canto → há troféu nesse ponto?), **encerramento**.
+
+### Álbum 3 (`eca-digital-3`) — ⬜ não iniciado
+Novo JSON + telas próprias (`telas/eca-digital-3/`) + assets + 1 linha no `index.js`
+e em `TELA_POR_ALBUM` + liberação por colégio.
 
 > Se a base exigir **código de motor** novo (não só tela/JSON), é gap → voltar à fase certa.
 
