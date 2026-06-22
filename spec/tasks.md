@@ -483,6 +483,14 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   mais velho…".
 - [x] **Figurinha nº 08** (arquivo `figurinhas/02.jpg`): revelação **derivada** do
   `recompensa` (telas-base `card→cheia`), igual à nº 07.
+- [x] **Seção 3 — conteúdo** (`Sec03Conteudo`): quadro **dourado**/texto preto no
+  topo (Art. 12); abaixo, personagem com texto preto **sobreposto e centralizado**
+  na imagem ("Quem protege precisa conhecer os perigos") — reusa o campo `balao`.
+- [x] **Seção 3 — pergunta** (`Sec03Pergunta`): quadro dourado/texto preto no topo;
+  personagem central; 2 opções em **hexágono dourado** (`ui/OpcaoHexagono`)
+  sobrepostas às bordas. Correta = "Precisam da autorização dos pais ou responsáveis".
+- [x] **Figurinha nº 09** (arquivo `figurinhas/03.jpg`): revelação **derivada** do
+  `recompensa`, igual às nº 07/08.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem

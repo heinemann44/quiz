@@ -135,6 +135,50 @@
           "alt": "Figurinha 8 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec03-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 08",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-3.png" },
+      "balao": {
+        "texto": "Quem protege precisa conhecer os perigos",
+        "estilo": { "corTexto": "#000000" }
+      },
+      "estilo": { "corFundo": "#D4A017", "corTexto": "#000000" },
+      "blocos": [
+        "Artigo 12 - Apps devem permitir que pais ou responsáveis acompanhem o acesso de crianças e adolescentes, respeitando sua autonomia conforme a idade.\nCom o ECA Digital, para baixar um app, crianças e adolescentes **precisam da autorização dos pais ou responsáveis.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec03-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 08",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-3.png" },
+      "enunciado": "Com o ECA Digital, o que os jovens necessitam para baixar um app?",
+      "estilo": { "corFundo": "#D4A017", "corTexto": "#000000", "corBorda": "#D4A017" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Precisam da autorização dos pais ou responsáveis"
+        },
+        {
+          "rotulo": "b",
+          "texto": "Nada mudou, pode baixar tudo sem problemas"
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 9,
+          "imagemCheia": "figurinhas/03.jpg",
+          "alt": "Figurinha 9 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }
