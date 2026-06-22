@@ -6,6 +6,12 @@ import { clienteSupabase, ambiente, urlPublicaLogo } from './supabase.js';
 
 const BUCKET_LOGOS = 'logos';
 
+// Cache longo (1 ano) da logo no Storage. SEGURO porque o nome do arquivo é
+// VERSIONADO (id-timestamp): trocar a logo gera URL nova, então cache imutável
+// nunca serve imagem velha. Sem isto o Storage servia `no-cache` e o logo
+// revalidava (piscava) a cada troca de tela — o header remonta por passo.
+const CACHE_LOGO = '31536000';
+
 /** Linha do banco → escola do admin (com arquivo cru E url resolvida da logo). */
 const mapEscolaAdmin = (l) => ({
   id: l.id,
@@ -95,7 +101,7 @@ export async function salvarVinculos(escolaId, vinculos) {
 /**
  * Sobe a logo no Storage (logos/<ambiente>/<id>-<versao>.<ext>) e grava o nome em
  * escolas.logo_url. O nome leva um timestamp de VERSÃO: URL nova a cada troca —
- * sem isso o browser/CDN seguem servindo a imagem antiga do cache (max-age 3600),
+ * sem isso o browser/CDN seguem servindo a imagem antiga do cache (CACHE_LOGO),
  * pois a URL não mudaria. O arquivo anterior é removido (evita órfão).
  * @returns {Promise<string>} o nome do arquivo gravado.
  */
@@ -104,7 +110,10 @@ export async function enviarLogo(escolaId, file, arquivoAnterior) {
   const sb = clienteSupabase();
   const { error } = await sb.storage
     .from(BUCKET_LOGOS)
-    .upload(`${ambiente}/${arquivo}`, file, { upsert: true });
+    .upload(`${ambiente}/${arquivo}`, file, {
+      upsert: true,
+      cacheControl: CACHE_LOGO,
+    });
   if (error) throw error;
   if (arquivoAnterior && arquivoAnterior !== arquivo) {
     await sb.storage.from(BUCKET_LOGOS).remove([`${ambiente}/${arquivoAnterior}`]);

@@ -47,13 +47,24 @@ export function coletarAssets(config) {
 }
 
 /**
- * Pré-carrega os assets (best-effort, RNF-03): falha de uma imagem não quebra o
- * álbum. Sem DOM (teste/SSR) é no-op. O disparo real se valida na Fase 4.
+ * Dispara o download (best-effort) de URLs JÁ resolvidas: o navegador as guarda
+ * em cache e serve instantâneo nas telas seguintes — é o que evita o logo
+ * "recarregar" a cada troca de passo (o header remonta, mas a imagem vem do
+ * cache). Sem DOM (teste/SSR) é no-op. Ignora valores vazios.
+ * @param {Array<string|undefined>} urls
+ */
+export function precarregarImagens(urls) {
+  if (typeof Image === 'undefined') return;
+  for (const url of urls) {
+    if (url) new Image().src = url;
+  }
+}
+
+/**
+ * Pré-carrega os assets da config (best-effort, RNF-03): falha de uma imagem não
+ * quebra o álbum. Sem DOM (teste/SSR) é no-op. O disparo real se valida na Fase 4.
  * @param {object} config
  */
 export function precarregar(config) {
-  if (typeof Image === 'undefined') return;
-  for (const url of coletarAssets(config)) {
-    new Image().src = url;
-  }
+  precarregarImagens(coletarAssets(config));
 }

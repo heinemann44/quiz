@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useQuiz } from '../engine/useQuiz.js';
-import { precarregar } from '../engine/preload.js';
+import { precarregar, precarregarImagens } from '../engine/preload.js';
 import { AlbumProvider } from './AlbumContext.jsx';
 import Renderer from './telas/Renderer.jsx';
 
@@ -16,6 +16,11 @@ export default function AlbumRunner({ config, escola }) {
   useEffect(() => {
     precarregar(config);
   }, [config]);
+  // O logo do colégio vem do Supabase (fora da config); aquece o cache uma vez
+  // pra ele não recarregar a cada troca de tela — o header remonta por passo.
+  useEffect(() => {
+    precarregarImagens([escola?.logoUrl]);
+  }, [escola?.logoUrl]);
 
   const valor = {
     albumId: config.albumId,

@@ -34,6 +34,9 @@ function LogoEscola({ escola, cor }) {
       src={escola.logoUrl}
       alt={`Logo ${escola.nome}`}
       className="h-7 w-auto shrink-0 object-contain"
+      // decode síncrono: ao remontar o header (cada passo), pinta do cache no
+      // mesmo frame em vez de "piscar" com o decode assíncrono padrão.
+      decoding="sync"
       onError={() => setFalhou(true)}
     />
   );
