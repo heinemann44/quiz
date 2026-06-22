@@ -474,6 +474,15 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   coleção** — álbum 1 usou 01–06): revelação em 2 telas (telas-base `card→cheia`)
   com `fundoComemoracao=fundo-figurinha.png` e `headerFigurinha` (banner). Arte
   autossuficiente — motor só exibe.
+- [x] **Seção 2 — conteúdo** (`Sec02Conteudo`): quadro branco com **borda laranja**
+  no topo (`ui/CaixaConteudo` ganhou `corBorda`); personagem esq + balão dir. Art. 10.
+- [x] **Seção 2 — pergunta** (`Sec02Pergunta`): personagem centralizada no topo;
+  pergunta colada/sobreposta (quadro branco/borda laranja); 2 alternativas
+  retangulares lado a lado (A/B) com bolinha da letra no topo — `ui/OpcaoResposta`
+  ganhou `corBorda` + `tamanhoRotulo`/`tamanhoTexto`. Correta = "Não, conforme fica
+  mais velho…".
+- [x] **Figurinha nº 08** (arquivo `figurinhas/02.jpg`): revelação **derivada** do
+  `recompensa` (telas-base `card→cheia`), igual à nº 07.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem

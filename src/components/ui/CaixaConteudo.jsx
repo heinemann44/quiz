@@ -5,6 +5,7 @@ import TextoRico from './TextoRico.jsx';
 // `className` extra ajusta layout pontual (ex.: enunciado centralizado).
 // `children` (opcional) renderiza ANTES do texto — útil p/ um espaçador `float`
 // que faz o texto contornar o personagem (P-11: layout fica na tela).
+// `estilo.corBorda` (opcional) desenha a moldura — cor vem da config (P-11).
 export default function CaixaConteudo({
   texto,
   estilo = {},
@@ -14,7 +15,11 @@ export default function CaixaConteudo({
   return (
     <div
       className={`rounded-lg p-3 ${className}`}
-      style={{ backgroundColor: estilo.corFundo, color: estilo.corTexto }}
+      style={{
+        backgroundColor: estilo.corFundo,
+        color: estilo.corTexto,
+        border: estilo.corBorda ? `2px solid ${estilo.corBorda}` : undefined,
+      }}
     >
       {children}
       <TextoRico texto={texto} />

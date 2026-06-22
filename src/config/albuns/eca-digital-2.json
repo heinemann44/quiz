@@ -85,6 +85,56 @@
           "alt": "Figurinha 7 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec02-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 07",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-2.png" },
+      "balao": {
+        "texto": "Leia com atenção e responda o certo!",
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#1A1A2E" }
+      },
+      "estilo": { "corTexto": "#000000", "corBorda": "#F97316" },
+      "blocos": [
+        "**Artigo 10**\nO app deve mudar conforme você cresce.\nQuando você é menor, seus pais podem ajudar a cuidar do que você acessa.\n**Conforme fica mais velho, você ganha mais liberdade e autonomia.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec02-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 07",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-2.png" },
+      "enunciado": "Toda criança, de qualquer idade, tem liberdade para acessar tudo no digital?",
+      "estilo": {
+        "corFundo": "#FFFFFF",
+        "corTexto": "#000000",
+        "corBorda": "#F97316",
+        "corRotulo": "#FFFFFF",
+        "corRotuloTexto": "#000000"
+      },
+      "opcoes": [
+        {
+          "rotulo": "A",
+          "texto": "Não, conforme fica mais velho, você ganha mais liberdade e autonomia."
+        },
+        {
+          "rotulo": "B",
+          "texto": "Sim, no digital não importa a idade, nada é proibido para crianças."
+        }
+      ],
+      "respostaCorreta": "A",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 8,
+          "imagemCheia": "figurinhas/02.jpg",
+          "alt": "Figurinha 8 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }
