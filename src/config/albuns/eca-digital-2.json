@@ -373,6 +373,44 @@
           "alt": "Figurinha 13 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec08-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 13",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-8.png" },
+      "balao": {
+        "texto": "O ECA Digital foi feito para proteger crianças e adolescentes.",
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" }
+      },
+      "estilo": { "corFundo": "#FBCFE8", "corTexto": "#000000" },
+      "blocos": [
+        "Artigo 22 Com o ECA Digital as Empresas **não podem** usar seus gostos, emoções ou jogos que façam você se sentir dentro da história para mostrar propaganda e tentar fazer crianças e adolescentes comprarem coisas."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec08-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 13",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-8.png" },
+      "enunciado": "Empresas podem usar os gostos e emoções dos jovens para mostrar propagandas?",
+      "estilo": { "corFundo": "#FBCFE8", "corTexto": "#000000" },
+      "opcoes": [
+        { "rotulo": "a", "texto": "Podem" },
+        { "rotulo": "b", "texto": "Não podem" }
+      ],
+      "respostaCorreta": "b",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 14,
+          "imagemCheia": "figurinhas/08.jpg",
+          "alt": "Figurinha 14 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }

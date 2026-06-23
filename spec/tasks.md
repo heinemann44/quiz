@@ -530,6 +530,12 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   central e 2 opções **quadradas** (`ui/OpcaoRetangulo`) — mesmas cores da seção.
   Correta = "É preciso autorização dos pais ou responsáveis.".
 - [x] **Figurinha nº 13** (arquivo `figurinhas/07.jpg`): revelação **derivada**.
+- [x] **Seção 8 — conteúdo** (`Sec08Conteudo`): quadro **rosa claro**/texto preto
+  (Art. 22); balão branco com **ponta pra baixo**; personagem em largura máxima.
+- [x] **Seção 8 — pergunta** (`Sec08Pergunta`): balão rosa no topo, personagem em
+  largura máxima e 2 **quadrados pequenos** ("Podem"/"Não podem") afastados.
+  Correta = "Não podem".
+- [x] **Figurinha nº 14** (arquivo `figurinhas/08.jpg`): revelação **derivada**.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
