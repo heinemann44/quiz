@@ -278,6 +278,57 @@
           "alt": "Figurinha 11 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec06-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 11",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-6.png" },
+      "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" },
+      "blocos": [
+        "Artigo 20 Acabou a caixa-surpresa!\nQualquer Jogo para jovens e adolescentes **está proibido** ter caixas-surpresa, para que isso não vire um vício ou um gasto fora do controle. Isso é igual um jogo de azar disfarçado."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec06-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 11",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-6.png" },
+      "enunciado": "Com o ECA Digital as caixas-surpresa em jogos eletrônicos estão liberadas?",
+      "balao": { "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" } },
+      "personagemErro": { "imagem": "personagens/resposta-errada-6.png" },
+      "balaoErro": {
+        "texto": "Lance outra bola, tente novamente",
+        "estilo": { "corFundo": "#D4A017", "corTexto": "#000000" }
+      },
+      "textoBotaoErro": "Voltar",
+      "estilo": { "corFundo": "#EF4444", "corAnel": "#FFFFFF", "corTexto": "#000000" },
+      "opcoes": [
+        { "rotulo": "a", "texto": "Não" },
+        { "rotulo": "b", "texto": "Sim" }
+      ],
+      "respostaCorreta": "a",
+      "recompensa": {
+        "figurinha": {
+          "numero": 12,
+          "imagemCheia": "figurinhas/06.jpg",
+          "alt": "Figurinha 12 — ECA Digital Álbum 2"
+        }
+      }
+    },
+    {
+      "id": "sec06-trofeu",
+      "tipo": "trofeu",
+      "valor": "Y",
+      "tipoValor": "letra",
+      "legenda": "Quarto item do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/02.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
+      "textoBotao": "Próxima página"
     }
   ]
 }

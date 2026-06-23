@@ -8,10 +8,10 @@ import BotaoAcao from '../../ui/BotaoAcao.jsx';
 import RodapeAcao from '../../ui/RodapeAcao.jsx';
 import { estiloFundoTela } from '../../ui/fundoTela.js';
 
-// TELA PRÓPRIA do troféu do Álbum 2 — mesmo padrão do Álbum 1 (troféu grande
-// centralizado + faixa branca com a legenda do código e "valor" anote!). É o 3º
-// item do código secreto da coleção ("G"). Isolada por álbum — cópia do padrão,
-// não importa a tela do Álbum 1 (mexer lá não afeta aqui).
+// TELA do troféu do Álbum 2 — mesmo padrão do Álbum 1 (troféu grande centralizado
+// + faixa branca com a legenda do código e "valor" anote!). GENÉRICA por config:
+// serve os DOIS troféus do álbum (sec03-trofeu = "G", sec06-trofeu = "Y") — só
+// muda valor/legenda/imagem no JSON. Isolada por álbum (não importa a tela do A1).
 export default function Sec03Trofeu({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   const fundo = resolverAsset(assetsBasePath, passo.imagemFundo);

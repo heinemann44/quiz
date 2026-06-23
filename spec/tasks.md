@@ -512,6 +512,18 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   lado. Correta = "Você deve saber quando está sendo monitorado.".
 - [x] **Figurinha nº 11** (arquivo `figurinhas/05.jpg`): revelação **derivada** do
   `recompensa`, igual às nº 07–10.
+- [x] **Seção 6 — conteúdo** (`Sec06Conteudo`): enunciado em caixa branca/texto
+  preto no topo (Art. 20); personagem à direita pouco sobreposto.
+- [x] **Seção 6 — pergunta** (`Sec06Pergunta`): balão branco no topo; personagem
+  embaixo à esq.; "Não"/"Sim" em formato de **ALVO** (átomo novo `ui/OpcaoAlvo`,
+  rótulo com contorno) lado a lado à dir. Correta = "Não".
+- [x] **Seção 6 — ERRO dedicado** (`Sec06Erro`, `sec06-pergunta-erro`): 1ª pergunta
+  do álbum a usar tela de erro de fato (tirado o `aoErrar`). Pose de erro
+  `resposta-errada-6.png` à esq., balão dourado "Lance outra bola…" à dir., e o
+  `ui/BotaoVoltar` (mesmo do Álbum 1). `personagemErro`/`balaoErro` na config.
+- [x] **Figurinha nº 12** (arquivo `figurinhas/06.jpg`): revelação **derivada**.
+- [x] **Troféu "Y"** (`sec06-trofeu`, **4º item** do código): REUSA a tela do troféu
+  "G" (config-driven, sem duplicar); `valor "Y"`/`tipoValor "letra"`, `trofeus/02.png`.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem

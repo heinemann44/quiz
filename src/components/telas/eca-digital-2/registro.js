@@ -9,6 +9,9 @@ import Sec04Conteudo from './Sec04Conteudo.jsx';
 import Sec04Pergunta from './Sec04Pergunta.jsx';
 import Sec05Conteudo from './Sec05Conteudo.jsx';
 import Sec05Pergunta from './Sec05Pergunta.jsx';
+import Sec06Conteudo from './Sec06Conteudo.jsx';
+import Sec06Pergunta from './Sec06Pergunta.jsx';
+import Sec06Erro from './Sec06Erro.jsx';
 
 // Telas próprias do álbum eca-digital-2 — endereçadas pelo id do passo. Escopo
 // POR ÁLBUM: estes ids só valem aqui (não colidem com os do eca-digital-1). Cada
@@ -26,4 +29,10 @@ export default {
   'sec04-pergunta': Sec04Pergunta,
   'sec05-conteudo': Sec05Conteudo,
   'sec05-pergunta': Sec05Pergunta,
+  'sec06-conteudo': Sec06Conteudo,
+  'sec06-pergunta': Sec06Pergunta,
+  'sec06-pergunta-erro': Sec06Erro,
+  // 2º troféu do álbum ("Y"): layout idêntico ao 1º e todo config-driven, então
+  // REUSA a mesma tela (AGENTS: "layout que repete = entrada no JSON").
+  'sec06-trofeu': Sec03Trofeu,
 };
