@@ -329,6 +329,50 @@
       "imagemTrofeu": "trofeus/02.png",
       "imagemFundo": "fundos/fundo-figurinha.png",
       "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec07-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 12",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-7.png" },
+      "balao": {
+        "texto": "Leia o texto com atenção",
+        "estilo": { "corFundo": "#1E3A8A", "corTexto": "#FFFFFF" }
+      },
+      "estilo": { "corFundo": "#1E3A8A", "corTexto": "#FFFFFF" },
+      "blocos": [
+        "Artigo 21 Se o jogo tiver chat, ele deve vir limitado por padrão.\nPara usar a conversa, **é preciso a autorização dos pais ou responsáveis.**\nA segurança vem antes da conversa!"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec07-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 12",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-7.png" },
+      "enunciado": "O que é preciso para crianças e adolescentes usarem o chat em jogos?",
+      "estilo": { "corFundo": "#1E3A8A", "corTexto": "#FFFFFF" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "É preciso autorização dos pais ou responsáveis."
+        },
+        {
+          "rotulo": "b",
+          "texto": "Não precisa de nada. É só usar livremente"
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 13,
+          "imagemCheia": "figurinhas/07.jpg",
+          "alt": "Figurinha 13 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }

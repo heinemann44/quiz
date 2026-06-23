@@ -524,6 +524,12 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
 - [x] **Figurinha nº 12** (arquivo `figurinhas/06.jpg`): revelação **derivada**.
 - [x] **Troféu "Y"** (`sec06-trofeu`, **4º item** do código): REUSA a tela do troféu
   "G" (config-driven, sem duplicar); `valor "Y"`/`tipoValor "letra"`, `trofeus/02.png`.
+- [x] **Seção 7 — conteúdo** (`Sec07Conteudo`): quadro **azul escuro**/texto branco
+  no topo (Art. 21); abaixo, personagem à esq. + balão dir. nas mesmas cores.
+- [x] **Seção 7 — pergunta** (`Sec07Pergunta`): balão azul escuro no topo, personagem
+  central e 2 opções **quadradas** (`ui/OpcaoRetangulo`) — mesmas cores da seção.
+  Correta = "É preciso autorização dos pais ou responsáveis.".
+- [x] **Figurinha nº 13** (arquivo `figurinhas/07.jpg`): revelação **derivada**.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
