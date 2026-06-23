@@ -495,6 +495,15 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   secreto** da coleção (`valor: "G"`, `tipoValor: "letra"`); `trofeus/01.png` sobre
   `fundo-figurinha.png` + faixa branca ("Terceiro item do código secreto" / "G"
   anote!). Motor acumula no código ao entrar no passo.
+- [x] **Seção 4 — conteúdo** (`Sec04Conteudo`): personagem esq (topo) + balão
+  **amarelo**/texto azul escuro à dir.; abaixo, quadro amarelo colado ao personagem
+  (Art. 18). Cores na config.
+- [x] **Seção 4 — pergunta** (`Sec04Pergunta`): balão amarelo no topo (texto marrom
+  escuro, bico pra baixo); personagem em largura máxima; 2 opções **quadradas**
+  amarelas abaixo (átomo novo `ui/OpcaoRetangulo` — forma/tamanho via `className`/
+  `tamanhoTexto`, P-11). Correta = "Fácil de usar e explicado em português".
+- [x] **Figurinha nº 10** (arquivo `figurinhas/04.jpg`): revelação **derivada** do
+  `recompensa`, igual às nº 07–09.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem

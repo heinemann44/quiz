@@ -190,6 +190,50 @@
       "imagemTrofeu": "trofeus/01.png",
       "imagemFundo": "fundos/fundo-figurinha.png",
       "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec04-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 09",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-4.png" },
+      "balao": {
+        "texto": "As informações devem estar sempre em português",
+        "estilo": { "corFundo": "#FFEB3B", "corTexto": "#1E3A8A" }
+      },
+      "estilo": { "corFundo": "#FFEB3B", "corTexto": "#1E3A8A" },
+      "blocos": [
+        "**Artigo 18**\nSeus pais podem ajudar a proteger você do app: ver e ajustar sua privacidade, bloquear compras, acompanhar seu tempo de uso e ativar proteções.\nTudo deve ser **fácil de usar e explicado em português.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec04-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 09",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-4.png" },
+      "enunciado": "Como as proteções devem ser apresentadas quando os jovens entram no app?",
+      "estilo": { "corFundo": "#FFEB3B", "corTexto": "#4E342E" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Fácil de usar e explicado em português"
+        },
+        {
+          "rotulo": "b",
+          "texto": "Podem estar em qualquer idioma"
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 10,
+          "imagemCheia": "figurinhas/04.jpg",
+          "alt": "Figurinha 10 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }
