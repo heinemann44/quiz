@@ -455,7 +455,7 @@ telas próprias por álbum. (plan §8.8)
   convenção; extensão documentada no `registro.js` e no `index.js`.
 - [x] `npm test` (76) / `lint` / `build` verdes.
 
-### Álbum 2 (`eca-digital-2`) — ⏳ em construção, TELA A TELA
+### Álbum 2 (`eca-digital-2`) — ✅ COMPLETO, TELA A TELA (seções 1–9 + 3 troféus + encerramento)
 
 **Abordagem (diferente do álbum 1):** sem prints em `doc/` — o usuário **descreve o
 layout** em texto, fornece o **conteúdo** e dropa os **assets** em
@@ -536,12 +536,20 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   largura máxima e 2 **quadrados pequenos** ("Podem"/"Não podem") afastados.
   Correta = "Não podem".
 - [x] **Figurinha nº 14** (arquivo `figurinhas/08.jpg`): revelação **derivada**.
-- [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
-  erro de fato (tela de erro dedicada? reler?).
-- [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
-  cabeçalho próprio) — decidir se vira tela-card própria do álbum 2.
-- [ ] **Seções 7+** (conteúdo/pergunta/figurinha 02–09), **troféus/código secreto**
-  (a figurinha traz um "2" no canto → há troféu nesse ponto?), **encerramento**.
+- [x] **Seção 9 — conteúdo** (`Sec09Conteudo`): quadro **dourado claro**/texto dourado
+  escuro (Art. 23); personagem em largura máxima. Sem balão.
+- [x] **Seção 9 — pergunta** (`Sec09Pergunta`, ESPECIAL): enki no topo; quadro da
+  pergunta colado/sobreposto; e os personagens **não**/**sim** SÃO as alternativas
+  (clicar = responder, via `opcao.imagem`). Correta = "Não".
+- [x] **Figurinha nº 15** (arquivo `figurinhas/09.jpg`): revelação **derivada**.
+- [x] **Troféu "5"** (`sec09-trofeu`, **5º item** do código, número): REUSA a tela do
+  troféu; `trofeus/03.png`.
+- [x] **Encerramento** (`fim`, tela-base `Encerramento`): "MISSÃO 2 CONCLUÍDA!" +
+  parágrafos + bullets (mesmo padrão do Álbum 1). Terminal. **Álbum 2 fecha aqui.**
+- **Decisões fechadas:** erro padrão é `voltar-conteudo` (reler), com tela de erro
+  DEDICADA só onde há pose própria (seção 6, `resposta-errada-6`). Tela-card da
+  figurinha: mantida a tela-base (sem card próprio). Código montado (G/Y/5) **não**
+  exibido no encerramento — a pedido (o texto manda "guardar" os troféus).
 
 ### Álbum 3 (`eca-digital-3`) — ⬜ não iniciado
 Novo JSON + telas próprias (`telas/eca-digital-3/`) + assets + 1 linha no `index.js`

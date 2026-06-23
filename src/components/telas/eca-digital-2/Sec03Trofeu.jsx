@@ -10,8 +10,8 @@ import { estiloFundoTela } from '../../ui/fundoTela.js';
 
 // TELA do troféu do Álbum 2 — mesmo padrão do Álbum 1 (troféu grande centralizado
 // + faixa branca com a legenda do código e "valor" anote!). GENÉRICA por config:
-// serve os DOIS troféus do álbum (sec03-trofeu = "G", sec06-trofeu = "Y") — só
-// muda valor/legenda/imagem no JSON. Isolada por álbum (não importa a tela do A1).
+// serve os TRÊS troféus do álbum (sec03 = "G", sec06 = "Y", sec09 = "5") — só muda
+// valor/legenda/imagem no JSON. Isolada por álbum (não importa a tela do A1).
 export default function Sec03Trofeu({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   const fundo = resolverAsset(assetsBasePath, passo.imagemFundo);

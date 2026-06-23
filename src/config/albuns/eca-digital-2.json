@@ -411,6 +411,67 @@
           "alt": "Figurinha 14 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec09-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 14",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-9.png" },
+      "estilo": { "corFundo": "#FBEFC2", "corTexto": "#8B6914" },
+      "blocos": [
+        "**Artigo 23**\nNinguém pode usar imagens de crianças e adolescentes de forma sensual ou como adultos. Ex: para ganhar visualizações ou dinheiro."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec09-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 14",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-9-enki.png" },
+      "enunciado": "É possível monetizar fotos eróticas de crianças igual fossem adultos?",
+      "estilo": { "corFundo": "#FBEFC2", "corTexto": "#8B6914" },
+      "opcoes": [
+        { "rotulo": "a", "texto": "Não", "imagem": "personagens/pergunta-9-nao.png" },
+        { "rotulo": "b", "texto": "Sim", "imagem": "personagens/pergunta-9-sim.png" }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 15,
+          "imagemCheia": "figurinhas/09.jpg",
+          "alt": "Figurinha 15 — ECA Digital Álbum 2"
+        }
+      }
+    },
+    {
+      "id": "sec09-trofeu",
+      "tipo": "trofeu",
+      "valor": "5",
+      "tipoValor": "numero",
+      "legenda": "Quinto item do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/03.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "fim",
+      "tipo": "encerramento",
+      "paragrafos": [
+        "MISSÃO **2** CONCLUÍDA!",
+        "Parabéns! Você completou o Álbum **2** da **Coleção Álbum Interativo ECA Digital!**",
+        "Novas figurinhas foram reveladas.",
+        "Novos troféus foram conquistados.",
+        "Guarde as letras e os números dos seus troféus. O código secreto dará direito a:",
+        "**•** O álbum completo com todas as figurinhas.",
+        "**•** Todos os troféus conquistados.",
+        "**•** Seu certificado de Conhecimento sobre o ECA Digital com seu nome.",
+        "Falta apenas mais uma etapa para conquistar todas as figurinhas, todos os troféus e se tornar um(a) Guardião(ã) Digital.",
+        "Sua aventura continua no Álbum 3!"
+      ]
     }
   ]
 }
