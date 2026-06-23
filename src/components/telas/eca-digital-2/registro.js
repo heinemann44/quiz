@@ -7,6 +7,8 @@ import Sec03Pergunta from './Sec03Pergunta.jsx';
 import Sec03Trofeu from './Sec03Trofeu.jsx';
 import Sec04Conteudo from './Sec04Conteudo.jsx';
 import Sec04Pergunta from './Sec04Pergunta.jsx';
+import Sec05Conteudo from './Sec05Conteudo.jsx';
+import Sec05Pergunta from './Sec05Pergunta.jsx';
 
 // Telas próprias do álbum eca-digital-2 — endereçadas pelo id do passo. Escopo
 // POR ÁLBUM: estes ids só valem aqui (não colidem com os do eca-digital-1). Cada
@@ -22,4 +24,6 @@ export default {
   'sec03-trofeu': Sec03Trofeu,
   'sec04-conteudo': Sec04Conteudo,
   'sec04-pergunta': Sec04Pergunta,
+  'sec05-conteudo': Sec05Conteudo,
+  'sec05-pergunta': Sec05Pergunta,
 };

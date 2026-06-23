@@ -234,6 +234,50 @@
           "alt": "Figurinha 10 — ECA Digital Álbum 2"
         }
       }
+    },
+    {
+      "id": "sec05-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 10",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-5.png" },
+      "balao": {
+        "texto": "Você precisa ser avisado!",
+        "estilo": { "corFundo": "#E8DCC4", "corTexto": "#000000" }
+      },
+      "estilo": { "corFundo": "#E8DCC4", "corTexto": "#000000" },
+      "blocos": [
+        "Artigo 19 Alguns aparelhos e aplicativos podem ajudar seus pais ou responsáveis a cuidar da sua segurança.\nQuando isso acontecer, **você deve ser avisado** de forma clara e fácil de entender **que está sendo monitorado.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec05-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 10",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-5.png" },
+      "enunciado": "O que deve acontecer quando um aplicativo estiver monitorando você?",
+      "estilo": { "corFundo": "#E8DCC4", "corTexto": "#000000" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Você não deve saber quando está sendo monitorado"
+        },
+        {
+          "rotulo": "b",
+          "texto": "Você deve saber quando está sendo monitorado."
+        }
+      ],
+      "respostaCorreta": "b",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 11,
+          "imagemCheia": "figurinhas/05.jpg",
+          "alt": "Figurinha 11 — ECA Digital Álbum 2"
+        }
+      }
     }
   ]
 }

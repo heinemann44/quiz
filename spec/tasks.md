@@ -504,6 +504,14 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   `tamanhoTexto`, P-11). Correta = "Fácil de usar e explicado em português".
 - [x] **Figurinha nº 10** (arquivo `figurinhas/04.jpg`): revelação **derivada** do
   `recompensa`, igual às nº 07–09.
+- [x] **Seção 5 — conteúdo** (`Sec05Conteudo`): quadro **bege**/texto preto no topo
+  (Art. 19); abaixo, ESPELHADO da seção 1 — balão à esq. (1/3 da largura, bico pra
+  dir.) SOBREPOSTO ao personagem à dir. Balão na mesma cor do quadro.
+- [x] **Seção 5 — pergunta** (`Sec05Pergunta`): balão bege no topo (bico pra baixo),
+  personagem central, um quadro de resposta (`ui/OpcaoRetangulo`) ancorado a cada
+  lado. Correta = "Você deve saber quando está sendo monitorado.".
+- [x] **Figurinha nº 11** (arquivo `figurinhas/05.jpg`): revelação **derivada** do
+  `recompensa`, igual às nº 07–10.
 - [ ] **Erro provisório**: pergunta 1 está `aoErrar: "voltar-conteudo"` — definir o
   erro de fato (tela de erro dedicada? reler?).
 - [ ] **Tela-card** mostra o rótulo "Figurinha Nº 01" sobre a arte (que já tem
