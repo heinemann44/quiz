@@ -16,7 +16,8 @@ insert into escolas (id, nome, logo_url, ativo) values
 insert into escola_albuns (escola_id, album_id, liberado, ordem) values
   ('colegio-demo',    'eca-digital-1',       true,  1),  -- 1 liberado → entra direto
   ('colegio-multi',   'eca-digital-1',       true,  1),  -- vários liberados → seletor
-  ('colegio-multi',   'eca-digital-2',       true,  2),  -- álbum 2 (em construção)
-  ('colegio-multi',   'consumo-consciente',  false, 3),  -- 🔒
+  ('colegio-multi',   'eca-digital-2',       true,  2),  -- álbum 2 (pronto)
+  ('colegio-multi',   'eca-digital-3',       true,  3),  -- álbum 3 (em construção)
+  ('colegio-multi',   'consumo-consciente',  false, 4),  -- 🔒
   ('colegio-inativo', 'eca-digital-1',       true,  1);  -- inativo vence
 -- colegio-sem-albuns: sem linhas → indisponível

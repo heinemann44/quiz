@@ -551,9 +551,28 @@ layout** em texto, fornece o **conteúdo** e dropa os **assets** em
   figurinha: mantida a tela-base (sem card próprio). Código montado (G/Y/5) **não**
   exibido no encerramento — a pedido (o texto manda "guardar" os troféus).
 
-### Álbum 3 (`eca-digital-3`) — ⬜ não iniciado
-Novo JSON + telas próprias (`telas/eca-digital-3/`) + assets + 1 linha no `index.js`
-e em `TELA_POR_ALBUM` + liberação por colégio.
+### Álbum 3 (`eca-digital-3`) — ⏳ em construção, TELA A TELA
+Tema **"Exploradores do Mundo Digital", Artigos 24 ao 33**, identidade **verde +
+dourada**. Mesmo fluxo do Álbum 2 (usuário descreve a tela + conteúdo + assets).
+Numeração de seção **contínua na coleção** (Álbum 3 começa em **"seção 15"**).
+Figurinhas globais **16–22** (arquivos `01–07.jpg`).
+
+- [x] **Scaffold:** `eca-digital-3.json` (tema verde, botão dourado = padrão) + 1 linha
+  no `index.js` e no `TELA_POR_ALBUM` + pasta `telas/eca-digital-3/`. Assets dropados
+  (`personagem`→`personagens`, padrão). Liberado p/ `colegio-multi` (seed + Supabase
+  dev/hml). Deep link `/quiz/colegio-multi/eca-digital-3`.
+- [x] **Capa** (`fundos/capa.jpg`, fundo `#0A160C`) + **Boas-vindas** (texto da missão
+  final; tela-base).
+- [x] **Seção 1 — conteúdo** (`Sec01Conteudo`): quadro **bege**/texto preto (Art. 24);
+  personagem a ~90% da largura.
+- [x] **Seção 1 — pergunta** (`Sec01Pergunta`): balão bege no topo, personagem central,
+  2 opções **quadradas** (mesmas cores). Correta = "A rede social pode bloquear…".
+- [x] **Figurinha nº 16** (arquivo `figurinhas/01.jpg`): revelação **derivada**.
+- [ ] **Seções 2+** (Artigos 25–33), troféus/código secreto (continua de 5: 6º+),
+  encerramento. Tema verde a refinar por tela.
+
+> **A FAZER:** novo JSON + telas próprias + assets + 1 linha no `index.js`/`TELA_POR_ALBUM`
+> + liberação (modelo de referência abaixo, já aplicado parcialmente).
 
 > Se a base exigir **código de motor** novo (não só tela/JSON), é gap → voltar à fase certa.
 

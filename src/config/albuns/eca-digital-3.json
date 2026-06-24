@@ -1,0 +1,93 @@
+{
+  "albumId": "eca-digital-3",
+  "numeroAlbum": 3,
+  "titulo": "ECA Digital — Álbum 3",
+  "subtitulo": "Álbum 3 — Coleção Álbum Interativo",
+  "assetsBasePath": "/assets/eca-digital-3",
+  "fundoComemoracao": "fundos/fundo-figurinha.png",
+  "headerFigurinha": "fundos/header-figurinha.png",
+
+  "tema": {
+    "corPrimaria": "#2E7D32",
+    "corSecundaria": "#D4A017",
+    "corFundo": "#E6F0E4",
+    "corTexto": "#1A1A2E",
+    "corAcerto": "#22C55E",
+    "corErro": "#EF4444",
+    "fonteTitulo": "Poppins, sans-serif",
+    "fonteCorpo": "Inter, sans-serif",
+    "botao": {
+      "corFundo": "#ccaa61",
+      "corTexto": "#000000",
+      "corCirculo": "#64819c"
+    },
+    "caixa": { "corFundo": "#FFFFFF" },
+    "enunciado": { "corFundo": "#1B5E20", "corTexto": "#FFFFFF" }
+  },
+
+  "passos": [
+    {
+      "id": "capa",
+      "tipo": "capa",
+      "imagemFundo": "fundos/capa.jpg",
+      "corFundo": "#0A160C",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "boas-vindas",
+      "tipo": "boas-vindas",
+      "paragrafos": [
+        "**BEM-VINDO(A) AO ÁLBUM 3!**",
+        "Você chegou à etapa final da **Coleção Álbum Interativo ECA Digital.**",
+        "Continue aprendendo sobre seus direitos e deveres no mundo digital.",
+        "Responda as perguntas e revele novas figurinhas.",
+        "Conquiste os últimos troféus da sua coleção.",
+        "Guarde as letras e os números dos seus troféus. Eles serão importantes para descobrir o código secreto.",
+        "Ao final desse álbum **\"3\"** está explicado o que esse código oferece.",
+        "Ainda não completou os Álbuns 1 e 2? Não tem problema! Você pode completar os outros álbuns depois.",
+        "A missão final começa agora!"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 15",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-1.png" },
+      "estilo": { "corFundo": "#E8DCC4", "corTexto": "#000000" },
+      "blocos": [
+        "**Art. 24**\nSe você tem até 16 anos, sua conta no app ou **rede social** deve estar ligada à conta dos seus pais ou responsáveis. Se a rede social achar que alguém usou idade errada para criar a conta, ela **pode bloquear o acesso até que os pais confirmem a idade.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec01-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 15",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-1.png" },
+      "enunciado": "Com o ECA Digital o que pode acontecer se o jovem usar idade falsa para criar uma conta?",
+      "estilo": { "corFundo": "#E8DCC4", "corTexto": "#000000" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "A rede social pode bloquear o acesso até os pais confirmarem a idade."
+        },
+        {
+          "rotulo": "b",
+          "texto": "Nada acontece porque a plataforma não verifica a idade."
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 16,
+          "imagemCheia": "figurinhas/01.jpg",
+          "alt": "Figurinha 16 — ECA Digital Álbum 3"
+        }
+      }
+    }
+  ]
+}

@@ -1,13 +1,15 @@
 import ecaDigital1 from './eca-digital-1.json';
 import ecaDigital2 from './eca-digital-2.json';
+import ecaDigital3 from './eca-digital-3.json';
 
 // Registro de álbuns: albumId → config (SSOT do álbum, P-01). Novo álbum = novo
 // JSON + uma linha aqui (Fase 7, zero código de motor). O tema "ECA Digital" tem
-// 3 álbuns: eca-digital-1 (pronto), eca-digital-2 (em construção) e
-// eca-digital-3 (a preencher).
+// 3 álbuns: eca-digital-1 (pronto), eca-digital-2 (pronto) e
+// eca-digital-3 (em construção, tela a tela).
 const ALBUNS = {
   'eca-digital-1': ecaDigital1,
   'eca-digital-2': ecaDigital2,
+  'eca-digital-3': ecaDigital3,
 };
 
 /**

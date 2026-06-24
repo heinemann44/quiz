@@ -9,6 +9,7 @@ import Trofeu from './Trofeu.jsx';
 import Encerramento from './Encerramento.jsx';
 import ecaDigital1 from './eca-digital-1/registro.js';
 import ecaDigital2 from './eca-digital-2/registro.js';
+import ecaDigital3 from './eca-digital-3/registro.js';
 
 // Registro das telas — a config seleciona a tela por NOME (variante nomeada,
 // P-11), nunca por coordenada. O motor segue genérico: ele só resolve o nome e
@@ -48,6 +49,7 @@ export const TELA_COMPARTILHADA = {
 export const TELA_POR_ALBUM = {
   'eca-digital-1': ecaDigital1,
   'eca-digital-2': ecaDigital2,
+  'eca-digital-3': ecaDigital3,
 };
 
 const registroDoAlbum = (albumId) => TELA_POR_ALBUM[albumId] ?? {};
