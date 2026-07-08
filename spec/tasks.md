@@ -582,7 +582,14 @@ Figurinhas globais **16–22** (arquivos `01–07.jpg`).
 - [x] **Figurinha nº 18** (arquivo `figurinhas/03.jpg`): revelação **derivada**.
 - [x] **Troféu 6** (`Sec03Trofeu`, genérica por config): 6º item do código = **"E"**
   (`trofeus/01.png`).
-- [ ] **Seções 4+** (Artigos 29–33), troféus/código secreto (continua: 7º+),
+- [x] **Seção 4 — conteúdo** (`Sec04Conteudo`): quadro **preto**/texto branco (Art. 29);
+  personagem em largura máxima.
+- [x] **Seção 4 — pergunta** (`Sec04Pergunta`): balão **preto** logo acima do personagem
+  (maior, à direita, sobrepondo as opções); 2 quadrados pretos com **moldura branca
+  interna** empilhados à esquerda. Novo suporte `corBordaInterna` no `ui/OpcaoRetangulo`.
+  Correta = "…sem precisar de ordem do juiz".
+- [x] **Figurinha nº 19** (arquivo `figurinhas/04.jpg`): revelação **derivada**.
+- [ ] **Seções 5+** (Artigos 30–33), troféus/código secreto (continua: 7º+),
   encerramento. Tema verde a refinar por tela.
 
 > **A FAZER:** novo JSON + telas próprias + assets + 1 linha no `index.js`/`TELA_POR_ALBUM`

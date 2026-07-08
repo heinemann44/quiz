@@ -183,6 +183,48 @@
       "imagemTrofeu": "trofeus/01.png",
       "imagemFundo": "fundos/fundo-figurinha.png",
       "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec04-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 18",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-4.png" },
+      "estilo": { "corFundo": "#000000", "corTexto": "#FFFFFF" },
+      "blocos": [
+        "**Artigo 29**\nSe você ou seus pais avisarem que um post viola seus direitos, a empresa **deve retirar esse conteúdo** rapidamente **sem precisar esperar ordem do juiz.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec04-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 18",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-4.png" },
+      "enunciado": "O que as empresas devem fazer após uma denúncia de violação dos direitos?",
+      "estilo": { "corFundo": "#000000", "corTexto": "#FFFFFF" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Devem retirar esse conteúdo quando existir ordem judicial",
+          "estilo": { "corFundo": "#000000", "corBordaInterna": "#FFFFFF", "corTexto": "#FFFFFF" }
+        },
+        {
+          "rotulo": "b",
+          "texto": "Devem retirar esse conteúdo sem precisar de ordem do juiz",
+          "estilo": { "corFundo": "#000000", "corBordaInterna": "#FFFFFF", "corTexto": "#FFFFFF" }
+        }
+      ],
+      "respostaCorreta": "b",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 19,
+          "imagemCheia": "figurinhas/04.jpg",
+          "alt": "Figurinha 19 — ECA Digital Álbum 3"
+        }
+      }
     }
   ]
 }

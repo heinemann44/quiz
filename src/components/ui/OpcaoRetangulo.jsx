@@ -4,7 +4,8 @@ import TextoRico from './TextoRico.jsx';
 // Elemento PURO: opção de resposta num bloco simples (fundo + texto rico),
 // conteúdo centralizado. Sem rótulo/badge; FORMA e posição são da TELA (P-11) via
 // `className` — ex.: `aspect-square` p/ quadrado. `estilo.corBorda` (opcional)
-// desenha a moldura.
+// desenha a moldura na aresta; `estilo.corBordaInterna` (opcional) desenha uma
+// moldura DENTRO do bloco, com folga da aresta (visual de "quadro emoldurado").
 export default function OpcaoRetangulo({
   texto,
   estilo = {},
@@ -12,6 +13,7 @@ export default function OpcaoRetangulo({
   className = '',
   tamanhoTexto = 'text-xs',
 }) {
+  const conteudo = <TextoRico texto={texto} />;
   return (
     <button
       type="button"
@@ -23,7 +25,16 @@ export default function OpcaoRetangulo({
         border: estilo.corBorda ? `2px solid ${estilo.corBorda}` : undefined,
       }}
     >
-      <TextoRico texto={texto} />
+      {estilo.corBordaInterna ? (
+        <span
+          className="flex h-full w-full items-center justify-center rounded p-2"
+          style={{ border: `2px solid ${estilo.corBordaInterna}` }}
+        >
+          {conteudo}
+        </span>
+      ) : (
+        conteudo
+      )}
     </button>
   );
 }
