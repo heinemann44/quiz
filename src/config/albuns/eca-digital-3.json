@@ -130,6 +130,59 @@
           "alt": "Figurinha 17 — ECA Digital Álbum 3"
         }
       }
+    },
+    {
+      "id": "sec03-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 17",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-3.png" },
+      "estilo": { "corFundo": "#F57C00", "corTexto": "#1E3A8A" },
+      "blocos": [
+        "**Artigo 28**\nTodo app ou site tem que ter um botão de \"Denunciar\" **fácil de achar.**\nSe você avisar que algo está errado, a empresa deve analisar e, quando for um caso grave, avisar as autoridades para investigar."
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec03-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 17",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-3.png" },
+      "enunciado": "Como o botão de \"Denunciar\" deve ser apresentado?",
+      "estilo": { "corFundo": "#F57C00", "corTexto": "#000000" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "De forma fácil de achar e usar",
+          "estilo": { "corFundo": "#F57C00", "corBorda": "#000000", "corTexto": "#000000" }
+        },
+        {
+          "rotulo": "b",
+          "texto": "Em algum lugar durante o jogo",
+          "estilo": { "corFundo": "#F57C00", "corBorda": "#000000", "corTexto": "#000000" }
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 18,
+          "imagemCheia": "figurinhas/03.jpg",
+          "alt": "Figurinha 18 — ECA Digital Álbum 3"
+        }
+      }
+    },
+    {
+      "id": "sec03-trofeu",
+      "tipo": "trofeu",
+      "valor": "E",
+      "tipoValor": "letra",
+      "legenda": "Sexto item do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/01.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
+      "textoBotao": "Próxima página"
     }
   ]
 }

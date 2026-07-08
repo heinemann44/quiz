@@ -574,7 +574,15 @@ Figurinhas globais **16–22** (arquivos `01–07.jpg`).
   máximo, 2 opções em **bola** branca (borda+letra azul-escuro `#1E3A8A`) sobrepostas
   ao personagem. Novo átomo `ui/OpcaoBola`. Correta = "Remover o conteúdo e avisar…".
 - [x] **Figurinha nº 17** (arquivo `figurinhas/02.jpg`): revelação **derivada**.
-- [ ] **Seções 3+** (Artigos 25–33), troféus/código secreto (continua de 5: 6º+),
+- [x] **Seção 3 — conteúdo** (`Sec03Conteudo`): quadro **laranja** `#F57C00`/texto
+  azul-escuro (Art. 28); personagem em largura máxima.
+- [x] **Seção 3 — pergunta** (`Sec03Pergunta`): balão **laranja** (texto preto) + 2
+  bolas laranjas (borda/letra pretas) sobrepostas ao personagem. Correta = "De forma
+  fácil de achar e usar".
+- [x] **Figurinha nº 18** (arquivo `figurinhas/03.jpg`): revelação **derivada**.
+- [x] **Troféu 6** (`Sec03Trofeu`, genérica por config): 6º item do código = **"E"**
+  (`trofeus/01.png`).
+- [ ] **Seções 4+** (Artigos 29–33), troféus/código secreto (continua: 7º+),
   encerramento. Tema verde a refinar por tela.
 
 > **A FAZER:** novo JSON + telas próprias + assets + 1 linha no `index.js`/`TELA_POR_ALBUM`
