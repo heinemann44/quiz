@@ -568,7 +568,13 @@ Figurinhas globais **16–22** (arquivos `01–07.jpg`).
 - [x] **Seção 1 — pergunta** (`Sec01Pergunta`): balão bege no topo, personagem central,
   2 opções **quadradas** (mesmas cores). Correta = "A rede social pode bloquear…".
 - [x] **Figurinha nº 16** (arquivo `figurinhas/01.jpg`): revelação **derivada**.
-- [ ] **Seções 2+** (Artigos 25–33), troféus/código secreto (continua de 5: 6º+),
+- [x] **Seção 2 — conteúdo** (`Sec02Conteudo`): quadro **verde** `#2E7D32`/texto branco
+  (Art. 27); personagem em largura máxima.
+- [x] **Seção 2 — pergunta** (`Sec02Pergunta`): balão **verde** no topo, personagem no
+  máximo, 2 opções em **bola** branca (borda+letra azul-escuro `#1E3A8A`) sobrepostas
+  ao personagem. Novo átomo `ui/OpcaoBola`. Correta = "Remover o conteúdo e avisar…".
+- [x] **Figurinha nº 17** (arquivo `figurinhas/02.jpg`): revelação **derivada**.
+- [ ] **Seções 3+** (Artigos 25–33), troféus/código secreto (continua de 5: 6º+),
   encerramento. Tema verde a refinar por tela.
 
 > **A FAZER:** novo JSON + telas próprias + assets + 1 linha no `index.js`/`TELA_POR_ALBUM`

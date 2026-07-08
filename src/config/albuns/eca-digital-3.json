@@ -88,6 +88,48 @@
           "alt": "Figurinha 16 — ECA Digital Álbum 3"
         }
       }
+    },
+    {
+      "id": "sec02-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 16",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-2.png" },
+      "estilo": { "corFundo": "#2E7D32", "corTexto": "#FFFFFF" },
+      "blocos": [
+        "**Artigo 27**\nSe um app ou site encontrar conteúdos que machuquem ou coloquem crianças e adolescentes em perigo, ele deve **remover o conteúdo e avisar as autoridades.**"
+      ],
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec02-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 16",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-2.png" },
+      "enunciado": "O que um app ou site deve fazer ao encontrar conteúdos que coloquem crianças e adolescentes em perigo?",
+      "estilo": { "corFundo": "#2E7D32", "corTexto": "#FFFFFF" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Esperar a polícia mandar retornar",
+          "estilo": { "corFundo": "#FFFFFF", "corBorda": "#1E3A8A", "corTexto": "#1E3A8A" }
+        },
+        {
+          "rotulo": "b",
+          "texto": "Remover o conteúdo e avisar as autoridades",
+          "estilo": { "corFundo": "#FFFFFF", "corBorda": "#1E3A8A", "corTexto": "#1E3A8A" }
+        }
+      ],
+      "respostaCorreta": "b",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 17,
+          "imagemCheia": "figurinhas/02.jpg",
+          "alt": "Figurinha 17 — ECA Digital Álbum 3"
+        }
+      }
     }
   ]
 }
