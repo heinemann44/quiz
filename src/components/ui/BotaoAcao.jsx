@@ -12,13 +12,17 @@ const glossy = (cor) =>
 // Cores vêm da config (P-11); caixa-alta e brilhos são visual, não conteúdo.
 export default function BotaoAcao({ texto, onClick, estilo = {} }) {
   return (
-    <button type="button" onClick={onClick} className="inline-flex items-center">
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex max-w-full items-center"
+    >
       <span
         className="flex items-center rounded-full py-2.5 pl-7 pr-20 shadow-lg ring-1 ring-white/30"
         style={{ background: glossy(estilo.corFundo), fontFamily: estilo.fonte }}
       >
         <span
-          className="whitespace-nowrap text-base font-extrabold uppercase tracking-wide"
+          className="text-base font-extrabold uppercase leading-tight tracking-wide"
           style={{ color: estilo.corTexto }}
         >
           {texto}

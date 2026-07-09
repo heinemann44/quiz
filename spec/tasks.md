@@ -589,8 +589,30 @@ Figurinhas globais **16–22** (arquivos `01–07.jpg`).
   interna** empilhados à esquerda. Novo suporte `corBordaInterna` no `ui/OpcaoRetangulo`.
   Correta = "…sem precisar de ordem do juiz".
 - [x] **Figurinha nº 19** (arquivo `figurinhas/04.jpg`): revelação **derivada**.
-- [ ] **Seções 5+** (Artigos 30–33), troféus/código secreto (continua: 7º+),
-  encerramento. Tema verde a refinar por tela.
+- [x] **Seção 5 — conteúdo** (`Sec05Conteudo`): quadro **azul-claro**/texto azul-escuro
+  (Art. 30) + **balão de fala rosa** sobreposto ao topo-direita do personagem
+  (reusa `ui/BalaoPersonagem`).
+- [x] **Seção 5 — pergunta** (`Sec05Pergunta`): balão azul-claro + 2 **bolas** no topo do
+  personagem (esquerda azul, direita rosa). Correta = "Você pode pedir uma revisão".
+- [x] **Figurinha nº 20** (arquivo `figurinhas/05.jpg`): revelação **derivada**.
+- [x] **Seção 6 — conteúdo** (`Sec06Conteudo`): quadro **verde-água**/texto azul-escuro
+  (Art. 33), personagem 2/3 à direita + balão de fala (mesmas cores) à esquerda.
+- [x] **Seção 6 — pergunta** (`Sec06Pergunta`): balão verde-água + 2 **caixas quadradas**
+  nos cantos, sobrepostas ao personagem. Correta = "O caso pode ser comunicado às
+  autoridades".
+- [x] **Figurinha nº 21** (arquivo `figurinhas/06.jpg`): revelação **derivada**.
+- [x] **Troféu 7** (`Sec03Trofeu` genérica): 7º item do código = **"7"** (`trofeus/02.png`).
+- [x] **Mensagem final** (`MensagemFinal`): caixa azul-escura + imagem máxima + 2 balões
+  (topo-centro "Vamos fazer a diferença!" e lateral direito "Use a internet para o bem!").
+- [x] **Figurinha nº 22** (`FigurinhaFinal`, arquivo `figurinhas/07.jpg`): revelada
+  **avulsa** (reusa `FigurinhaCheia`; fora do contador do motor).
+- [x] **Encerramento** ("MISSÃO CONCLUÍDA!") + **Recompensa** ("DESBLOQUEIE SUA
+  RECOMPENSA!") — dois passos `tipo: boas-vindas` (reusam a tela-base, sem código novo).
+  Botão "Minha recompensa" → link externo **pendente** (usuário fornecerá a URL).
+- [x] Fix `ui/BotaoAcao`: texto longo **quebra em 2 linhas** (sem `nowrap`, `max-w-full`)
+  em vez de vazar a tela — botões curtos seguem numa linha.
+
+**Álbum 3 completo de ponta a ponta** (falta só ligar o link externo da recompensa).
 
 > **A FAZER:** novo JSON + telas próprias + assets + 1 linha no `index.js`/`TELA_POR_ALBUM`
 > + liberação (modelo de referência abaixo, já aplicado parcialmente).

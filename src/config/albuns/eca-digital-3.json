@@ -225,6 +225,170 @@
           "alt": "Figurinha 19 — ECA Digital Álbum 3"
         }
       }
+    },
+    {
+      "id": "sec05-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 19",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-5.png" },
+      "estilo": { "corFundo": "#CFE7F5", "corTexto": "#0D1B4C" },
+      "blocos": [
+        "**Artigo 30**\nSe uma plataforma retirar algo que você publicou, ela deve avisar você e explicar o motivo. Se não concordar, **você pode pedir uma revisão.**"
+      ],
+      "balao": {
+        "texto": "Quero uma revisão!",
+        "estilo": { "corFundo": "#F48FB1", "corTexto": "#000000" }
+      },
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec05-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 19",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-5.png" },
+      "enunciado": "O que fazer se uma plataforma retirar algo que você publicou?",
+      "estilo": { "corFundo": "#CFE7F5", "corTexto": "#0D1B4C" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "Você pode pedir uma revisão",
+          "estilo": { "corFundo": "#2196F3", "corTexto": "#000000" }
+        },
+        {
+          "rotulo": "b",
+          "texto": "Aceitar sem questionar",
+          "estilo": { "corFundo": "#F48FB1", "corTexto": "#000000" }
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 20,
+          "imagemCheia": "figurinhas/05.jpg",
+          "alt": "Figurinha 20 — ECA Digital Álbum 3"
+        }
+      }
+    },
+    {
+      "id": "sec06-conteudo",
+      "tipo": "conteudo",
+      "tituloHeader": "ECA Digital — seção 20",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-6.png" },
+      "estilo": { "corFundo": "#A0E0D4", "corTexto": "#0D1B4C" },
+      "blocos": [
+        "**Artigo 33**\nAs empresas devem informar aos usuários que denúncias falsas podem trazer consequências como: suspensão temporária ou cancelamento da conta, ou **comunicação às autoridades** por infração ou violação dos direitos."
+      ],
+      "balao": {
+        "texto": "Denuncie com responsabilidade!",
+        "estilo": { "corFundo": "#A0E0D4", "corTexto": "#0D1B4C" }
+      },
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "sec06-pergunta",
+      "tipo": "pergunta",
+      "tituloHeader": "ECA Digital — seção 20",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/pergunta-6.png" },
+      "enunciado": "Além da suspensão ou do cancelamento da conta, o que mais pode acontecer com quem mente quando usa o botão de denúncia?",
+      "estilo": { "corFundo": "#A0E0D4", "corTexto": "#0D1B4C" },
+      "opcoes": [
+        {
+          "rotulo": "a",
+          "texto": "O caso pode ser comunicado às autoridades",
+          "estilo": { "corFundo": "#A0E0D4", "corBorda": "#0D1B4C", "corTexto": "#0D1B4C" }
+        },
+        {
+          "rotulo": "b",
+          "texto": "A pessoa pode receber uma recompensa",
+          "estilo": { "corFundo": "#A0E0D4", "corBorda": "#0D1B4C", "corTexto": "#0D1B4C" }
+        }
+      ],
+      "respostaCorreta": "a",
+      "aoErrar": "voltar-conteudo",
+      "recompensa": {
+        "figurinha": {
+          "numero": 21,
+          "imagemCheia": "figurinhas/06.jpg",
+          "alt": "Figurinha 21 — ECA Digital Álbum 3"
+        }
+      }
+    },
+    {
+      "id": "sec06-trofeu",
+      "tipo": "trofeu",
+      "valor": "7",
+      "tipoValor": "numero",
+      "legenda": "Sétimo item do código secreto",
+      "instrucao": "anote!",
+      "imagemTrofeu": "trofeus/02.png",
+      "imagemFundo": "fundos/fundo-figurinha.png",
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "mensagem-final",
+      "tipo": "conteudo",
+      "imagemFundo": "fundos/fundo.png",
+      "personagem": { "imagem": "personagens/enunciado-7.png" },
+      "estilo": { "corFundo": "#0D1B4C", "corTexto": "#FFFFFF" },
+      "blocos": [
+        "Vocês fazem parte da geração que vão construir o futuro digital. Usem a internet para criar coisas incríveis, aprender, ajudar pessoas e fazer o bem."
+      ],
+      "balao": {
+        "texto": "Vamos fazer a diferença!",
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" }
+      },
+      "balaoDireita": {
+        "texto": "Use a internet para o bem!",
+        "estilo": { "corFundo": "#FFFFFF", "corTexto": "#000000" }
+      },
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "figurinha-final",
+      "tipo": "conteudo",
+      "figurinha": {
+        "numero": 22,
+        "imagemCheia": "figurinhas/07.jpg",
+        "alt": "Figurinha 22 — ECA Digital Álbum 3"
+      },
+      "textoBotao": "Próxima página"
+    },
+    {
+      "id": "encerramento",
+      "tipo": "boas-vindas",
+      "paragrafos": [
+        "**MISSÃO CONCLUÍDA!**",
+        "**Parabéns!**",
+        "Você completou a **Coleção Álbum Interativo ECA Digital.**",
+        "Todas as figurinhas foram reveladas.",
+        "Todos os troféus foram conquistados.",
+        "Você completou o código secreto.",
+        "Agora use o código para desbloquear o álbum de conquistas do Guardião(ã) Digital completo com todas as figurinhas, todos os troféus e seu certificado.",
+        "Continue para desbloquear sua recompensa!"
+      ],
+      "textoBotao": "Continuar"
+    },
+    {
+      "id": "recompensa",
+      "tipo": "boas-vindas",
+      "paragrafos": [
+        "**DESBLOQUEIE SUA RECOMPENSA!**",
+        "Parabéns por concluir a coleção!",
+        "Tenha em mãos as letras e os números dos seus troféus.",
+        "Clique no botão abaixo.",
+        "Digite o código secreto completo no local indicado.",
+        "Se o código estiver correto, você poderá acessar:",
+        "• O álbum de conquistas do Guardião(ã) Digital completo com todas as figurinhas.",
+        "• Todos os troféus conquistados.",
+        "• Seu Certificado de Conhecimento sobre o ECA Digital.",
+        "Obrigado por participar desta aventura digital **Coleção Álbum Interativo ECA Digital!**"
+      ],
+      "textoBotao": "Minha recompensa"
     }
   ]
 }
