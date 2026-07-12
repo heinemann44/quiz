@@ -39,8 +39,8 @@ export default function Sec06Conteudo({ passo, onAvancar }) {
         ))}
         {/* personagem à direita, um pouco sobreposto ao enunciado (negative mt). */}
         {personagemSrc && (
-          <div className="-mt-6 flex justify-end">
-            <div className="w-4/5 pr-4">
+          <div className="-mt-2 flex justify-end">
+            <div className="w-4/5 pr-8">
               <Personagem src={personagemSrc} className="w-full" />
             </div>
           </div>

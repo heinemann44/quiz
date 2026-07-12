@@ -53,7 +53,7 @@
       "id": "sec01-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 01",
-      "imagemFundo": "fundos/secao-1.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/enki-secao-1.png",
         "posicao": "direita"
@@ -76,7 +76,7 @@
       "id": "sec01-pergunta",
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 01",
-      "imagemFundo": "fundos/secao-1.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/inanna-pergunta-1.png",
         "posicao": "esquerda"
@@ -121,7 +121,7 @@
       "id": "sec02-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 02",
-      "imagemFundo": "fundos/secao-2.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/enki-secao-2.png",
         "posicao": "direita"
@@ -136,7 +136,7 @@
       "id": "sec02-pergunta",
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 02",
-      "imagemFundo": "fundos/secao-2.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/enlil-pergunta-2.png",
         "posicao": "direita"
@@ -181,7 +181,7 @@
       "id": "sec03-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 03",
-      "imagemFundo": "fundos/secao-3.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/enki-secao-3.png",
         "posicao": "esquerda"
@@ -200,7 +200,7 @@
       "id": "sec03-pergunta",
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 03",
-      "imagemFundo": "fundos/secao-3.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/joao-pergunta-3.png",
         "posicao": "esquerda"
@@ -251,7 +251,7 @@
       "legenda": "Primeira letra do código secreto",
       "instrucao": "anote!",
       "imagemTrofeu": "trofeus/01.png",
-      "imagemFundo": "fundos/trofeu-1.png",
+      "imagemFundo": "fundos/fundo.png",
       "textoBotao": "Próxima página"
     },
 
@@ -259,7 +259,7 @@
       "id": "sec04-conteudo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 04",
-      "imagemFundo": "fundos/secao-4.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/enki-secao-4.png",
         "posicao": "direita"
@@ -274,7 +274,7 @@
       "id": "sec04-pergunta",
       "tipo": "pergunta",
       "tituloHeader": "ECA Digital — seção 04",
-      "imagemFundo": "fundos/secao-4.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/inanna-pergunta-4.png",
         "posicao": "centro"
@@ -317,7 +317,7 @@
       "id": "sec04-informativo",
       "tipo": "conteudo",
       "tituloHeader": "ECA Digital — seção 04",
-      "imagemFundo": "fundos/secao-4.png",
+      "imagemFundo": "fundos/fundo.png",
       "personagem": {
         "imagem": "personagens/inanna-informativo-secao-4.png",
         "posicao": "esquerda"
@@ -406,7 +406,7 @@
       "legenda": "Primeiro número do código secreto",
       "instrucao": "anote!",
       "imagemTrofeu": "trofeus/02.png",
-      "imagemFundo": "fundos/trofeu-2.png",
+      "imagemFundo": "fundos/fundo.png",
       "textoBotao": "Próxima página"
     },
 
