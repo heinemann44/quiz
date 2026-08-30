@@ -21,24 +21,11 @@ export default function Capa({ passo, onAvancar }) {
       style={{ backgroundColor: corFundo }}
     >
       <div className="relative flex min-h-0 flex-1 items-center justify-center">
-        {fundo && (
-          <img
-            src={fundo}
-            alt="Capa do álbum"
-            className="h-full w-full object-contain"
-          />
-        )}
+        {fundo && <CapaComLogo fundo={fundo} logoEscola={logoEscola} />}
         {!fundo && passo.titulo && (
           <h1 className="px-6 text-center text-3xl font-black text-white">
             {passo.titulo}
           </h1>
-        )}
-        {logoEscola && (
-          <img
-            src={logoEscola}
-            alt="Logo da escola"
-            className="absolute left-[1%] top-0 h-auto w-[20%] object-contain"
-          />
         )}
       </div>
       <RodapeAcao>
@@ -51,6 +38,26 @@ export default function Capa({ passo, onAvancar }) {
     </section>
   );
 }
+
+function CapaComLogo({ fundo, logoEscola }) {
+  return (
+    <div className="relative aspect-[2/3] h-full max-w-full">
+      <img src={fundo} alt="Capa do álbum" className="h-full w-full" />
+      {logoEscola && (
+        <img
+          src={logoEscola}
+          alt="Logo da escola"
+          className="absolute left-[1%] top-0 h-auto w-[20%] object-contain"
+        />
+      )}
+    </div>
+  );
+}
+
+CapaComLogo.propTypes = {
+  fundo: PropTypes.string.isRequired,
+  logoEscola: PropTypes.string,
+};
 
 Capa.propTypes = {
   passo: PropTypes.object.isRequired,
