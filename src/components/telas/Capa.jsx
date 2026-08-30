@@ -37,7 +37,7 @@ export default function Capa({ passo, onAvancar }) {
           <img
             src={logoEscola}
             alt="Logo da escola"
-            className="absolute left-[1%] top-[5%] h-auto w-[20%] object-contain"
+            className="absolute left-[1%] top-0 h-auto w-[20%] object-contain"
           />
         )}
       </div>
