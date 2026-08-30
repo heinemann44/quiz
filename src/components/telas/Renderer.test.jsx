@@ -18,10 +18,14 @@ const montar = (quiz) =>
 describe('Renderer (motor→UI por registro de telas)', () => {
   it('seleciona a tela pelo tipo quando não há tela própria', () => {
     montar({
-      passo: { tipo: 'capa', titulo: 'Capa X' },
+      passo: {
+        tipo: 'capa',
+        imagemFundo: 'fundos/capa.png',
+        logoEscola: 'marca-logo-escola.png',
+      },
       subTela: 'principal',
     });
-    expect(screen.getByText('Capa X')).toBeInTheDocument();
+    expect(screen.getByAltText('Logo da escola')).toBeInTheDocument();
   });
 
   it('sub-tela de recompensa tem prioridade sobre o tipo', () => {

@@ -30,6 +30,7 @@
       "id": "capa",
       "tipo": "capa",
       "imagemFundo": "fundos/capa.png",
+      "logoEscola": "marca-logo-escola.png",
       "corFundo": "#001041",
       "textoBotao": "Próxima página"
     },

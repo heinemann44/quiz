@@ -6,23 +6,21 @@ import { textoDoBotao } from './campos.js';
 import BotaoAcao from '../ui/BotaoAcao.jsx';
 import RodapeAcao from '../ui/RodapeAcao.jsx';
 
-// Capa: a arte (capa.png) já traz título, logos e rodapé embutidos
-// (doc/inicio/home.png), então não há header próprio — os logos estão na arte.
-// A arte é mais "quadrada" que o quadro alto do celular, então object-contain
-// (sem cortar, pra não comer os logos das bordas) sempre deixa sobra em cima/
-// embaixo. Pintamos essa sobra com a cor da própria arte (passo.corFundo, P-11)
-// para ela virar continuação da ilustração — não uma moldura.
+// A capa continua sendo uma arte fechada: o logo da escola entra como asset da
+// config e ocupa o placeholder desenhado na própria imagem.
 export default function Capa({ passo, onAvancar }) {
   const { tema, assetsBasePath } = useAlbum();
   const fundo = resolverAsset(assetsBasePath, passo.imagemFundo);
+  const logoEscola = resolverAsset(assetsBasePath, passo.logoEscola);
   const corFundo = passo.corFundo ?? tema.corFundo;
   const estiloBotao = estiloDoBotao(tema, passo.botao?.estilo);
+
   return (
     <section
       className="flex flex-1 flex-col"
       style={{ backgroundColor: corFundo }}
     >
-      <div className="flex min-h-0 flex-1 items-center justify-center">
+      <div className="relative flex min-h-0 flex-1 items-center justify-center">
         {fundo && (
           <img
             src={fundo}
@@ -30,10 +28,17 @@ export default function Capa({ passo, onAvancar }) {
             className="h-full w-full object-contain"
           />
         )}
-        {passo.titulo && (
-          <h1 className="text-2xl font-bold" style={{ color: tema.corTexto }}>
+        {!fundo && passo.titulo && (
+          <h1 className="px-6 text-center text-3xl font-black text-white">
             {passo.titulo}
           </h1>
+        )}
+        {logoEscola && (
+          <img
+            src={logoEscola}
+            alt="Logo da escola"
+            className="absolute left-[1%] top-[1%] h-auto w-[20%] object-contain"
+          />
         )}
       </div>
       <RodapeAcao>
