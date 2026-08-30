@@ -41,8 +41,12 @@ export default function Capa({ passo, onAvancar }) {
 
 function CapaComLogo({ fundo, logoEscola }) {
   return (
-    <div className="relative aspect-[2/3] h-full max-w-full">
-      <img src={fundo} alt="Capa do álbum" className="h-full w-full" />
+    <div className="relative max-h-full max-w-full">
+      <img
+        src={fundo}
+        alt="Capa do álbum"
+        className="block max-h-full max-w-full object-contain"
+      />
       {logoEscola && (
         <img
           src={logoEscola}
